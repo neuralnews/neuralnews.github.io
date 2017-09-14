@@ -1,2 +1,2 @@
 # Neural News
-## Brendan Voelz & Charles Winston
+### Brendan Voelz & Charles Winston
