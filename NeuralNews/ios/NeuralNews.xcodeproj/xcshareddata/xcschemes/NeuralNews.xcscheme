@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "NeuralNews.app"
-               BlueprintName = "NeuralNews"
-               ReferencedContainer = "container:NeuralNews.xcodeproj">
+               BuildableName = "neuralnews.app"
+               BlueprintName = "neuralnews"
+               ReferencedContainer = "container:neuralnews.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "NeuralNewsTests.xctest"
-               BlueprintName = "NeuralNewsTests"
-               ReferencedContainer = "container:NeuralNews.xcodeproj">
+               BuildableName = "neuralnewsTests.xctest"
+               BlueprintName = "neuralnewsTests"
+               ReferencedContainer = "container:neuralnews.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "NeuralNewsTests.xctest"
-               BlueprintName = "NeuralNewsTests"
-               ReferencedContainer = "container:NeuralNews.xcodeproj">
+               BuildableName = "neuralnewsTests.xctest"
+               BlueprintName = "neuralnewsTests"
+               ReferencedContainer = "container:neuralnews.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "NeuralNews.app"
-            BlueprintName = "NeuralNews"
-            ReferencedContainer = "container:NeuralNews.xcodeproj">
+            BuildableName = "neuralnews.app"
+            BlueprintName = "neuralnews"
+            ReferencedContainer = "container:neuralnews.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "NeuralNews.app"
-            BlueprintName = "NeuralNews"
-            ReferencedContainer = "container:NeuralNews.xcodeproj">
+            BuildableName = "neuralnews.app"
+            BlueprintName = "neuralnews"
+            ReferencedContainer = "container:neuralnews.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "NeuralNews.app"
-            BlueprintName = "NeuralNews"
-            ReferencedContainer = "container:NeuralNews.xcodeproj">
+            BuildableName = "neuralnews.app"
+            BlueprintName = "neuralnews"
+            ReferencedContainer = "container:neuralnews.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
