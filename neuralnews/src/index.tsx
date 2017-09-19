@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
     StyleSheet,
     Text,
@@ -7,9 +7,9 @@ import {
 } from 'react-native'
 import Search from 'react-native-search-box';
 
-export default class App extends Component {
+export default class App extends PureComponent {
     onSearch = () => {
-        alert("!");
+
     }
 
     onCancel = () => {
@@ -32,7 +32,6 @@ export default class App extends Component {
                 {/* Search field */}
                 <View style={styles.searchBar}>
                     <Search
-                        ref={"search_box"}
                         onSearch={this.onSearch}
                         onCancel={this.onCancel}
                      />
