@@ -1,3 +1,3 @@
 # Neural News
 ### Brendan Voelz & Charles Winston
-### TODO: App description
+### An unbiased news portal. Neural News uses natural language processing to deliver news of all opinions and points of views.
