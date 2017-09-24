@@ -36,6 +36,13 @@ export default class App extends PureComponent {
                         onCancel={this.onCancel}
                      />
                 </View>
+
+                {/* Trending topics */}
+                <View style={styles.trendingTopicsContainer}>
+                    <Text style={styles.trendingTopicsText}>
+                        TRENDING TOPICS
+                    </Text>
+                </View>
             </View>
         );
     }
@@ -59,4 +66,14 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column"
     },
+    trendingTopicsContainer: {
+        borderWidth: 1,
+        borderColor: 'black'
+    },
+    trendingTopicsText: {
+        textAlign: 'center',
+        fontFamily: 'Times New Roman',
+        fontWeight: 'bold',
+        fontSize: 36,
+    }
 });
