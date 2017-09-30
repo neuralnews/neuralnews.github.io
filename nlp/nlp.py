@@ -2,6 +2,24 @@
 import spacy
 from textblob import TextBlob
 
+def avg_ents(entities, length):
+    for ent in entities:
+        for key in entities[ent]:
+            entities[ent][key] /= float(length)
+
+    return entities
+
+def filter_unimportant_enttypes(entities):
+    unimp_types = ["DATE", "TIME", "PERCENT", "MONEY", "QUANTITY", "ORDINAL", "CARDINAL"]
+    ents_to_delete = []
+    for ent in entities:
+        if ent[1] in unimp_types:
+            ents_to_delete.append(ent)
+    for ent in ents_to_delete:
+        del entities[ent]
+
+    return entities
+
 def analysis(text, nlp):
     blob = TextBlob(text)
     sentences = blob.sentences
@@ -20,11 +38,15 @@ def analysis(text, nlp):
             ent_dict["subjectivity"] += subjectivity
             ent_dict.setdefault("importance", 0)
             ent_dict["importance"] += 1
+
     # average
-    length = len(sentences)
-    for ent in entities:
-        for key in entities[ent]:
-            entities[ent][key] /= float(length)
+    entities = avg_ents(entities, len(sentences))
+
+    # remove types DATE TIME PERCENT MONEY QUANTITY ORDINAL CARDINAL
+    entities = filter_unimportant_enttypes(entities)
+
+    # TODO sort and convert to json
+
     print(entities)
 
 
