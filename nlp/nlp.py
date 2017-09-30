@@ -1,11 +1,27 @@
 # neural_news
 import spacy
 from textblob import TextBlob
+import json
+
+
+
+def ents_to_json(entities, total_ents):
+    top_importance = []
+    # convert dictionary to list for sorting
+    for ent in entities:
+        top_importance.append(entities[ent])
+
+    top_importance.sort(key=lambda x: x["importance"])
+
+    json.dumps(top_importance)
+
+    return top_importance[:total_ents]
 
 def avg_ents(entities, length):
     for ent in entities:
         for key in entities[ent]:
-            entities[ent][key] /= float(length)
+            if (key != "name"):
+                entities[ent][key] /= float(length)
 
     return entities
 
@@ -20,11 +36,10 @@ def filter_unimportant_enttypes(entities):
 
     return entities
 
-def analysis(text, nlp):
-    blob = TextBlob(text)
-    sentences = blob.sentences
-    results = open("results.txt", "w")
+def get_entities(sentences, nlp):
     entities = {}
+
+    # populate
     for sentence in sentences:
         sentiment = sentence.sentiment
         polarity = sentiment.polarity
@@ -32,6 +47,7 @@ def analysis(text, nlp):
         ents = nlp(sentence.raw).ents
         for ent in ents:
             ent_dict = entities.setdefault((ent.text, ent.label_), {})
+            ent_dict.setdefault("name", ent.text)
             ent_dict.setdefault("polarity", 0)
             ent_dict["polarity"] += polarity
             ent_dict.setdefault("subjectivity", 0)
@@ -45,9 +61,21 @@ def analysis(text, nlp):
     # remove types DATE TIME PERCENT MONEY QUANTITY ORDINAL CARDINAL
     entities = filter_unimportant_enttypes(entities)
 
-    # TODO sort and convert to json
+    return entities
 
-    print(entities)
+def analysis(text, nlp):
+    blob = TextBlob(text)
+    sentences = blob.sentences
+    # results = open("results.txt", "w")
+
+    # get 2D entity dictionry
+    entities = get_entities(sentences, nlp)
+
+    # TODO sort and convert to json
+    total_ents = 3
+    json_ents = ents_to_json(entities, total_ents)
+
+    print(json_ents)
 
 
 def main():
