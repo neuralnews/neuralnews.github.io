@@ -4,16 +4,18 @@ import {
     Text,
     View,
     StatusBar,
+    Fetch
 } from 'react-native'
-import Search from 'react-native-search-box';
 
+// NewsAPI key: df226193949242e689ab6d8117191610
 export default class App extends PureComponent {
-    onSearch = () => {
-
-    }
-
     onCancel = () => {
-        alert("????");
+        fetch('https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=df226193949242e689ab6d8117191610')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                let article = responseJson.articles[9];
+                alert("CNN\nTitle: " + JSON.stringify(article.title) + "\n" + "Description: " + article.description);
+            });
     }
 
     render() {
@@ -25,14 +27,13 @@ export default class App extends PureComponent {
                 {/* Header */}
                 <View style={styles.headerContainer}>
                     <Text style={styles.text}>
-                        NeuralNews
+                        NeuralNews!
                     </Text>
                 </View>
 
                 {/* Search field */}
                 <View style={styles.searchBar}>
                     <Search
-                        onSearch={this.onSearch}
                         onCancel={this.onCancel}
                      />
                 </View>
