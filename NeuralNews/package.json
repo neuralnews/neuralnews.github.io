@@ -15,7 +15,7 @@
     "react-native-search-bar": "^3.0.0",
     "react-native-search-box": "0.0.11",
     "react-native-vector-icons": "^4.4.0",
-    "react-navigation": "latest"
+    "react-navigation": "^1.0.0-beta.13"
   },
   "devDependencies": {
     "babel-jest": "21.0.2",
