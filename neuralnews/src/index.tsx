@@ -32,11 +32,7 @@ export default class App extends PureComponent {
                 </View>
 
                 {/* Search field */}
-                <View style={styles.searchBar}>
-                    <Search
-                        onCancel={this.onCancel}
-                     />
-                </View>
+                
 
                 {/* Trending topics */}
                 <View style={styles.trendingTopicsContainer}>
