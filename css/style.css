@@ -14,3 +14,9 @@ body {
 h5 {
         font-style: italic;
 }
+
+img {
+        width: 85%;
+        margin-left: 10%;
+        margin-right: 10%;
+}
