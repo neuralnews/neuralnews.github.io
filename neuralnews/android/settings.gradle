@@ -1,0 +1,3 @@
+rootProject.name = 'neuralnews'
+
+include ':app'
