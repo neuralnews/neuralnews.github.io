@@ -6,18 +6,11 @@ import {
     StatusBar,
     Fetch
 } from 'react-native'
+import { StackNavigator } from 'react-navigation'
+
 
 // NewsAPI key: df226193949242e689ab6d8117191610
-export default class App extends PureComponent {
-    onCancel = () => {
-        fetch('https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=df226193949242e689ab6d8117191610')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                let article = responseJson.articles[9];
-                alert("CNN\nTitle: " + JSON.stringify(article.title) + "\n" + "Description: " + article.description);
-            });
-    }
-
+class HomeScreen extends PureComponent {
     render() {
         return (
             <View style={styles.container}>
@@ -32,11 +25,7 @@ export default class App extends PureComponent {
                 </View>
 
                 {/* Search field */}
-                <View style={styles.searchBar}>
-                    <Search
-                        onCancel={this.onCancel}
-                     />
-                </View>
+
 
                 {/* Trending topics */}
                 <View style={styles.trendingTopicsContainer}>
@@ -78,3 +67,9 @@ const styles = StyleSheet.create({
         fontSize: 36,
     }
 });
+
+const Nav = StackNavigator({
+    Home: { screen: HomeScreen }
+});
+
+export default Nav;
