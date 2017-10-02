@@ -9,12 +9,19 @@ import {
     AppRegistry
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
-import SearchResultsScreen from './searchResults'
+import SearchResultsScreen from './searchResults.js'
 
 // NewsAPI key: df226193949242e689ab6d8117191610
 class HomeScreen extends Component {
   static navigationOptions = {
     title: 'Neural News'
+  }
+  constructor(props) {
+    super(props)
+    this.onTopicPress = this.onTopicPress.bind(this)
+  }
+  onTopicPress(name) {
+      this.props.navigation.navigate('MyResults', name)
   }
     render() {
         return (
@@ -26,35 +33,37 @@ class HomeScreen extends Component {
 
 
                 {/* Trending topics */}
-                <TrendingTopics/>
+                <TrendingTopics onTopicPress={this.onTopicPress}/>
             </View>
         );
     }
 }
 
 class TrendingTopics extends Component {
+
   render() {
     return (
       <View style={styles.trendingTopicsContainer}>
         <Text style={styles.trendingTopicsText}>
           Trending Topics
         </Text>
-        <TrendingTopic name="Donald Trump"/>
-        <TrendingTopic name="Hurricane Maria"/>
-        <TrendingTopic name="Graham-Cassidy"/>
-        <TrendingTopic name="Puerto Rico"/>
-        <TrendingTopic name="NFL"/>
+        <TrendingTopic name="Donald Trump" onTopicPress={this.props.onTopicPress}/>
+        <TrendingTopic name="Hurricane Maria" onTopicPress={this.props.onTopicPress}/>
+        <TrendingTopic name="Graham-Cassidy" onTopicPress={this.props.onTopicPress}/>
+        <TrendingTopic name="Puerto Rico" onTopicPress={this.props.onTopicPress}/>
+        <TrendingTopic name="NFL" onTopicPress={this.props.onTopicPress}/>
       </View>
     )
   }
 }
 
 class TrendingTopic extends Component {
+
   render() {
     return (
       <Button
         title={this.props.name}
-        onPress={() => navigate('MyResults', this.props.name)}
+        onPress={() => this.props.onTopicPress(this.props.name)}
       />
     )
   }
