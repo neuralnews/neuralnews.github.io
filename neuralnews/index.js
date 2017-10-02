@@ -25,14 +25,37 @@ class HomeScreen extends Component {
 
 
                 {/* Trending topics */}
-                <View style={styles.trendingTopicsContainer}>
-                    <Text style={styles.trendingTopicsText}>
-                        Trending Topics
-                    </Text>
-                </View>
+                <TrendingTopics/>
             </View>
         );
     }
+}
+
+class TrendingTopics extends Component {
+  render() {
+    return (
+      <View style={styles.trendingTopicsContainer}>
+        <Text style={styles.trendingTopicsText}>
+          Trending Topics
+        </Text>
+        <TrendingTopic name="Donald Trump"/>
+        <TrendingTopic name="Hurricane Maria"/>
+        <TrendingTopic name="Graham-Cassidy"/>
+        <TrendingTopic name="Puerto Rico"/>
+        <TrendingTopic name="NFL"/>
+      </View>
+    )
+  }
+}
+
+class TrendingTopic extends Component {
+  render() {
+    return (
+      <Button
+        title={this.props.name}
+      />
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -59,9 +82,9 @@ const styles = StyleSheet.create({
     },
     trendingTopicsText: {
         textAlign: 'center',
-        fontFamily: 'Times New Roman',
+        fontFamily: 'Arial',
         fontWeight: 'bold',
-        fontSize: 36,
+        fontSize: 24,
     }
 });
 
