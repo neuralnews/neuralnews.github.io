@@ -9,6 +9,7 @@ import {
     AppRegistry
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
+import SearchResultsScreen from './searchResults'
 
 // NewsAPI key: df226193949242e689ab6d8117191610
 class HomeScreen extends Component {
@@ -53,6 +54,7 @@ class TrendingTopic extends Component {
     return (
       <Button
         title={this.props.name}
+        onPress={() => navigate('MyResults', this.props.name)}
       />
     )
   }
@@ -89,7 +91,8 @@ const styles = StyleSheet.create({
 });
 
 const Nav = StackNavigator({
-    Home: { screen: HomeScreen }
+    Home: { screen: HomeScreen },
+    MyResults: { screen: SearchResultsScreen }
 });
 
 export default Nav;
