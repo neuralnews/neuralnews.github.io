@@ -9,6 +9,7 @@ import {
     AppRegistry
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
+import Search from 'react-native-search-box'
 import SearchResultsScreen from './searchResults.js'
 
 // NewsAPI key: df226193949242e689ab6d8117191610
@@ -18,22 +19,24 @@ class HomeScreen extends Component {
   }
   constructor(props) {
     super(props)
-    this.onTopicPress = this.onTopicPress.bind(this)
+    this.onSearch = this.onSearch.bind(this)
   }
-  onTopicPress(name) {
+  onSearch(name) {
       this.props.navigation.navigate('MyResults', { "topic" : name})
   }
     render() {
         return (
             <View style={styles.container}>
                 {/* Hide status bar */}
-                <StatusBar hidden={true}/>
+                <StatusBar /*hidden={true}*//>
 
                 {/* Search field */}
-
+                <Search
+                  onSearch={() => this.onSearch("test")}
+                />
 
                 {/* Trending topics */}
-                <TrendingTopics onTopicPress={this.onTopicPress}/>
+                <TrendingTopics onTopicPress={this.onSearch}/>
             </View>
         );
     }
