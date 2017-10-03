@@ -21,7 +21,7 @@ class HomeScreen extends Component {
     this.onTopicPress = this.onTopicPress.bind(this)
   }
   onTopicPress(name) {
-      this.props.navigation.navigate('MyResults', name)
+      this.props.navigation.navigate('MyResults', { "topic" : name})
   }
     render() {
         return (
