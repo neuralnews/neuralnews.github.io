@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38717acd-5297-4019-9e44-42b473c004cb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuralnews/index.js" afterPath="$PROJECT_DIR$/neuralnews/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuralnews/package.json" afterPath="$PROJECT_DIR$/neuralnews/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuralnews/searchResults.js" afterPath="$PROJECT_DIR$/neuralnews/searchResults.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -18,34 +17,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/neuralnews/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+            <state relative-caret-position="135">
+              <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
               <folding>
-                <marker date="1506993666000" expanded="true" signature="7:264" ph="..." />
-                <marker date="1506993666000" expanded="true" signature="350:949" ph="{...}" />
-                <marker date="1506993666000" expanded="true" signature="381:411" ph="{&quot;title&quot;: 'Neural News'...}" />
-                <marker date="1506993666000" expanded="true" signature="433:508" ph="{...}" />
-                <marker date="1506993666000" expanded="true" signature="530:604" ph="{...}" />
-                <marker date="1506993666000" expanded="true" signature="618:947" ph="{...}" />
-                <marker date="1506993666000" expanded="true" signature="698:719" ph="/*...*/" />
-                <marker date="1506993666000" expanded="true" signature="782:800" ph="/*...*/" />
-                <marker date="1506993666000" expanded="true" signature="821:842" ph="/*...*/" />
-                <marker date="1506993666000" expanded="true" signature="990:1602" ph="{...}" />
-                <marker date="1506993666000" expanded="true" signature="1004:1600" ph="{...}" />
-                <marker date="1506993666000" expanded="true" signature="1642:1802" ph="{...}" />
-                <marker date="1506993666000" expanded="true" signature="1656:1800" ph="{...}" />
-                <marker date="1506993666000" expanded="true" signature="1837:2409" ph="{...}" />
-                <marker date="1506993666000" expanded="true" signature="1854:1914" ph="{&quot;backgroundColor&quot;: '##F5FCFF'...}" />
-                <marker date="1506993666000" expanded="true" signature="1937:2012" ph="{&quot;borderBottomColor&quot;: 'black'...}" />
-                <marker date="1506993666000" expanded="true" signature="2024:2102" ph="{&quot;textAlign&quot;: 'center'...}" />
-                <marker date="1506993666000" expanded="true" signature="2119:2175" ph="{&quot;flexDirection&quot;: &quot;column&quot;...}" />
-                <marker date="1506993666000" expanded="true" signature="2206:2266" ph="{&quot;borderColor&quot;: 'black'...}" />
-                <marker date="1506993666000" expanded="true" signature="2292:2407" ph="{&quot;textAlign&quot;: 'center'...}" />
-                <marker date="1506993666000" expanded="true" signature="2440:2524" ph="{...}" />
+                <element signature="e#0#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,8 +33,8 @@
       <file leaf-file-name="searchResults.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/neuralnews/searchResults.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+            <state relative-caret-position="541">
+              <caret line="88" column="62" lean-forward="false" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -64,6 +43,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Hi</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -109,6 +93,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -126,7 +111,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -157,12 +141,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1506993567614</updated>
-      <workItem from="1506993570243" duration="564000" />
+      <workItem from="1506993570243" duration="599000" />
+      <workItem from="1507068651491" duration="500000" />
+      <workItem from="1507099945187" duration="972000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="564000" />
+    <option name="totallyTimeSpent" value="2071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="26" y="23" width="1254" height="777" extended-state="0" />
@@ -170,19 +156,19 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24960127" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -199,38 +185,48 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/neuralnews/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1506993666000" expanded="true" signature="7:264" ph="..." />
-            <marker date="1506993666000" expanded="true" signature="350:949" ph="{...}" />
-            <marker date="1506993666000" expanded="true" signature="381:411" ph="{&quot;title&quot;: 'Neural News'...}" />
-            <marker date="1506993666000" expanded="true" signature="433:508" ph="{...}" />
-            <marker date="1506993666000" expanded="true" signature="530:604" ph="{...}" />
-            <marker date="1506993666000" expanded="true" signature="618:947" ph="{...}" />
-            <marker date="1506993666000" expanded="true" signature="698:719" ph="/*...*/" />
-            <marker date="1506993666000" expanded="true" signature="782:800" ph="/*...*/" />
-            <marker date="1506993666000" expanded="true" signature="821:842" ph="/*...*/" />
-            <marker date="1506993666000" expanded="true" signature="990:1602" ph="{...}" />
-            <marker date="1506993666000" expanded="true" signature="1004:1600" ph="{...}" />
-            <marker date="1506993666000" expanded="true" signature="1642:1802" ph="{...}" />
-            <marker date="1506993666000" expanded="true" signature="1656:1800" ph="{...}" />
-            <marker date="1506993666000" expanded="true" signature="1837:2409" ph="{...}" />
-            <marker date="1506993666000" expanded="true" signature="1854:1914" ph="{&quot;backgroundColor&quot;: '##F5FCFF'...}" />
-            <marker date="1506993666000" expanded="true" signature="1937:2012" ph="{&quot;borderBottomColor&quot;: 'black'...}" />
-            <marker date="1506993666000" expanded="true" signature="2024:2102" ph="{&quot;textAlign&quot;: 'center'...}" />
-            <marker date="1506993666000" expanded="true" signature="2119:2175" ph="{&quot;flexDirection&quot;: &quot;column&quot;...}" />
-            <marker date="1506993666000" expanded="true" signature="2206:2266" ph="{&quot;borderColor&quot;: 'black'...}" />
-            <marker date="1506993666000" expanded="true" signature="2292:2407" ph="{&quot;textAlign&quot;: 'center'...}" />
-            <marker date="1506993666000" expanded="true" signature="2440:2524" ph="{...}" />
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neuralnews/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/neuralnews/searchResults.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
+        <state relative-caret-position="375">
           <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neuralnews/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neuralnews/searchResults.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="88" column="62" lean-forward="false" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

@@ -1,12 +1,42 @@
 import React from 'react';
 import { Text, AppRegistry, StyleSheet, View } from 'react-native';
+import Carousel from 'react-native-snap-carousel';
+
 
 export default class SearchResultsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Neural News'
-  }
+    // Navigation options for stackNavigator
+    static navigationOptions = {
+        title: 'Neural News'
+    }
+
+    /*
+     * constructor
+     * Responsible for initializing the SearchResultsScreen class
+     */
+    constructor(props) {
+      super(props);
+      this.state = {
+          entries : ["Some_Article", "Another_Article", "Wow_That_Is_An_Article"]
+      }
+    }
+
+    /*
+     * renderItem
+     * Renders a single article object
+     */
+    _renderItem ({item, index}) {
+        return (
+            <Text>No. {index}, Article Name: {item}</Text>
+        );
+    }
+
+    /*
+     * render
+     * Renders the SearchResultsScreen
+     */
     render() {
         return (
+            // Wrapper
             <View>
                 {/* Search Bar */}
                 <View style={styles.searchBarContainer}>
@@ -23,11 +53,22 @@ export default class SearchResultsScreen extends React.Component {
                         {this.props.navigation.state.params.topic}
                     </Text>
                 </View>
+
+                {/* Cover flow style display of sorted articles along with their
+                    appropriate NLP data */}
+                <Carousel
+                    ref={(c) => { this._carousel = c; }}
+                    data={this.state.entries}
+                    renderItem={this._renderItem}
+                    sliderWidth={1000}
+                    itemWidth={200}
+                 />
             </View>
         );
     }
 }
 
+// StyleSheet
 const styles = StyleSheet.create({
     topicHeader: {
         textAlign: "center",
