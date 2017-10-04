@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, AppRegistry, StyleSheet, View, Dimensions, Image } from 'react-native';
+import { Text, AppRegistry, StyleSheet, View, Dimensions, Image, TouchableHighlight } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
 
@@ -24,14 +24,33 @@ export default class SearchResultsScreen extends React.Component {
      * renderItem
      * Renders a single article object
      */
-    _renderItem ({item, index}) {
+    _renderItem ({item, index})
+    {
         return (
             <View>
-                <Image
-                    source={require("./assets/cnn.png")}
-                    style={styles.articleImage}
-                />
+                {/* News network logo */}
+                <TouchableHighlight onPress={() => {alert("TODO: Navigate to article");}}>
+                    <Image
+                        source={require("./assets/cnn.png")}
+                        style={styles.articleImage}
+                    />
+                </TouchableHighlight>
+
+                {/* Article title */}
                 <Text>No. {index}, Article Name: {item}</Text>
+
+                {/* Article description */}
+                <View style={styles.descriptionContainer}>
+                    <Text style={styles.articleDescriptionHeader}>Description</Text>
+                    <Text style={styles.articleDescription}>TODO: Get article description</Text>
+                </View>
+
+                {/* NLP analysis */}
+                <View style={styles.analysisContainer}>
+                    <Text style={styles.articleDescriptionHeader}>Analysis</Text>
+                    <Text>TODO: Generate percentage bars to show</Text>
+                    <Text>subjectivity for each entity</Text>
+                </View>
             </View>
         );
     }
@@ -72,11 +91,6 @@ export default class SearchResultsScreen extends React.Component {
                     activeSlideAlignment={"center"}
                     firstItem={1}
                  />
-
-                {/* NLP Analysis */}
-                <View>
-                    <Text>TODO</Text>
-                </View>
             </View>
         );
     }
@@ -106,6 +120,19 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "black",
         alignContent: "center"
+    },
+    descriptionContainer: {
+
+    },
+    articleDescriptionHeader: {
+        paddingTop: 10,
+        fontSize: 18
+    },
+    articleDescription: {
+        paddingTop: 5
+    },
+    analysisContainer: {
+        paddingTop: 10
     }
 });
 
