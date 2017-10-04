@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, AppRegistry, StyleSheet, View } from 'react-native';
+import { Text, AppRegistry, StyleSheet, View, Dimensions, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
 
@@ -26,7 +26,13 @@ export default class SearchResultsScreen extends React.Component {
      */
     _renderItem ({item, index}) {
         return (
-            <Text>No. {index}, Article Name: {item}</Text>
+            <View>
+                <Image
+                    source={require("./assets/cnn.png")}
+                    style={styles.articleImage}
+                />
+                <Text>No. {index}, Article Name: {item}</Text>
+            </View>
         );
     }
 
@@ -60,9 +66,17 @@ export default class SearchResultsScreen extends React.Component {
                     ref={(c) => { this._carousel = c; }}
                     data={this.state.entries}
                     renderItem={this._renderItem}
-                    sliderWidth={1000}
-                    itemWidth={200}
+                    sliderWidth={Dimensions.get('window').width}
+                    itemWidth={300}
+                    containerCustomStyle={styles.carouselContainer}
+                    activeSlideAlignment={"center"}
+                    firstItem={1}
                  />
+
+                {/* NLP Analysis */}
+                <View>
+                    <Text>TODO</Text>
+                </View>
             </View>
         );
     }
@@ -82,6 +96,15 @@ const styles = StyleSheet.create({
         borderBottomColor: "black",
         borderBottomWidth: 0.5,
         height: 70,
+        alignContent: "center"
+    },
+    articleImage: {
+        width: 300,
+        height: 300
+    },
+    carouselContainer: {
+        borderWidth: 1,
+        borderColor: "black",
         alignContent: "center"
     }
 });
