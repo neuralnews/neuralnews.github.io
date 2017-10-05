@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, AppRegistry, StyleSheet, View, Dimensions, Image, TouchableHighlight } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-
+import Search from 'react-native-search-box'
 
 export default class SearchResultsScreen extends React.Component {
     // Navigation options for stackNavigator
@@ -16,7 +16,7 @@ export default class SearchResultsScreen extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-          entries : ["Some_Article", "Another_Article", "Wow_That_Is_An_Article"]
+          entries : ["Some_Article", "Another_Article", "Wow_That_Is_An_Article", "Is_This_An_Article", "Yes_It_Is"]
       }
     }
 
@@ -27,7 +27,7 @@ export default class SearchResultsScreen extends React.Component {
     _renderItem ({item, index})
     {
         return (
-            <View>
+            <View style={styles.slide}>
                 {/* News network logo */}
                 <TouchableHighlight onPress={() => {alert("TODO: Navigate to article");}}>
                     <Image
@@ -37,7 +37,7 @@ export default class SearchResultsScreen extends React.Component {
                 </TouchableHighlight>
 
                 {/* Article title */}
-                <Text>No. {index}, Article Name: {item}</Text>
+                <Text>No. {index}, Title: {item}</Text>
 
                 {/* Article description */}
                 <View style={styles.descriptionContainer}>
@@ -48,11 +48,21 @@ export default class SearchResultsScreen extends React.Component {
                 {/* NLP analysis */}
                 <View style={styles.analysisContainer}>
                     <Text style={styles.articleDescriptionHeader}>Analysis</Text>
-                    <Text>TODO: Generate percentage bars to show</Text>
-                    <Text>subjectivity for each entity</Text>
+                    <Text>TODO:</Text>
                 </View>
             </View>
         );
+    }
+
+    /*
+     * onSearch
+     *
+     */
+    onSearch = (text) => {
+        return new Promise((resolve, reject) => {
+            alert('You searched for: ' + text);
+            resolve();
+        });
     }
 
     /*
@@ -65,10 +75,9 @@ export default class SearchResultsScreen extends React.Component {
             <View>
                 {/* Search Bar */}
                 <View style={styles.searchBarContainer}>
-                    <Text
-                        style={styles.todoText}>
-                        TODO: Implement search bar
-                    </Text>
+                    <Search
+                        onSearch={this.onSearch}
+                    />
                 </View>
 
                 {/* Topic Header */}
@@ -87,9 +96,8 @@ export default class SearchResultsScreen extends React.Component {
                     renderItem={this._renderItem}
                     sliderWidth={Dimensions.get('window').width}
                     itemWidth={300}
-                    containerCustomStyle={styles.carouselContainer}
-                    activeSlideAlignment={"center"}
-                    firstItem={1}
+                    firstItem={2}
+                    containerCustomStyle={styles.slider}
                  />
             </View>
         );
@@ -100,25 +108,28 @@ export default class SearchResultsScreen extends React.Component {
 const styles = StyleSheet.create({
     topicHeader: {
         textAlign: "center",
-        fontSize: 36
+        fontSize: 36,
+        paddingTop: 5,
+        paddingBottom: 5
     },
     todoText: {
         textAlign: "center",
         color: "red",
     },
     searchBarContainer: {
-        borderBottomColor: "black",
-        borderBottomWidth: 0.5,
-        height: 70,
         alignContent: "center"
     },
     articleImage: {
         width: 300,
-        height: 300
+        height: 300,
+        alignContent: "center"
     },
     carouselContainer: {
-        borderWidth: 1,
-        borderColor: "black",
+        borderWidth: .5,
+        borderTopColor: "black",
+        borderBottomColor: "transparent",
+        borderLeftColor: "transparent",
+        borderRightColor: "transparent",
         alignContent: "center"
     },
     descriptionContainer: {
