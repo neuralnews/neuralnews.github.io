@@ -2,6 +2,7 @@
 import spacy
 from textblob import TextBlob
 import json
+import sys
 
 
 
@@ -75,13 +76,14 @@ def analysis(text, nlp):
     total_ents = 3
     json_ents = ents_to_json(entities, total_ents)
 
-    print(json_ents)
+    return json_ents
 
 
 def main():
+    article = sys.argv[1]
     nlp = spacy.load('en')
-    article = open("article.txt", "r").read()
-    analysis(article, nlp)
+    #article = open("article.txt", "r").read()
+    return analysis(article, nlp)
 
 
 
