@@ -21,8 +21,16 @@ class HomeScreen extends Component {
     super(props)
     this.onSearch = this.onSearch.bind(this)
   }
-  onSearch(name) {
-      this.props.navigation.navigate('MyResults', { "topic" : name})
+
+  /*
+   * onSearch
+   *
+   */
+  onSearch = (text) => {
+      return new Promise((resolve, reject) => {
+          this.props.navigation.navigate('MyResults', { "topic" : text})
+          resolve();
+      });
   }
     render() {
         return (
@@ -32,7 +40,7 @@ class HomeScreen extends Component {
 
                 {/* Search field */}
                 <Search
-                  onSearch={() => this.onSearch("test")}
+                  onSearch={this.onSearch}
                 />
 
                 {/* Trending topics */}

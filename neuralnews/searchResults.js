@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, AppRegistry, StyleSheet, View, Dimensions, Image, TouchableHighlight } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import Search from 'react-native-search-box'
+import Search from 'react-native-search-box';
+import Nav from './index.js';
 
 export default class SearchResultsScreen extends React.Component {
     // Navigation options for stackNavigator
@@ -58,12 +59,12 @@ export default class SearchResultsScreen extends React.Component {
      * onSearch
      *
      */
-    onSearch = (text) => {
-        return new Promise((resolve, reject) => {
-            alert('You searched for: ' + text);
-            resolve();
-        });
-    }
+     onSearch = (text) => {
+         return new Promise((resolve, reject) => {
+             this.props.navigation.navigate('MyResults', { "topic" : text})
+             resolve();
+         });
+     }
 
     /*
      * render
