@@ -15,7 +15,7 @@ import SearchResultsScreen from './searchResults.js'
 // NewsAPI key: df226193949242e689ab6d8117191610
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Neural News'
+      title: 'Neural News'
   }
   constructor(props) {
     super(props)
@@ -99,6 +99,9 @@ const styles = StyleSheet.create({
         fontFamily: 'Arial',
         fontWeight: 'bold',
         fontSize: 24,
+    },
+    wrapperStatusBarContainer: {
+        backgroundColor: "#525252"
     }
 });
 

@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38717acd-5297-4019-9e44-42b473c004cb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuralnews/assets/cnn.png" afterPath="$PROJECT_DIR$/neuralnews/assets/cnn.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuralnews/index.js" afterPath="$PROJECT_DIR$/neuralnews/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuralnews/searchResults.js" afterPath="$PROJECT_DIR$/neuralnews/searchResults.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,8 +22,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/neuralnews/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+            <state relative-caret-position="524">
+              <caret line="100" column="21" lean-forward="true" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="21" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -31,8 +34,8 @@
       <file leaf-file-name="searchResults.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/neuralnews/searchResults.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+            <state relative-caret-position="275">
+              <caret line="113" column="22" lean-forward="false" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -45,6 +48,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Hi</find>
+      <find>300</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -91,7 +95,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -109,6 +112,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -142,12 +146,14 @@
       <workItem from="1506993570243" duration="599000" />
       <workItem from="1507068651491" duration="500000" />
       <workItem from="1507099945187" duration="1044000" />
-      <workItem from="1507129893103" duration="3071000" />
+      <workItem from="1507129893103" duration="3295000" />
+      <workItem from="1507158537876" duration="3848000" />
+      <workItem from="1507176114100" duration="1372000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5214000" />
+    <option name="totallyTimeSpent" value="10658000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="26" y="23" width="879" height="777" extended-state="0" />
@@ -192,6 +198,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/neuralnews/searchResults.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neuralnews/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neuralnews/searchResults.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="99" column="34" lean-forward="true" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neuralnews/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/neuralnews/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -224,8 +270,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/neuralnews/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+        <state relative-caret-position="524">
+          <caret line="100" column="21" lean-forward="true" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="21" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -234,8 +280,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/neuralnews/searchResults.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+        <state relative-caret-position="275">
+          <caret line="113" column="22" lean-forward="false" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

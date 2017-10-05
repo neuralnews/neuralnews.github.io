@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, AppRegistry, StyleSheet, View, Dimensions, Image, TouchableHighlight } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-
+import Search from 'react-native-search-box'
 
 export default class SearchResultsScreen extends React.Component {
     // Navigation options for stackNavigator
@@ -16,7 +16,7 @@ export default class SearchResultsScreen extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-          entries : ["Some_Article", "Another_Article", "Wow_That_Is_An_Article"]
+          entries : ["Some_Article", "Another_Article", "Wow_That_Is_An_Article", "Is_This_An_Article", "Yes_It_Is"]
       }
     }
 
@@ -27,7 +27,7 @@ export default class SearchResultsScreen extends React.Component {
     _renderItem ({item, index})
     {
         return (
-            <View>
+            <View style={styles.slide}>
                 {/* News network logo */}
                 <TouchableHighlight onPress={() => {alert("TODO: Navigate to article");}}>
                     <Image
@@ -37,7 +37,7 @@ export default class SearchResultsScreen extends React.Component {
                 </TouchableHighlight>
 
                 {/* Article title */}
-                <Text>No. {index}, Article Name: {item}</Text>
+                <Text style={styles.articleDescription}>Index: {index}, Title: {item}</Text>
 
                 {/* Article description */}
                 <View style={styles.descriptionContainer}>
@@ -48,11 +48,21 @@ export default class SearchResultsScreen extends React.Component {
                 {/* NLP analysis */}
                 <View style={styles.analysisContainer}>
                     <Text style={styles.articleDescriptionHeader}>Analysis</Text>
-                    <Text>TODO: Generate percentage bars to show</Text>
-                    <Text>subjectivity for each entity</Text>
+                    <Text style={styles.articleDescription}>TODO:</Text>
                 </View>
             </View>
         );
+    }
+
+    /*
+     * onSearch
+     *
+     */
+    onSearch = (text) => {
+        return new Promise((resolve, reject) => {
+            alert('You searched for: ' + text);
+            resolve();
+        });
     }
 
     /*
@@ -62,13 +72,12 @@ export default class SearchResultsScreen extends React.Component {
     render() {
         return (
             // Wrapper
-            <View>
+            <View style={styles.wrapperContainer}>
                 {/* Search Bar */}
                 <View style={styles.searchBarContainer}>
-                    <Text
-                        style={styles.todoText}>
-                        TODO: Implement search bar
-                    </Text>
+                    <Search
+                        onSearch={this.onSearch}
+                    />
                 </View>
 
                 {/* Topic Header */}
@@ -87,9 +96,8 @@ export default class SearchResultsScreen extends React.Component {
                     renderItem={this._renderItem}
                     sliderWidth={Dimensions.get('window').width}
                     itemWidth={300}
-                    containerCustomStyle={styles.carouselContainer}
-                    activeSlideAlignment={"center"}
-                    firstItem={1}
+                    firstItem={2}
+                    containerCustomStyle={styles.slider}
                  />
             </View>
         );
@@ -100,39 +108,59 @@ export default class SearchResultsScreen extends React.Component {
 const styles = StyleSheet.create({
     topicHeader: {
         textAlign: "center",
-        fontSize: 36
+        fontSize: 36,
+        paddingTop: 5,
+        paddingBottom: 5,
+        color: "white"
     },
     todoText: {
         textAlign: "center",
         color: "red",
     },
     searchBarContainer: {
-        borderBottomColor: "black",
-        borderBottomWidth: 0.5,
-        height: 70,
         alignContent: "center"
     },
     articleImage: {
         width: 300,
-        height: 300
+        height: 300,
+        alignContent: "center"
     },
     carouselContainer: {
-        borderWidth: 1,
-        borderColor: "black",
+        borderWidth: .5,
+        borderTopColor: "black",
+        borderBottomColor: "transparent",
+        borderLeftColor: "transparent",
+        borderRightColor: "transparent",
         alignContent: "center"
     },
     descriptionContainer: {
 
     },
     articleDescriptionHeader: {
+        paddingLeft: 7,
         paddingTop: 10,
-        fontSize: 18
+        fontSize: 18,
+        color: "white"
     },
     articleDescription: {
-        paddingTop: 5
+        paddingLeft: 7,
+        paddingTop: 5,
+        color: "white"
     },
     analysisContainer: {
         paddingTop: 10
+    },
+    slide: {
+        shadowColor: "black",
+        shadowOffset: {width: 5, height: 5},
+        shadowOpacity: 0.7,
+        shadowRadius: 5,
+        height: Dimensions.get("window").height,
+        backgroundColor: '#7d7d7d'
+
+    },
+    wrapperContainer: {
+        backgroundColor: "#525252"
     }
 });
 
