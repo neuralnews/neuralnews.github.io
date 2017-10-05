@@ -37,7 +37,7 @@ export default class SearchResultsScreen extends React.Component {
                 </TouchableHighlight>
 
                 {/* Article title */}
-                <Text>No. {index}, Title: {item}</Text>
+                <Text style={styles.articleDescription}>Index: {index}, Title: {item}</Text>
 
                 {/* Article description */}
                 <View style={styles.descriptionContainer}>
@@ -48,7 +48,7 @@ export default class SearchResultsScreen extends React.Component {
                 {/* NLP analysis */}
                 <View style={styles.analysisContainer}>
                     <Text style={styles.articleDescriptionHeader}>Analysis</Text>
-                    <Text>TODO:</Text>
+                    <Text style={styles.articleDescription}>TODO:</Text>
                 </View>
             </View>
         );
@@ -72,7 +72,7 @@ export default class SearchResultsScreen extends React.Component {
     render() {
         return (
             // Wrapper
-            <View>
+            <View style={styles.wrapperContainer}>
                 {/* Search Bar */}
                 <View style={styles.searchBarContainer}>
                     <Search
@@ -110,7 +110,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 36,
         paddingTop: 5,
-        paddingBottom: 5
+        paddingBottom: 5,
+        color: "white"
     },
     todoText: {
         textAlign: "center",
@@ -136,14 +137,30 @@ const styles = StyleSheet.create({
 
     },
     articleDescriptionHeader: {
+        paddingLeft: 7,
         paddingTop: 10,
-        fontSize: 18
+        fontSize: 18,
+        color: "white"
     },
     articleDescription: {
-        paddingTop: 5
+        paddingLeft: 7,
+        paddingTop: 5,
+        color: "white"
     },
     analysisContainer: {
         paddingTop: 10
+    },
+    slide: {
+        shadowColor: "black",
+        shadowOffset: {width: 5, height: 5},
+        shadowOpacity: 0.7,
+        shadowRadius: 5,
+        height: Dimensions.get("window").height,
+        backgroundColor: '#7d7d7d'
+
+    },
+    wrapperContainer: {
+        backgroundColor: "#525252"
     }
 });
 
