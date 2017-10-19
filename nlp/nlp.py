@@ -3,7 +3,7 @@ import spacy
 from textblob import TextBlob
 import json
 import sys
-
+import en_nn_model
 
 
 def ents_to_json(entities, total_ents):
@@ -72,7 +72,7 @@ def analysis(text, nlp):
     # get 2D entity dictionry
     entities = get_entities(sentences, nlp)
 
-    # TODO sort and convert to json
+    # sort and convert to json
     total_ents = 3
     json_ents = ents_to_json(entities, total_ents)
 
@@ -81,7 +81,8 @@ def analysis(text, nlp):
 
 def main():
     article = sys.argv[1]
-    nlp = spacy.load('en')
+    nlp = en_nn_model.load()
+    print('done')
     #article = open("article.txt", "r").read()
     return analysis(article, nlp)
 
