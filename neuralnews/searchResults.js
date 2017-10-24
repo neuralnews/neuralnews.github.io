@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, AppRegistry, StyleSheet, ScrollView, View, Dimensions, Image, TouchableHighlight } from 'react-native';
+import {Text, AppRegistry, StyleSheet, ScrollView, View, Dimensions, Image, TouchableHighlight} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import Search from 'react-native-search-box';
 import Nav from './index.js';
@@ -10,85 +10,39 @@ export default class SearchResultsScreen extends React.Component {
         title: 'Neural News'
     }
 
-    // getQuery() {
-    //   return (<div>{ this.props.navigation.state.params.topic }</div>);
-    // }
-
-    static articles = [];
-    /*
-     * fetchArticles
-     * makes request to server, returns json data
-     */
-    fetchArticles(query) {
-      //fetch('https://neuralnews.herokuapp.com/query?search='.concat(query.replace(' ', '%20')))
-      fetch('https://neuralnews.herokuapp.com/sanders.json')
-        .then((response) => alert(response.json()))
-        // .then((responseJson) => {
-        //   alert(responseJson);
-        //   var arr = []
-        //   for (var i = 0; i < responseJson.length; i++) {
-        //     arr.push(responseJson[i])
-        //   }
-        //   // this.setState(previousState => {
-        //   //   return {articles : arr}
-        //   // }, () => {
-        //   //   this.props.getArticles(this.state)
-        //   // });
-        //   // alert(this.state.articles);
-        //   //alert(arr)
-        //   return arr;
-        // })
-        .catch((error) => {
-          console.error(error);
-        });
-      //alert(result)
-    }
-
-    /*
-     * getArticles
-     * calls fetchArticles, returns list of articles
-     */
-    getArticles(query) {
-      var articles = this.fetchArticles(query)
-      var arr = [];
-      for (var x in articles) {
-        arr.push(articles[x])
-      }
-      //alert(arr)
-      return arr;
-    }
-
     /*
      * constructor
      * Responsible for initializing the SearchResultsScreen class
      */
     constructor(props) {
-      super(props);
-      this.state = {
-           articles : []
-      }
-      this.fetchArticles(this.props.navigation.state.params.topic);
-      //alert(this.state.articles)
+        super(props);
+        this.state = {
+            articles: this.props.navigation.state.params.articles
+        }
+        alert(JSON.stringify(this.state.articles));
     }
+
+
 
     /*
      * renderItem
      * Renders a single article object
      */
-    _renderItem ({item, index})
-    {
+    _renderItem({item}) {
+
         return (
             <View style={styles.slide}>
                 {/* News network logo */}
-                <TouchableHighlight onPress={() => {alert("TODO: Navigate to article");}}>
+                <TouchableHighlight onPress={() => {
+                    alert("TODO: Navigate to article");
+                }}>
                     <Image
                         source={require("./assets/cnn.png")}
                         style={styles.articleImage}
                     />
                 </TouchableHighlight>
 
-                {/* Article title */}
-                <Text style={styles.articleDescription}>Index: {index}, Title: {item.title}</Text>
+                {/* TODO: Article title */}
 
                 {/* Article description */}
                 <View style={styles.descriptionContainer}>
@@ -99,9 +53,8 @@ export default class SearchResultsScreen extends React.Component {
                 {/* NLP analysis */}
                 <View style={styles.analysisContainer}>
                     <Text style={styles.articleDescriptionHeader}>Analysis</Text>
-                    <Text style={styles.articleDescription}>{item.data[0].ent}  {item.data[0].polarity}</Text>
-                    <Text style={styles.articleDescription}>{item.data[1].ent}  {item.data[1].polarity}</Text>
-                    <Text style={styles.articleDescription}>{item.data[2].ent}  {item.data[2].polarity}</Text>
+                    <Text style={styles.articleDescription}>{item.article.data[0].ent} {item.article.data[0].polarity}</Text>
+                    <Text style={styles.articleDescription}>{item.article.data[1].ent} {item.article.data[1].polarity}</Text>
                 </View>
             </View>
         );
@@ -111,12 +64,12 @@ export default class SearchResultsScreen extends React.Component {
      * onSearch
      *
      */
-     onSearch = (text) => {
-         return new Promise((resolve, reject) => {
-             this.props.navigation.navigate('MyResults', { "topic" : text})
-             resolve();
-         });
-     }
+    onSearch = (text) => {
+        return new Promise((resolve, reject) => {
+            this.props.navigation.navigate('MyResults', {"topic": text})
+            resolve();
+        });
+    }
 
     /*
      * render
@@ -144,14 +97,16 @@ export default class SearchResultsScreen extends React.Component {
                 {/* Cover flow style display of sorted articles along with their
                     appropriate NLP data */}
                 <Carousel
-                    ref={(c) => { this._carousel = c; }}
+                    ref={(c) => {
+                        this._carousel = c;
+                    }}
                     data={this.state.articles}
                     renderItem={this._renderItem}
                     sliderWidth={Dimensions.get('window').width}
                     itemWidth={300}
                     firstItem={1}
                     containerCustomStyle={styles.slider}
-                  />
+                />
             </View>
         );
     }
@@ -186,9 +141,7 @@ const styles = StyleSheet.create({
         borderRightColor: "transparent",
         alignContent: "center"
     },
-    descriptionContainer: {
-
-    },
+    descriptionContainer: {},
     articleDescriptionHeader: {
         paddingLeft: 7,
         paddingTop: 10,
@@ -214,5 +167,18 @@ const styles = StyleSheet.create({
     },
     wrapperContainer: {
         backgroundColor: "#525252"
+    },
+    articleTitleContainer: {
+        flex:0.5, //height (according to its parent),
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    articleTitle: {
+        fontSize: 16,
+        flex: 0.8,
+        color: 'white',
+        textAlign: 'center',
+        flexWrap: 'wrap'
     }
 });

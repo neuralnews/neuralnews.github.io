@@ -29,8 +29,22 @@ class HomeScreen extends Component {
    */
   onSearch = (text) => {
       return new Promise((resolve, reject) => {
-          this.props.navigation.navigate('MyResults', { "topic" : text})
-          resolve();
+          // 2. Make HTTP GET call to the server
+          fetch('https://neuralnews.herokuapp.com/sanders.json')
+
+          // 3. Handle the response
+              .then((response) => response.json())
+
+              // 3b. Convert JSON string to JS object
+              .then((resJson) => {
+                  this.props.navigation.navigate('MyResults', { "articles" : resJson})
+                  resolve();
+              })
+
+              // 3c. Catch errors
+              .catch((error) => {
+                  console.error(error);
+              });
       });
   }
     render() {
