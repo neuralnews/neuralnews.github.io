@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, AppRegistry, StyleSheet, View, Dimensions, Image, TouchableHighlight } from 'react-native';
+import { Text, AppRegistry, StyleSheet, ScrollView, View, Dimensions, Image, TouchableHighlight } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import Search from 'react-native-search-box';
 import Nav from './index.js';
@@ -10,6 +10,54 @@ export default class SearchResultsScreen extends React.Component {
         title: 'Neural News'
     }
 
+    // getQuery() {
+    //   return (<div>{ this.props.navigation.state.params.topic }</div>);
+    // }
+
+    static articles = [];
+    /*
+     * fetchArticles
+     * makes request to server, returns json data
+     */
+    fetchArticles(query) {
+      //fetch('https://neuralnews.herokuapp.com/query?search='.concat(query.replace(' ', '%20')))
+      fetch('https://neuralnews.herokuapp.com/sanders.json')
+        .then((response) => alert(response.json()))
+        // .then((responseJson) => {
+        //   alert(responseJson);
+        //   var arr = []
+        //   for (var i = 0; i < responseJson.length; i++) {
+        //     arr.push(responseJson[i])
+        //   }
+        //   // this.setState(previousState => {
+        //   //   return {articles : arr}
+        //   // }, () => {
+        //   //   this.props.getArticles(this.state)
+        //   // });
+        //   // alert(this.state.articles);
+        //   //alert(arr)
+        //   return arr;
+        // })
+        .catch((error) => {
+          console.error(error);
+        });
+      //alert(result)
+    }
+
+    /*
+     * getArticles
+     * calls fetchArticles, returns list of articles
+     */
+    getArticles(query) {
+      var articles = this.fetchArticles(query)
+      var arr = [];
+      for (var x in articles) {
+        arr.push(articles[x])
+      }
+      //alert(arr)
+      return arr;
+    }
+
     /*
      * constructor
      * Responsible for initializing the SearchResultsScreen class
@@ -17,8 +65,10 @@ export default class SearchResultsScreen extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-          entries : ["Some_Article", "Another_Article", "Wow_That_Is_An_Article", "Is_This_An_Article", "Yes_It_Is"]
+           articles : []
       }
+      this.fetchArticles(this.props.navigation.state.params.topic);
+      //alert(this.state.articles)
     }
 
     /*
@@ -38,7 +88,7 @@ export default class SearchResultsScreen extends React.Component {
                 </TouchableHighlight>
 
                 {/* Article title */}
-                <Text style={styles.articleDescription}>Index: {index}, Title: {item}</Text>
+                <Text style={styles.articleDescription}>Index: {index}, Title: {item.title}</Text>
 
                 {/* Article description */}
                 <View style={styles.descriptionContainer}>
@@ -49,7 +99,9 @@ export default class SearchResultsScreen extends React.Component {
                 {/* NLP analysis */}
                 <View style={styles.analysisContainer}>
                     <Text style={styles.articleDescriptionHeader}>Analysis</Text>
-                    <Text style={styles.articleDescription}>TODO:</Text>
+                    <Text style={styles.articleDescription}>{item.data[0].ent}  {item.data[0].polarity}</Text>
+                    <Text style={styles.articleDescription}>{item.data[1].ent}  {item.data[1].polarity}</Text>
+                    <Text style={styles.articleDescription}>{item.data[2].ent}  {item.data[2].polarity}</Text>
                 </View>
             </View>
         );
@@ -93,13 +145,13 @@ export default class SearchResultsScreen extends React.Component {
                     appropriate NLP data */}
                 <Carousel
                     ref={(c) => { this._carousel = c; }}
-                    data={this.state.entries}
+                    data={this.state.articles}
                     renderItem={this._renderItem}
                     sliderWidth={Dimensions.get('window').width}
                     itemWidth={300}
-                    firstItem={2}
+                    firstItem={1}
                     containerCustomStyle={styles.slider}
-                 />
+                  />
             </View>
         );
     }
@@ -164,5 +216,3 @@ const styles = StyleSheet.create({
         backgroundColor: "#525252"
     }
 });
-
-AppRegistry.registerComponent('neuralnews', () => neuralnews);
