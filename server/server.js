@@ -26,17 +26,21 @@ app.get('/', function (req, res) {
         res.sendFile(__dirname + '/index.html');
 });
 
-/* Serve NLP data for one article */
-app.get('/nlp', function(req, res) {
-        console.log("* In /nlp GET call\n");
-        var term = req.query.search;
-        var startDate = Date.now();
+/* Serve test data */
+app.get('/sanders.json', function(req, res) {
+        res.sendFile(__dirname + '/test_data/sanders.json');
+})
+
+/* Trying out things from scratch... */
+app.get('/query', function(req, res) {
 
         /* Microsoft Azure Cognitive Services */
         var subscription_key = 'bfc96e2d7cee4696b2e3bd85c2f4816c';
         var host             = 'api.cognitive.microsoft.com';
         var path             = '/bing/v7.0/news/search';
-        var request_params = {
+        var term             = req.query.search;
+        var startDate        = Date.now();
+        var request_params   = {
                 method : 'GET',
                 hostname : host,
                 path : path + '?q=' + term,
@@ -53,17 +57,8 @@ app.get('/nlp', function(req, res) {
             });
             response.on('end', function () {
                 articles = JSON.parse(body).value;
-                process_articles(articles, startDate, res).then(function(val) {
-                        function stateChange(newState) {
-                            setTimeout(function(){
-                                if(newState == -1) {
-                                    res.send(JSON.stringify(val));// + "<br><br>" + "OMG ITS DONE! AND IT TOOK: " + ((Date.now() - startDate) / 1000).toString() + " seconds to process 10 articles!");
-                                }
-                            }, 1000);
-                        }
-                        stateChange(-1);
-                        
-                        console.log("OMG ITS DONE! AND IT TOOK: " + ((Date.now() - startDate) / 1000).toString() + " seconds to process 1 article!");
+                new_process_articles(articles, startDate).then(function(data) {
+                        res.send(JSON.stringify(data));
                 });
             });
             response.on('error', function (e) {
@@ -87,35 +82,33 @@ app.get('/nlp', function(req, res) {
         }
 
         bing_news_search(term);
-
-
 });
 
-/*
- * process_articles
- */
-function process_articles(articles, startDate, res)
+// Given object of articles, returns a JSON string with all the data
+// needed by the app
+function new_process_articles(articles, startDate)
 {
         var deferred = Q.defer();
-        var result_data = [];
+        var result = [];
+        for (var i = 0; i < articles.length; i++) {
+                // 1a. Get news source
+                var news_source   = articles[i].provider[0].name;
 
-        for (var num = 2; num < articles.length; num++) {
-                var news_source   = articles[num].provider[0].name;
-                // 1. Extract text from article
+                // 1b. Extract text from article
                 textapi.extract({
-                        url: articles[num].url,
+                        url: articles[i].url,
                         best_image: true
                 }, function(error, response) {
                         if (error) {
-                                res.send("ERROR: Text Extraction from Article");
                                 console.log("LOG: ERROR: " + JSON.stringify(error));
                         } else {
                                 console.log("* * Extracted text successfully");
                                 console.log("Time to extract article text: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
-                                // 2. Sanitize text (remove quotes, etc.)
-                                var article_text  = response.article;
-                                var article_title = response.title;
                                 
+                                // 2a. Sanitize text (remove quotes, etc.)
+                                var article_text  = response.article;
+                                //console.log(article_text);
+                                var article_title = response.title;
 
                                 // The path to your python script
                                 var myPythonScript = "./scripts/nlp_v2.py";
@@ -128,100 +121,58 @@ function process_articles(articles, startDate, res)
                                     return String.fromCharCode.apply(null, data);
                                 };
 
-                                // plz
-                                const spawn = require('child_process').spawn;
-                                const scriptExecution = spawn(pythonExecutable, [myPythonScript, article_text]);
+                                // Spawn child process
+                                const spawn           = require("child_process").spawn;
+                                const scriptExecution = spawn(pythonExecutable, [myPythonScript, article_text.replace(/[^\w.]+/g, " ")]);
+                                scriptExecution.stdout.setEncoding('utf8');
 
                                 // Handle normal output
                                 scriptExecution.stdout.on('data', (data) => {
-                                    deferred.resolve(handle_article_data(data, startDate, article_text, article_title, news_source, result_data));
+                                        console.log("*** ==> Python script executed successfully!");
+                                        var __data = JSON.parse(data);
+                                        // 2b. Extract entities
+                                        textapi.entities({
+                                                "text" : article_text
+                                        }, function(error, __response) {
+                                                if (error) {
+                                                        console.log("ERROR: Extracting entities");
+                                                } else {
+                                                        console.log("* * * * Entities extracted successfully");
+                                                        console.log("Time to extract entities: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
+
+                                                        // 5. Do something with all of this data...
+                                                        result.push({
+                                                                "article" : process_nlp_data(__data, __response.entities, startDate, article_title, news_source)
+                                                        });
+                                                        if (result.length == 3) {
+                                                                deferred.resolve(result);
+                                                        }
+                                                }
+                                        });
+
                                 });
 
                                 // Handle error output
                                 scriptExecution.stderr.on('data', (data) => {
-                                    // As said before, convert the Uint8Array to a readable string.
                                     console.log("ERROR: " + uint8arrayToString(data));
                                 });
-
-                                scriptExecution.on('exit', (code) => {
-                                    console.log("Process quit with code : " + code);
-                                });
-
-
-
-
-/*
-                                // 3. Execute Python script to perform NLP analysis
-                                var options = {
-                                        "mode" : 'text',
-                                        "scriptPath" : './scripts/',
-                                        "pythonOptions" : ['-u'],
-                                        "args" : [article_text]
-                                }
-
-                                
-                                PythonShell.run('nlp_v2.py', options, function(err, results) {
-                                        if (err) {
-                                                console.log("ERROR: Executing Python Script: \n" + JSON.stringify(err, null, '\t'));
-                                        } else {
-                                                console.log("* * * Sentences with sentiment analysis extracted successfully");
-                                                var sentences = JSON.parse(results[0]);
-                                                console.log("Time to extract sentences w/ sentiment analysis: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
-
-                                                // 4. Extract entities from article text
-                                                textapi.entities({
-                                                        "text" : article_text
-                                                }, function(error, __response) {
-                                                        if (error) {
-                                                                console.log("ERROR: Extracting entities");
-                                                        } else {
-                                                                console.log("* * * * Entities extracted successfully");
-                                                                console.log("Time to extract entities: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
-
-                                                                // 5. Do something with all of this data...
-                                                                result_data.push({
-                                                                        "article" : process_nlp_data(sentences, __response.entities, startDate, article_title, news_source)
-                                                                });
-                                                                deferred.resolve(result_data);
-                                                        }
-                                                });
-                                        }
-                                }); */
                         }
                 });
         }
-        return deferred.promise; 
+        return deferred.promise;
 }
 
-/*
- * handle_article_data
- */
-function handle_article_data(data, startDate, article_text, article_title, news_source, result_data)
-{
-        var deferred = Q.defer();
-        console.log("* * * Sentences with sentiment analysis extracted successfully");
-        var sentences = JSON.parse(data);
-        console.log(sentences);
-        console.log("Time to extract sentences w/ sentiment analysis: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
-
-        // 4. Extract entities from article text
-        textapi.entities({
-                "text" : article_text
-        }, function(error, __response) {
-                if (error) {
-                        console.log("ERROR: Extracting entities");
-                } else {
-                        console.log("* * * * Entities extracted successfully");
-                        console.log("Time to extract entities: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
-
-                        // 5. Do something with all of this data...
-                        result_data.push({
-                                "article" : process_nlp_data(sentences, __response.entities, startDate, article_title, news_source)
-                        });
-                        deferred.resolve(result_data);
-                }
-        });
-        return deferred.promise;
+function toUnicode(theString) {
+  var unicodeString = '';
+  for (var i=0; i < theString.length; i++) {
+    var theUnicode = theString.charCodeAt(i).toString(16).toUpperCase();
+    while (theUnicode.length < 4) {
+      theUnicode = '0' + theUnicode;
+    }
+    theUnicode = '\\u' + theUnicode;
+    unicodeString += theUnicode;
+  }
+  return unicodeString;
 }
 
 /*
@@ -249,7 +200,7 @@ function process_nlp_data(sentences, entities, startDate, article_title, news_so
                                 "polarity" : 0
                         }
                 ],
-                title : article_title,
+                title  : article_title,
                 source : news_source        
         };
 
@@ -298,11 +249,14 @@ function getEntities(response)
 {
         var ents = [];
         if (response.organization)
-                ents.push(response.organization[0])
+                if (response.organization[0])
+                        ents.push(response.organization[0])
         if (response.location)
-                ents.push(response.location[0]);
+                if (response.location[0])
+                        ents.push(response.location[0]);
         if (response.person)
-                ents.push(response.person[0]);
+                if (response.person[0])
+                        ents.push(response.person[0]);
         return ents;
 }
 
