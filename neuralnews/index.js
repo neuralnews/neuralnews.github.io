@@ -12,6 +12,7 @@ import { StackNavigator } from 'react-navigation'
 import Search from 'react-native-search-box'
 import SearchResultsScreen from './searchResults.js'
 
+
 // NewsAPI key: df226193949242e689ab6d8117191610
 class HomeScreen extends Component {
   static navigationOptions = {
