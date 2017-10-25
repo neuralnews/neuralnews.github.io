@@ -1,13 +1,41 @@
 import React from 'react';
-import {Text, AppRegistry, StyleSheet, ScrollView, View, Dimensions, Image, TouchableHighlight} from 'react-native';
+import {Text, AppRegistry, StyleSheet, ScrollView, View, Dimensions, Image, TouchableHighlight, processColor} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import Search from 'react-native-search-box';
 import Nav from './index.js';
+import { WebView, Linking } from 'react-native';
+var Browser = require('react-native-browser');
+
 
 export default class SearchResultsScreen extends React.Component {
     // Navigation options for stackNavigator
     static navigationOptions = {
         title: 'Neural News'
+    }
+
+    /*
+     * openLink
+     */
+    _openLink = (url) => {
+      alert("BOYA");
+      // if (!this.state.toggled) {
+      //   return null;
+      // }
+      //const url = 'https://www.google.com';
+      return (
+        <WebView
+          ref={(ref) => { this.webview = ref; }}
+          source={{ uri: 'https://www.google.com' }}
+          onNavigationStateChange={(event) => {
+            // if (event.url !== 'https://www.google.com') {
+            //   this.webview.stopLoading();
+            //   Linking.openURL(event.url);
+            // }
+            alert("HOOO");
+            Linking.openURL(event.url);
+          }}
+        />
+      );
     }
 
     /*
@@ -17,12 +45,13 @@ export default class SearchResultsScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            articles: this.props.navigation.state.params.articles
+            articles: this.props.navigation.state.params.articles,
+            toggled: false
         }
         alert(JSON.stringify(this.state.articles));
+        this._openLink = this._openLink.bind(this);
+        this.setState = this.setState.bind(this);
     }
-
-
 
     /*
      * renderItem
@@ -34,13 +63,10 @@ export default class SearchResultsScreen extends React.Component {
             <View style={styles.slide}>
                 {/* News network logo */}
                 <TouchableHighlight onPress={() => {
-                    alert("TODO: Navigate to article");
-                }}>
-                    <Image
-                        source={require("./assets/cnn.png")}
-                        style={styles.articleImage}
-                    />
-                </TouchableHighlight>
+                  alert("HOO");
+                  return (
+                    <LinkArticle url={item.url}/>
+                  )}>
 
                 {/* TODO: Article title */}
 
@@ -110,6 +136,27 @@ export default class SearchResultsScreen extends React.Component {
             </View>
         );
     }
+}
+
+class LinkArticle extends React.Component {
+
+  render() {
+
+    return (
+          <WebView
+            ref={(ref) => { this.webview = ref; }}
+            source={{ uri: this.props.poop }}
+            onLoadStart={(event) => {
+              if (event.url !== 'https://www.google.com') {
+                this.webview.stopLoading();
+                Linking.openURL(event.url);
+              }
+              alert("HOOO");
+              Linking.openURL(event.url);
+            }}
+          />
+        );
+  }
 }
 
 // StyleSheet
