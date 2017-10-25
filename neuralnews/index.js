@@ -31,13 +31,14 @@ class HomeScreen extends Component {
       return new Promise((resolve, reject) => {
           // 2. Make HTTP GET call to the server
           fetch('https://neuralnews.herokuapp.com/sanders.json')
+          //fetch('https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20'))
 
           // 3. Handle the response
               .then((response) => response.json())
 
               // 3b. Convert JSON string to JS object
               .then((resJson) => {
-                  this.props.navigation.navigate('MyResults', { "articles" : resJson})
+                  this.props.navigation.navigate('MyResults', { "articles" : resJson, "title": 'POOP', "topic": text})
                   resolve();
               })
 
@@ -56,6 +57,7 @@ class HomeScreen extends Component {
                 {/* Search field */}
                 <Search
                   onSearch={this.onSearch}
+                  style={styles.searchBar}
                 />
 
                 {/* Trending topics */}
@@ -74,10 +76,13 @@ class TrendingTopics extends Component {
           Trending Topics
         </Text>
         <TrendingTopic name="Donald Trump" onTopicPress={this.props.onTopicPress}/>
-        <TrendingTopic name="Hurricane Maria" onTopicPress={this.props.onTopicPress}/>
-        <TrendingTopic name="Graham-Cassidy" onTopicPress={this.props.onTopicPress}/>
+        <TrendingTopic name="Jeff Flake" onTopicPress={this.props.onTopicPress}/>
+        <TrendingTopic name="Donald Trump–Russia dossier" onTopicPress={this.props.onTopicPress}/>
+        <TrendingTopic name="Democratic National Committee" onTopicPress={this.props.onTopicPress}/>
         <TrendingTopic name="Puerto Rico" onTopicPress={this.props.onTopicPress}/>
-        <TrendingTopic name="NFL" onTopicPress={this.props.onTopicPress}/>
+        <TrendingTopic name="North Korea" onTopicPress={this.props.onTopicPress}/>
+        <TrendingTopic name="United States Senator" onTopicPress={this.props.onTopicPress}/>
+
       </View>
     )
   }
@@ -98,11 +103,11 @@ class TrendingTopic extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'white',
     },
     headerContainer: {
-        borderBottomWidth: 0.75,
-        borderBottomColor: 'black'
+        //borderBottomWidth: 0.75,
+        //borderBottomColor: 'black'
     },
     text: {
         fontSize: 20,
@@ -110,18 +115,28 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     searchBar: {
-        flex: 1,
-        flexDirection: "column"
+        //flex: 1,
+        //flexDirection: "column"
+        color: 'white',
+        //placeholderTextColor: 'white',
+        //titleCancelColor: 'white',
+        //tintColorSearch: 'white',
+        //tintColorDelete: 'white',
     },
     trendingTopicsContainer: {
-        borderWidth: 1,
-        borderColor: 'black'
+        //borderWidth: 1,
+        //borderColor: 'black'
+        flex: 1,
+        //justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10
     },
     trendingTopicsText: {
         textAlign: 'center',
-        fontFamily: 'Arial',
-        fontWeight: 'bold',
+        //fontFamily: 'Arial',
+        //fontWeight: 'bold',
         fontSize: 24,
+        padding: 20
     },
     wrapperStatusBarContainer: {
         backgroundColor: "#525252"
@@ -129,8 +144,15 @@ const styles = StyleSheet.create({
 });
 
 const Nav = StackNavigator({
-    Home: { screen: HomeScreen },
-    MyResults: { screen: SearchResultsScreen }
+    Home: {
+      screen: HomeScreen
+    },
+    MyResults: {
+      screen: SearchResultsScreen,
+      navigationOptions: ({navigation}) => ({
+        title: `${navigation.state.params.topic}`,
+      }),
+    }
 });
 
 export default Nav;

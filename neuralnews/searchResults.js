@@ -6,18 +6,34 @@ import Nav from './index.js';
 import { WebView, Linking } from 'react-native';
 var Browser = require('react-native-browser');
 
+const articleImageDictionary = {
+  'MSN':              require('./assets/msn.png'),
+  'CNN':              require('./assets/cnn.png'),
+  'Huffington Post':  require('./assets/huffington_post.png'),
+  'Fox News':         require('./assets/fox_news.png'),
+  'Breitbart':        require('./assets/breitbart.jpeg'),
+  'NBC':              require('./assets/nbc.png'),
+  'Politico':         require('./assets/politico.png'),
+  'Washington Post':  require('./assets/washington_post.png'),
+  'unknown':          require('./assets/nnn.jpg'),
+}
+
+var mapArticleImage = function(source) {
+  if (source in articleImageDictionary) {
+    return articleImageDictionary[source]
+  } else {
+    return articleImageDictionary['unknown']
+  }
+}
+
 
 export default class SearchResultsScreen extends React.Component {
     // Navigation options for stackNavigator
-    static navigationOptions = {
-        title: 'Neural News'
-    }
 
     /*
      * openLink
      */
     _openLink = (url) => {
-      alert("BOYA");
       // if (!this.state.toggled) {
       //   return null;
       // }
@@ -31,7 +47,6 @@ export default class SearchResultsScreen extends React.Component {
             //   this.webview.stopLoading();
             //   Linking.openURL(event.url);
             // }
-            alert("HOOO");
             Linking.openURL(event.url);
           }}
         />
@@ -48,7 +63,7 @@ export default class SearchResultsScreen extends React.Component {
             articles: this.props.navigation.state.params.articles,
             toggled: false
         }
-        alert(JSON.stringify(this.state.articles));
+        //alert(JSON.stringify(this.state.articles));
         this._openLink = this._openLink.bind(this);
         this.setState = this.setState.bind(this);
     }
@@ -63,12 +78,24 @@ export default class SearchResultsScreen extends React.Component {
             <View style={styles.slide}>
                 {/* News network logo */}
                 <TouchableHighlight onPress={() => {
-                  alert("HOO");
                   return (
                     <LinkArticle url={item.url}/>
-                  )}>
+                  );}}>
+                  <Image
+                    source={mapArticleImage(item.article.source)}
+                    style={styles.articleImage}
+                    //source={require('./assets/nnn.jpg')}
+                  />
+                </TouchableHighlight>
 
-                {/* TODO: Article title */}
+                {/* Article title */}
+                <View style={styles.articleTitleContainer}>
+                  <Image
+                    source={mapArticleImage(item.article.source)}
+                    style={{height: 45, width: 45}}
+                  />
+                  <Text style={styles.articleTitle}>{item.article.title}</Text>
+                </View>
 
                 {/* Article description */}
                 <View style={styles.descriptionContainer}>
@@ -116,7 +143,7 @@ export default class SearchResultsScreen extends React.Component {
                 <View>
                     <Text
                         style={styles.topicHeader}>
-                        {this.props.navigation.state.params.topic}
+
                     </Text>
                 </View>
 
@@ -141,17 +168,16 @@ export default class SearchResultsScreen extends React.Component {
 class LinkArticle extends React.Component {
 
   render() {
-
+    alert("WOO")
     return (
           <WebView
             ref={(ref) => { this.webview = ref; }}
             source={{ uri: this.props.poop }}
-            onLoadStart={(event) => {
+            onNavigationStateChange={(event) => {
               if (event.url !== 'https://www.google.com') {
                 this.webview.stopLoading();
                 Linking.openURL(event.url);
               }
-              alert("HOOO");
               Linking.openURL(event.url);
             }}
           />
@@ -163,10 +189,10 @@ class LinkArticle extends React.Component {
 const styles = StyleSheet.create({
     topicHeader: {
         textAlign: "center",
-        fontSize: 36,
+        fontSize: 20,
         paddingTop: 5,
         paddingBottom: 5,
-        color: "white"
+        color: "black"
     },
     todoText: {
         textAlign: "center",
@@ -193,12 +219,15 @@ const styles = StyleSheet.create({
         paddingLeft: 7,
         paddingTop: 10,
         fontSize: 18,
-        color: "white"
+        color: "black"
+    },
+    articleTitle: {
+
     },
     articleDescription: {
         paddingLeft: 7,
         paddingTop: 5,
-        color: "white"
+        color: "black"
     },
     analysisContainer: {
         paddingTop: 10
@@ -209,23 +238,29 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.7,
         shadowRadius: 5,
         height: Dimensions.get("window").height,
-        backgroundColor: '#7d7d7d'
+        //backgroundColor: '#7d7d7d',
+        backgroundColor: 'white',
+        width: 300
 
     },
     wrapperContainer: {
-        backgroundColor: "#525252"
+        backgroundColor: "white"
     },
     articleTitleContainer: {
-        flex:0.5, //height (according to its parent),
+        //flex:0.5, //height (according to its parent),
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        padding: 7,
+        width: 260
     },
     articleTitle: {
-        fontSize: 16,
-        flex: 0.8,
-        color: 'white',
-        textAlign: 'center',
-        flexWrap: 'wrap'
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: 'black',
+        //textAlign: 'center',
+        flexWrap: 'wrap',
+        paddingLeft: 7,
+        //margin: 30
     }
 });
