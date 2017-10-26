@@ -4,7 +4,7 @@ import Carousel from 'react-native-snap-carousel';
 import Search from 'react-native-search-box';
 import { WebView, Linking } from 'react-native';
 
-const articleImageDictionary = {
+const networkImageDictionary = {
   'MSN':              require('./assets/msn.png'),
   'CNN':              require('./assets/cnn.png'),
   'Huffington Post':  require('./assets/huffington_post.png'),
@@ -24,12 +24,12 @@ const polarityImageDictionary = {
   'neutral' : require('./assets/neutral.png')
 };
 
-var mapArticleImage = function(source)
+var mapNetworkImage = function(source)
 {
-  if (source in articleImageDictionary) {
-    return articleImageDictionary[source]
+  if (source in networkImageDictionary) {
+    return networkImageDictionary[source]
   } else {
-    return articleImageDictionary['unknown']
+    return networkImageDictionary['unknown']
   }
 }
 
@@ -61,6 +61,7 @@ export default class SearchResultsScreen extends React.Component {
             toggled: false,
             url: 'some_url'
         }
+        this.onSearch = this.onSearch.bind(this)
     }
 
     /*
@@ -68,51 +69,65 @@ export default class SearchResultsScreen extends React.Component {
      * Renders a single article object
      */
     _renderItem({item}) {
-        item.article.image = "";
-        item.article.image = mapArticleImage(item.article.source);
         return (
                 <View style={styles.slide}>
-                    <ScrollView>
+
                         {/* News network logo */}
-                        <TouchableHighlight onPress={() => {
-                            Linking.openURL(item.article.url);
-                          }}>
-                          <Image
-                            source={mapArticleImage(item.article.source)}
-                            style={styles.articleImage}
-                          />
+                        <TouchableHighlight
+                            onPress={() => {
+                              Linking.openURL(item.article.url);
+                            }}
+                            style={styles.linkContainer}
+                        >
+                          <View >
+                            <Image
+                              source={mapNetworkImage(item.article.source)}
+                              style={styles.articleImage}
+                            />
+                            <View style={styles.articleTitleContainer}>
+                              <Image
+                                source={{uri: item.article.thumbnail}}
+                                style={{height: 45, width: 45}}
+                              />
+                              <Text style={styles.articleTitle}>{item.article.title}</Text>
+                            </View>
+                          </View>
                         </TouchableHighlight>
 
                         {/* Article title */}
-                        <View style={styles.articleTitleContainer}>
-                          <Image
-                            source={mapArticleImage(item.article.source)}
-                            style={{height: 45, width: 45}}
-                          />
-                          <Text style={styles.articleTitle}>{item.article.title}</Text>
-                        </View>
-
+                    <ScrollView>
                         {/* Article description */}
                         <View style={styles.articleDescriptionContainer}>
-                            <Text style={styles.articleDescriptionHeader}>Description</Text>
                             <Text style={styles.articleDescription}>{item.article.description}</Text>
                         </View>
-
-                        <Text style={styles.articleDescriptionHeader}>Analysis</Text>
                         {/* NLP analysis */}
                         <View style={styles.analysisContainer}>
-                            <Text style={styles.articleDescription}>{item.article.data[0].ent}</Text>
-                            <Image
-                                source={mapPolarityImage(item.article.data[0].polarity)}
-                                style={{height: 60, width: 120}}
-                            />
+                          <View style={styles.entityContainer}>
+                            <Text
+                              style={styles.entity}
+                              onPress={() => this.onSearch(item.article.data[0].ent)}
+                            >
+                              {item.article.data[0].ent}
+                            </Text>
+                          </View>
+                          <Image
+                              source={mapPolarityImage(item.article.data[0].polarity)}
+                              style={{height: 60, width: 120}}
+                          />
                         </View>
                         <View style={styles.analysisContainer}>
-                            <Text style={styles.articleDescription}>{item.article.data[1].ent}</Text>
-                            <Image
-                                source={mapPolarityImage(item.article.data[1].polarity)}
-                                style={{height: 60, width: 120}}
-                            />
+                          <View style={styles.entityContainer}>
+                            <Text
+                              style={styles.entity}
+                              onPress={() => this.onSearch(item.article.data[1].ent)}
+                            >
+                              {item.article.data[0].ent}
+                            </Text>
+                          </View>
+                          <Image
+                              source={mapPolarityImage(item.article.data[1].polarity)}
+                              style={{height: 60, width: 120}}
+                          />
                         </View>
                     </ScrollView>
                 </View>
@@ -123,12 +138,27 @@ export default class SearchResultsScreen extends React.Component {
      * onSearch
      *
      */
-    onSearch = (text) => {
-        return new Promise((resolve, reject) => {
-            this.props.navigation.navigate('MyResults', {"topic": text})
-            resolve();
-        });
-    }
+     onSearch = (text) => {
+         return new Promise((resolve, reject) => {
+             // 2. Make HTTP GET call to the server
+             //fetch('https://neuralnews.herokuapp.com/trump.json')
+             fetch('https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20'))
+
+             // 3. Handle the response
+                 .then((response) => response.json())
+
+                 // 3b. Convert JSON string to JS object
+                 .then((resJson) => {
+                     this.props.navigation.navigate('MyResults', { "articles" : resJson, "topic": text})
+                     resolve();
+                 })
+
+                 // 3c. Catch errors
+                 .catch((error) => {
+                     alert("Error: " + JSON.stringify(error));
+                 });
+         });
+     }
 
     /*
      * render
@@ -240,10 +270,22 @@ const styles = StyleSheet.create({
         color: "black",
         flexWrap: "wrap"
     },
+    entityContainer: {
+      flexWrap: "wrap",
+      width: 175
+    },
+    entity: {
+      paddingLeft: 7,
+      paddingRight: 7,
+      color: "black",
+      fontWeight: 'bold',
+      fontSize: 16,
+    },
     analysisContainer: {
         paddingTop: 10,
-        justifyContent : 'space-between',
-        flexDirection : 'row'
+        //justifyContent : 'space-between',
+        flexDirection : 'row',
+        alignItems: 'center',
 
     },
     slide: {
@@ -251,14 +293,17 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 5, height: 5},
         shadowOpacity: 0.7,
         shadowRadius: 5,
-        height: Dimensions.get("window").height,
+        height: Dimensions.get("window").height - 140,
         backgroundColor: 'white',
-        width: 300
+        width: 300,
 
     },
     wrapperContainer: {
         backgroundColor: "white",
         paddingBottom: 50
+    },
+    linkContainer: {
+
     },
     articleTitleContainer: {
         //flex:0.5, //height (according to its parent),

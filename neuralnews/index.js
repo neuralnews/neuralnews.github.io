@@ -30,15 +30,15 @@ class HomeScreen extends Component {
   onSearch = (text) => {
       return new Promise((resolve, reject) => {
           // 2. Make HTTP GET call to the server
-          fetch('https://neuralnews.herokuapp.com/sanders.json')
-          //fetch('https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20'))
+          //fetch('https://neuralnews.herokuapp.com/trump.json')
+          fetch('https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20'))
 
           // 3. Handle the response
               .then((response) => response.json())
 
               // 3b. Convert JSON string to JS object
               .then((resJson) => {
-                  this.props.navigation.navigate('MyResults', { "articles" : resJson, "title": 'POOP', "topic": text})
+                  this.props.navigation.navigate('MyResults', { "articles" : resJson, "topic": text})
                   resolve();
               })
 
