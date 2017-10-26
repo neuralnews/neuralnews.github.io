@@ -37,9 +37,9 @@ var mapPolarityImage = function(polarity)
 {
     if (polarity <= -0.75) {
         return polarityImageDictionary['very_negative'];
-    } else if (polarity <= -0.25) {
+    } else if (polarity <= -0.1) {
         return polarityImageDictionary['somewhat_negative'];
-    } else if (polarity >= 0.25 && polarity <= 0.75) {
+    } else if (polarity >= 0.1 && polarity <= 0.75) {
         return polarityImageDictionary['somewhat_positive'];
     } else if (polarity > 0.75) {
         return polarityImageDictionary['very_positive'];
@@ -130,6 +130,20 @@ export default class SearchResultsScreen extends React.Component {
                                 style={{height: 60, width: 120}}
                             />
                           </View>
+                            <View style={styles.entitiesContainer}>
+                                <View style={styles.entityContainer}>
+                                    <Text
+                                        style={styles.entity}
+                                        onPress={() => this.onSearch(item.article.data[2].ent)}
+                                    >
+                                        {item.article.data[2].ent}
+                                    </Text>
+                                </View>
+                                <Image
+                                    source={mapPolarityImage(item.article.data[2].polarity)}
+                                    style={{height: 60, width: 120}}
+                                />
+                            </View>
                         </View>
                     </ScrollView>
                 </View>
@@ -144,7 +158,12 @@ export default class SearchResultsScreen extends React.Component {
          return new Promise((resolve, reject) => {
              // 2. Make HTTP GET call to the server
              //fetch('https://neuralnews.herokuapp.com/trump.json')
-             fetch('https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20'))
+             fetch('https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20'), {
+                     method: 'GET',
+                     headers: {
+                     'Accept': 'text',
+                     'Content-Type': 'text',
+                 }})
 
              // 3. Handle the response
                  .then((response) => response.json())
@@ -157,7 +176,7 @@ export default class SearchResultsScreen extends React.Component {
 
                  // 3c. Catch errors
                  .catch((error) => {
-                     alert("Error: " + JSON.stringify(error));
+                     alert("Fetch Error: " + JSON.stringify(error));
                  });
          });
      }

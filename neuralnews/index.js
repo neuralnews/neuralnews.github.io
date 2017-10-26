@@ -31,7 +31,12 @@ class HomeScreen extends Component {
       return new Promise((resolve, reject) => {
           // 2. Make HTTP GET call to the server
           //fetch('https://neuralnews.herokuapp.com/trump.json')
-          fetch('https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20'))
+          fetch('https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20'), {
+              method: 'GET',
+              headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+              }})
 
           // 3. Handle the response
               .then((response) => response.json())
