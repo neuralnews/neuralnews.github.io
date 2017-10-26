@@ -8,7 +8,6 @@
     "aylien_textapi": "^0.6.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "node": "0.0.0",
     "node-fetch": "^1.7.3",
     "python-shell": "^0.4.0",
     "q": "^1.5.1",

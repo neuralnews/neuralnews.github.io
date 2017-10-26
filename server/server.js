@@ -29,7 +29,10 @@ app.get('/', function (req, res) {
 /* Serve test data */
 app.get('/sanders.json', function(req, res) {
         res.sendFile(__dirname + '/test_data/sanders.json');
-})
+});
+app.get('/trump.json', function(req, res) {
+        res.sendFile(__dirname + '/test_data/trump.json');
+});
 
 /* Trying out things from scratch... */
 app.get('/query', function(req, res) {
@@ -88,98 +91,233 @@ app.get('/query', function(req, res) {
 // needed by the app
 function new_process_articles(articles, startDate)
 {
-        var deferred = Q.defer();
-        var result = [];
-        for (var i = 0; i < articles.length; i++) {
-                // 1a. Get news source
-                var news_source   = articles[i].provider[0].name;
+        var deferred       = Q.defer();
+        var result         = [];
 
-                // 1b. Extract text from article
-                textapi.extract({
-                        url: articles[i].url,
-                        best_image: true
-                }, function(error, response) {
-                        if (error) {
-                                console.log("LOG: ERROR: " + JSON.stringify(error));
-                        } else {
-                                console.log("* * Extracted text successfully");
-                                console.log("Time to extract article text: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
-                                
-                                // 2a. Sanitize text (remove quotes, etc.)
-                                var article_text  = response.article;
-                                //console.log(article_text);
-                                var article_title = response.title;
+        textapi.extract({
+                url: articles[0].url,
+                best_image: true
+        }, function(error, response) {
+                if (error) {
+                        console.log("LOG: ERROR: " + JSON.stringify(error));
+                        console.log("==> Result: " + JSON.stringify(response));
+                } else {
+                        console.log("* * Extracted text successfully");
+                        console.log("Time to extract article text: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
+                        
+                        // 2a. TODO: sanitize text (remove quotes, etc.)
+                        var article_text  = response.article;
 
-                                // The path to your python script
-                                var myPythonScript = "./scripts/nlp_v2.py";
+                        // The path to your python script
+                        var myPythonScript = "./scripts/nlp_v2.py";
 
-                                // Provide the path of the python executable, if python is available as environment variable then you can use only "python"
-                                var pythonExecutable = "python";
+                        // Provide the path of the python executable, if python is available as environment variable then you can use only "python"
+                        var pythonExecutable = "python";
 
-                                // Function to convert an Uint8Array to a string
-                                var uint8arrayToString = function(data){
-                                    return String.fromCharCode.apply(null, data);
-                                };
+                        // Function to convert an Uint8Array to a string
+                        var uint8arrayToString = function(data){
+                            return String.fromCharCode.apply(null, data);
+                        };
 
-                                // Spawn child process
-                                const spawn           = require("child_process").spawn;
-                                const scriptExecution = spawn(pythonExecutable, [myPythonScript, article_text.replace(/[^\w.]+/g, " ")]);
-                                scriptExecution.stdout.setEncoding('utf8');
+                        // Spawn child process
+                        const spawn           = require("child_process").spawn;
+                        const scriptExecution = spawn(pythonExecutable, [myPythonScript, article_text.replace(/[^\w.]+/g, " ")]);
+                        scriptExecution.stdout.setEncoding('utf8');
 
-                                // Handle normal output
-                                scriptExecution.stdout.on('data', (data) => {
-                                        console.log("*** ==> Python script executed successfully!");
-                                        var __data = JSON.parse(data);
-                                        // 2b. Extract entities
-                                        textapi.entities({
-                                                "text" : article_text
-                                        }, function(error, __response) {
-                                                if (error) {
-                                                        console.log("ERROR: Extracting entities");
-                                                } else {
-                                                        console.log("* * * * Entities extracted successfully");
-                                                        console.log("Time to extract entities: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
+                        stdout_1 = '';
+                        // Handle normal output
+                        scriptExecution.stdout.on('data', (data) => {
+                                stdout_1 += data;
+                        });
 
-                                                        // 5. Do something with all of this data...
-                                                        result.push({
-                                                                "article" : process_nlp_data(__data, __response.entities, startDate, article_title, news_source)
-                                                        });
-                                                        if (result.length == 3) {
-                                                                deferred.resolve(result);
-                                                        }
+                        scriptExecution.stdout.on('end', () => {
+                            // 2b. Extract entities
+                                textapi.entities({
+                                        "text" : article_text
+                                }, function(error, __response) {
+                                        if (error) {
+                                                console.log("ERROR: Extracting entities");
+                                        } else {
+                                                console.log("* * * * Entities extracted successfully");
+                                                console.log("Time to extract entities: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
+                                                
+                                                // 5. Do something with all of this data...
+                                                data_obj = process_nlp_data(JSON.parse(stdout_1), __response.entities, startDate, response.title, articles[0].description, articles[0].image ? articles[0].image.thumbnail.contentUrl : 'null', articles[0].url, articles[0].provider[0].name);
+                                                result.push({
+                                                        "article" : data_obj
+                                                });
+                                                console.log("PUSHED SUCCESSFULLY, SIZE OF RESULTS: " + result.length.toString());
+                                                if (result.length == 3) {
+                                                        deferred.resolve(result);
                                                 }
-                                        });
-
+                                        }
                                 });
+                        });
 
-                                // Handle error output
-                                scriptExecution.stderr.on('data', (data) => {
-                                    console.log("ERROR: " + uint8arrayToString(data));
+                        // Handle error output
+                        scriptExecution.stderr.on('data', (data) => {
+                            console.log("ERROR: " + uint8arrayToString(data));
+                        });
+                }
+        });
+
+        textapi.extract({
+                url: articles[1].url,
+                best_image: true
+        }, function(error, response) {
+                if (error) {
+                        console.log("LOG: ERROR: " + JSON.stringify(error));
+                        console.log("==> Result: " + JSON.stringify(response));
+                } else {
+                        console.log("* * Extracted text successfully");
+                        console.log("Time to extract article text: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
+                        
+                        // 2a. TODO: sanitize text (remove quotes, etc.)
+                        var article_text  = response.article;
+
+                        // The path to your python script
+                        var myPythonScript = "./scripts/nlp_v2.py";
+
+                        // Provide the path of the python executable, if python is available as environment variable then you can use only "python"
+                        var pythonExecutable = "python";
+
+                        // Function to convert an Uint8Array to a string
+                        var uint8arrayToString = function(data){
+                            return String.fromCharCode.apply(null, data);
+                        };
+
+                        // Spawn child process
+                        const spawn           = require("child_process").spawn;
+                        const scriptExecution = spawn(pythonExecutable, [myPythonScript, article_text.replace(/[^\w.]+/g, " ")]);
+                        scriptExecution.stdout.setEncoding('utf8');
+
+                        stdout_2 = '';
+                        // Handle normal output
+                        scriptExecution.stdout.on('data', (data) => {
+                                stdout_2 += data;
+                        });
+
+                        scriptExecution.stdout.on('end', () => {
+                            console.log("*** ==> Python script executed successfully!");
+                            // 2b. Extract entities
+                                textapi.entities({
+                                        "text" : article_text
+                                }, function(error, __response) {
+                                        if (error) {
+                                                console.log("ERROR: Extracting entities");
+                                        } else {
+                                                console.log("* * * * Entities extracted successfully");
+                                                console.log("Time to extract entities: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
+                                                
+                                                // 5. Do something with all of this data...
+                                                data_obj = process_nlp_data(JSON.parse(stdout_2), __response.entities, startDate, response.title, articles[1].description, articles[1].image ? articles[1].image.thumbnail.contentUrl : 'null', articles[1].url, articles[1].provider[0].name);
+                                                result.push({
+                                                        "article" : data_obj
+                                                });
+                                                console.log("PUSHED SUCCESSFULLY, SIZE OF RESULTS: " + result.length.toString());
+                                                if (result.length == 3) {
+                                                        deferred.resolve(result);
+                                                }
+                                        }
                                 });
-                        }
-                });
-        }
+                        });
+
+                        // Handle error output
+                        scriptExecution.stderr.on('data', (data) => {
+                            console.log("ERROR: " + uint8arrayToString(data));
+                        });
+                }
+        });
+
+        textapi.extract({
+                url: articles[2].url,
+                best_image: true
+        }, function(error, response) {
+                if (error) {
+                        console.log("LOG: ERROR: " + JSON.stringify(error));
+                        console.log("==> Result: " + JSON.stringify(response));
+                } else {
+                        console.log("* * Extracted text successfully");
+                        console.log("Time to extract article text: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
+                        
+                        // 2a. TODO: sanitize text (remove quotes, etc.)
+                        var article_text  = response.article;
+
+                        // The path to your python script
+                        var myPythonScript = "./scripts/nlp_v2.py";
+
+                        // Provide the path of the python executable, if python is available as environment variable then you can use only "python"
+                        var pythonExecutable = "python";
+
+                        // Function to convert an Uint8Array to a string
+                        var uint8arrayToString = function(data){
+                            return String.fromCharCode.apply(null, data);
+                        };
+
+                        // Spawn child process
+                        const spawn           = require("child_process").spawn;
+                        const scriptExecution = spawn(pythonExecutable, [myPythonScript, article_text.replace(/[^\w.]+/g, " ")]);
+                        scriptExecution.stdout.setEncoding('utf8');
+                        
+                        stdout_3 = ''
+
+                        // Handle normal output
+                        scriptExecution.stdout.on('data', (data) => {
+                                stdout_3 += data;
+                        });
+
+                        // Handle error output
+                        scriptExecution.stderr.on('data', (data) => {
+                            console.log("ERROR: " + uint8arrayToString(data));
+                        });
+
+                        scriptExecution.stdout.on('end', () => {
+                            // 2b. Extract entities
+                                textapi.entities({
+                                        "text" : article_text
+                                }, function(error, __response) {
+                                        if (error) {
+                                                console.log("ERROR: Extracting entities");
+                                        } else {
+                                                console.log("* * * * Entities extracted successfully");
+                                                console.log("Time to extract entities: " + ((Date.now() - startDate) / 1000).toString() + " seconds\n");
+                                                
+                                                // 5. Do something with all of this data...
+                                                data_obj = process_nlp_data(JSON.parse(stdout_3), __response.entities, startDate, response.title, articles[2].description, articles[2].image ? articles[2].image.thumbnail.contentUrl : 'null', articles[2].url, articles[2].provider[0].name);
+                                                result.push({
+                                                        "article" : data_obj
+                                                });
+                                                console.log("PUSHED SUCCESSFULLY, SIZE OF RESULTS: " + result.length.toString());
+                                                if (result.length == 3) {
+                                                        deferred.resolve(result);
+                                                }
+                                        }
+                                });
+                        })
+                }
+        });
+
         return deferred.promise;
 }
 
 function toUnicode(theString) {
-  var unicodeString = '';
-  for (var i=0; i < theString.length; i++) {
-    var theUnicode = theString.charCodeAt(i).toString(16).toUpperCase();
-    while (theUnicode.length < 4) {
-      theUnicode = '0' + theUnicode;
-    }
-    theUnicode = '\\u' + theUnicode;
-    unicodeString += theUnicode;
-  }
-  return unicodeString;
+        var unicodeString = '';
+        for (var i=0; i < theString.length; i++) {
+                var theUnicode = theString.charCodeAt(i).toString(16).toUpperCase();
+                while (theUnicode.length < 4) {
+                        theUnicode = '0' + theUnicode;
+                }
+                theUnicode = '\\u' + theUnicode;
+                unicodeString += theUnicode;
+        }
+        return unicodeString;
 }
 
 /*
  * process_nlp_data
  * 
  */
-function process_nlp_data(sentences, entities, startDate, article_title, news_source)
+function process_nlp_data(sentences, entities, startDate, article_title, description, thumbnail, url, news_source)
 {
         var ents   = getEntities(entities);
         var result = {
@@ -200,8 +338,11 @@ function process_nlp_data(sentences, entities, startDate, article_title, news_so
                                 "polarity" : 0
                         }
                 ],
-                title  : article_title,
-                source : news_source        
+                title       : article_title,
+                description : description,
+                source      : news_source,
+                url         : url,
+                thumbnail   : thumbnail
         };
 
         for (var i = 0; i < ents.length; i++) {
@@ -247,6 +388,7 @@ function sanitizeSentences(sentences)
  */
 function getEntities(response)
 {
+        // TODO: Make this work a little better...
         var ents = [];
         if (response.organization)
                 if (response.organization[0])

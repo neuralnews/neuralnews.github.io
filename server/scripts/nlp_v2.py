@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # neural_news
 from textblob import TextBlob
 import json
@@ -8,18 +9,22 @@ def analysis(text):
     sentences = blob.sentences
     result    = []
     for sentence in sentences:
-        result.append({
-            "text"     : str(sentence),
-            "polarity" : str(sentence.polarity)
-        })
-    try:
-        print(json.dumps(result))
-    except:
-        print("error")
+        try:
+            result.append({
+                "text"     : str(sentence),
+                "polarity" : str(sentence.polarity)
+            })
+        except:
+            result.append({
+                "text" : "nothing",
+                "polarity" : "0"
+            })
+    print(json.dumps(result))
+    sys.stdout.flush()
 
 def main():
     article = sys.argv[1]
-    return analysis(article)
+    analysis(article)
 
 if __name__ == "__main__":
     main()
