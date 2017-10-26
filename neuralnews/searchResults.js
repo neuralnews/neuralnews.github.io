@@ -102,32 +102,34 @@ export default class SearchResultsScreen extends React.Component {
                         </View>
                         {/* NLP analysis */}
                         <View style={styles.analysisContainer}>
-                          <View style={styles.entityContainer}>
-                            <Text
-                              style={styles.entity}
-                              onPress={() => this.onSearch(item.article.data[0].ent)}
-                            >
-                              {item.article.data[0].ent}
-                            </Text>
+                          <View style={styles.entitiesContainer}>
+                            <View style={styles.entityContainer}>
+                              <Text
+                                style={styles.entity}
+                                onPress={() => this.onSearch(item.article.data[0].ent)}
+                              >
+                                {item.article.data[0].ent}
+                              </Text>
+                            </View>
+                            <Image
+                                source={mapPolarityImage(item.article.data[0].polarity)}
+                                style={{height: 60, width: 120}}
+                            />
                           </View>
-                          <Image
-                              source={mapPolarityImage(item.article.data[0].polarity)}
-                              style={{height: 60, width: 120}}
-                          />
-                        </View>
-                        <View style={styles.analysisContainer}>
-                          <View style={styles.entityContainer}>
-                            <Text
-                              style={styles.entity}
-                              onPress={() => this.onSearch(item.article.data[1].ent)}
-                            >
-                              {item.article.data[0].ent}
-                            </Text>
+                          <View style={styles.entitiesContainer}>
+                            <View style={styles.entityContainer}>
+                              <Text
+                                style={styles.entity}
+                                onPress={() => this.onSearch(item.article.data[1].ent)}
+                              >
+                                {item.article.data[1].ent}
+                              </Text>
+                            </View>
+                            <Image
+                                source={mapPolarityImage(item.article.data[1].polarity)}
+                                style={{height: 60, width: 120}}
+                            />
                           </View>
-                          <Image
-                              source={mapPolarityImage(item.article.data[1].polarity)}
-                              style={{height: 60, width: 120}}
-                          />
                         </View>
                     </ScrollView>
                 </View>
@@ -267,8 +269,12 @@ const styles = StyleSheet.create({
     articleDescription: {
         paddingLeft: 7,
         paddingRight: 7,
+        paddingTop: 7,
         color: "black",
         flexWrap: "wrap"
+    },
+    analysisContainer: {
+        paddingBottom: 10
     },
     entityContainer: {
       flexWrap: "wrap",
@@ -281,7 +287,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 16,
     },
-    analysisContainer: {
+    entitiesContainer: {
         paddingTop: 10,
         //justifyContent : 'space-between',
         flexDirection : 'row',
@@ -293,7 +299,7 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 5, height: 5},
         shadowOpacity: 0.7,
         shadowRadius: 5,
-        height: Dimensions.get("window").height - 140,
+        height: Dimensions.get("window").height - 125,
         backgroundColor: 'white',
         width: 300,
 
@@ -303,7 +309,16 @@ const styles = StyleSheet.create({
         paddingBottom: 50
     },
     linkContainer: {
-
+      //backgroundColor: "white",
+      borderWidth: .5,
+      borderTopColor: "gray",
+      borderBottomColor: "gray",
+      borderLeftColor: "gray",
+      borderRightColor: "transparent",
+      shadowColor: "black",
+      shadowOffset: {width: 0.5, height: 0.5},
+      shadowOpacity: 0.3,
+      shadowRadius: 0.5,
     },
     articleTitleContainer: {
         //flex:0.5, //height (according to its parent),
