@@ -44,7 +44,7 @@ class HomeScreen extends Component {
 
               // 3c. Catch errors
               .catch((error) => {
-                  console.error(error);
+                  alert("Error: " + JSON.stringify(error));
               });
       });
   }

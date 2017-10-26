@@ -1,10 +1,8 @@
 import React from 'react';
-import {Text, AppRegistry, StyleSheet, ScrollView, View, Dimensions, Image, TouchableHighlight, processColor} from 'react-native';
+import { Text, AppRegistry, StyleSheet, ScrollView, View, Dimensions, Image, TouchableHighlight } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import Search from 'react-native-search-box';
-import Nav from './index.js';
 import { WebView, Linking } from 'react-native';
-var Browser = require('react-native-browser');
 
 const articleImageDictionary = {
   'MSN':              require('./assets/msn.png'),
@@ -16,9 +14,18 @@ const articleImageDictionary = {
   'Politico':         require('./assets/politico.png'),
   'Washington Post':  require('./assets/washington_post.png'),
   'unknown':          require('./assets/nnn.jpg'),
-}
+};
 
-var mapArticleImage = function(source) {
+const polarityImageDictionary = {
+  'very_negative' : require('./assets/very_negative.png'),
+  'very_positive' : require('./assets/very_positive.png'),
+  'somewhat_negative' : require('./assets/somewhat_negative.png'),
+  'somewhat_positive' : require('./assets/somewhat_positive.png'),
+  'neutral' : require('./assets/neutral.png')
+};
+
+var mapArticleImage = function(source)
+{
   if (source in articleImageDictionary) {
     return articleImageDictionary[source]
   } else {
@@ -26,33 +33,23 @@ var mapArticleImage = function(source) {
   }
 }
 
+var mapPolarityImage = function(polarity)
+{
+    if (polarity <= -0.75) {
+        return polarityImageDictionary['very_negative'];
+    } else if (polarity <= -0.25) {
+        return polarityImageDictionary['somewhat_negative'];
+    } else if (polarity >= 0.25 && polarity <= 0.75) {
+        return polarityImageDictionary['somewhat_positive'];
+    } else if (polarity > 0.75) {
+        return polarityImageDictionary['very_positive'];
+    } else {
+        return polarityImageDictionary['neutral'];
+    }
+}
+
 
 export default class SearchResultsScreen extends React.Component {
-    // Navigation options for stackNavigator
-
-    /*
-     * openLink
-     */
-    _openLink = (url) => {
-      // if (!this.state.toggled) {
-      //   return null;
-      // }
-      //const url = 'https://www.google.com';
-      return (
-        <WebView
-          ref={(ref) => { this.webview = ref; }}
-          source={{ uri: 'https://www.google.com' }}
-          onNavigationStateChange={(event) => {
-            // if (event.url !== 'https://www.google.com') {
-            //   this.webview.stopLoading();
-            //   Linking.openURL(event.url);
-            // }
-            Linking.openURL(event.url);
-          }}
-        />
-      );
-    }
-
     /*
      * constructor
      * Responsible for initializing the SearchResultsScreen class
@@ -61,11 +58,9 @@ export default class SearchResultsScreen extends React.Component {
         super(props);
         this.state = {
             articles: this.props.navigation.state.params.articles,
-            toggled: false
+            toggled: false,
+            url: 'some_url'
         }
-        //alert(JSON.stringify(this.state.articles));
-        this._openLink = this._openLink.bind(this);
-        this.setState = this.setState.bind(this);
     }
 
     /*
@@ -73,43 +68,54 @@ export default class SearchResultsScreen extends React.Component {
      * Renders a single article object
      */
     _renderItem({item}) {
-
+        item.article.image = "";
+        item.article.image = mapArticleImage(item.article.source);
         return (
-            <View style={styles.slide}>
-                {/* News network logo */}
-                <TouchableHighlight onPress={() => {
-                  return (
-                    <LinkArticle url={item.url}/>
-                  );}}>
-                  <Image
-                    source={mapArticleImage(item.article.source)}
-                    style={styles.articleImage}
-                    //source={require('./assets/nnn.jpg')}
-                  />
-                </TouchableHighlight>
+                <View style={styles.slide}>
+                    <ScrollView>
+                        {/* News network logo */}
+                        <TouchableHighlight onPress={() => {
+                            Linking.openURL(item.article.url);
+                          }}>
+                          <Image
+                            source={mapArticleImage(item.article.source)}
+                            style={styles.articleImage}
+                          />
+                        </TouchableHighlight>
 
-                {/* Article title */}
-                <View style={styles.articleTitleContainer}>
-                  <Image
-                    source={mapArticleImage(item.article.source)}
-                    style={{height: 45, width: 45}}
-                  />
-                  <Text style={styles.articleTitle}>{item.article.title}</Text>
-                </View>
+                        {/* Article title */}
+                        <View style={styles.articleTitleContainer}>
+                          <Image
+                            source={mapArticleImage(item.article.source)}
+                            style={{height: 45, width: 45}}
+                          />
+                          <Text style={styles.articleTitle}>{item.article.title}</Text>
+                        </View>
 
-                {/* Article description */}
-                <View style={styles.descriptionContainer}>
-                    <Text style={styles.articleDescriptionHeader}>Description</Text>
-                    <Text style={styles.articleDescription}>TODO: Get article description</Text>
-                </View>
+                        {/* Article description */}
+                        <View style={styles.articleDescriptionContainer}>
+                            <Text style={styles.articleDescriptionHeader}>Description</Text>
+                            <Text style={styles.articleDescription}>{item.article.description}</Text>
+                        </View>
 
-                {/* NLP analysis */}
-                <View style={styles.analysisContainer}>
-                    <Text style={styles.articleDescriptionHeader}>Analysis</Text>
-                    <Text style={styles.articleDescription}>{item.article.data[0].ent} {item.article.data[0].polarity}</Text>
-                    <Text style={styles.articleDescription}>{item.article.data[1].ent} {item.article.data[1].polarity}</Text>
+                        <Text style={styles.articleDescriptionHeader}>Analysis</Text>
+                        {/* NLP analysis */}
+                        <View style={styles.analysisContainer}>
+                            <Text style={styles.articleDescription}>{item.article.data[0].ent}</Text>
+                            <Image
+                                source={mapPolarityImage(item.article.data[0].polarity)}
+                                style={{height: 60, width: 120}}
+                            />
+                        </View>
+                        <View style={styles.analysisContainer}>
+                            <Text style={styles.articleDescription}>{item.article.data[1].ent}</Text>
+                            <Image
+                                source={mapPolarityImage(item.article.data[1].polarity)}
+                                style={{height: 60, width: 120}}
+                            />
+                        </View>
+                    </ScrollView>
                 </View>
-            </View>
         );
     }
 
@@ -219,18 +225,26 @@ const styles = StyleSheet.create({
         paddingLeft: 7,
         paddingTop: 10,
         fontSize: 18,
-        color: "black"
+        color: "black",
+        fontWeight: "bold"
     },
     articleTitle: {
 
     },
+    articleDescriptionContainer: {
+
+    },
     articleDescription: {
         paddingLeft: 7,
-        paddingTop: 5,
-        color: "black"
+        paddingRight: 7,
+        color: "black",
+        flexWrap: "wrap"
     },
     analysisContainer: {
-        paddingTop: 10
+        paddingTop: 10,
+        justifyContent : 'space-between',
+        flexDirection : 'row'
+
     },
     slide: {
         shadowColor: "black",
@@ -238,13 +252,13 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.7,
         shadowRadius: 5,
         height: Dimensions.get("window").height,
-        //backgroundColor: '#7d7d7d',
         backgroundColor: 'white',
         width: 300
 
     },
     wrapperContainer: {
-        backgroundColor: "white"
+        backgroundColor: "white",
+        paddingBottom: 50
     },
     articleTitleContainer: {
         //flex:0.5, //height (according to its parent),
@@ -262,5 +276,8 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         paddingLeft: 7,
         //margin: 30
+    },
+    contentContainer: {
+        paddingVertical: 20
     }
 });
