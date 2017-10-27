@@ -27,7 +27,7 @@
 <body>
   <div class="header">
     <h1>Neural News</h1>
-    <h5>"An unbiased news portal"</h5>
+    <h5>An unbiased news portal</h5>
     <h4>Neural News uses natural language processing to deliver news of all opinions and points of views</h4>
     <p>Brendan Voelz &amp; Charles Winston</p>
     <hr>
@@ -38,14 +38,14 @@
         <h3>3. Minimum Viable Product</h3>
         <br>
         <h4>Critical Features of Neural News</h4>
+                <img id="demo" src="./product_images/neural_news_demo.gif"/>
                 <h5>Searching</h5>
-                <img src='./product_images/search-1.png'>
-                <p>Searching is the most important feature of the app, as the whole point is to allow users to search for the news content that they want. So, we used a couple libraries to help get the job done: React Native Search Box for the search bar and Fetch for making HTTP GET requests to our server. Users can enter a string and press search or simply click on one of the 'Trending Topics' listed on the landing page to be redirected to a screen that displays all of the information we serve.</p>
-                <img src='./product_images/search-2.png'>
-                <img src='./product_images/nlp-data-1.png'>
-                <p>Once our server has resolved the user's request, our app redirects the user to a search results page, where they are presented with -- at the moment -- 3 articles and their corresponding natural language processing data. The user sees an image with the article's news source logo, the article's title, the article's brief description, and at the bottom a list of the top -- at the moment -- three entities and their respective polarities. We choose to display the polarities using images that map to discrete values to make it more easy to understand the biases present in the article for a given entity.</p>
-                <img src='./product_images/web_view-1.png'>
+                <p>Searching is the most important feature of the app, as the whole point is to allow users to search for the news content that they want. So, we used a couple libraries to help get the job done: React Native Search Box for the search bar and Fetch for making HTTP GET requests to our server. Users can enter a string and press search or simply click on one of the 'Trending Topics' listed on the landing page to be redirected to a screen that displays all of the information we serve.</p><br>
+                <h5>Displaying Natural Language Processing Data</h5>
+                <p>Once our server has resolved the user's request, our app redirects the user to a search results page, where they are presented with -- at the moment -- 3 articles and their corresponding natural language processing data. The user sees an image with the article's news source logo, the article's title, the article's brief description, and at the bottom a list of the top -- at the moment -- three entities and their respective polarities. We choose to display the polarities using images that map to discrete values to make it more easy to understand the biases present in the article for a given entity.</p><br>
+                <h5>Linking to Original Article</h5>
                 <p>Tapping on the logo at the top opens the mobile device's default browser and links to the article so that the user can read the article if he desires.</p>
+                <hr>
   </div>
 
   <!-- Leg 2 -->
@@ -75,8 +75,8 @@
       <li><a href="https://react-native-training.github.io/react-native-elements/API/searchbar/">React Native Elements Search Bar: </a>Library for a search bar element</li>
     </ul>
     <br>
+    <hr>
   </div>
-  <hr>
 
   <!-- Leg 1 -->
   <div class="leg">
@@ -104,7 +104,7 @@
     <p>At this point, we do not foresee the app needing to use any special features of the mobile device aside from Internet access. However, we may use contacts or SMS in order to allow the user to connect with other users.</p>
     <br>
     <h4>What are the app's limitations?</h4>
-    <p>There are two main limitations of the app. First, the speed of API calls / computation of our analysis: since we depend on 3rd party APIs and libraries to perform all of the natural language analysis, it is possible that the app's load time and search feature will have some latency. Second, the accuracy of our sentiment analysis: even though the APIs we are using are very sophisticated, NLP is far from being perfect. Thus, we understand that our analysis can only be so accurate. </p>
+    <p>There are two main limitations of the app. First, the speed of API calls / computation of our analysis: since we depend on 3rd party APIs and libraries to perform all of the natural language analysis, it is possible that the app's load time and search feature will have some latency. Second, the accuracy of our sentiment analysis: even though the APIs we are using are very sophisticated, NLP is far from being perfect. Thus, we understand that our analysis can only be so accurate.</p>
   </div>
 
 </body>
