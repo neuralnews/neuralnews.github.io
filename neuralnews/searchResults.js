@@ -5,14 +5,14 @@ import Search from 'react-native-search-box';
 import { WebView, Linking } from 'react-native';
 
 const networkImageDictionary = {
-  'MSN':              require('./assets/msn.png'),
-  'CNN':              require('./assets/cnn.png'),
-  'Huffington Post':  require('./assets/huffington_post.png'),
-  'Fox News':         require('./assets/fox_news.png'),
-  'Breitbart':        require('./assets/breitbart.jpeg'),
-  'NBC':              require('./assets/nbc.png'),
-  'Politico':         require('./assets/politico.png'),
-  'Washington Post':  require('./assets/washington_post.png'),
+  'msn':              require('./assets/msn.png'),
+  'cnn':              require('./assets/cnn.png'),
+  'huffington post':  require('./assets/huffington_post.png'),
+  'fox news':         require('./assets/fox_news.png'),
+  'breitbart':        require('./assets/breitbart.jpeg'),
+  'nbc':              require('./assets/nbc.png'),
+  'politico':         require('./assets/politico.png'),
+  'washington post':  require('./assets/washington_post.png'),
   'unknown':          require('./assets/nnn.jpg'),
 };
 
@@ -70,8 +70,10 @@ export default class SearchResultsScreen extends React.Component {
      */
     _renderItem({item}) {
         return (
-                <View style={styles.slide}>
-
+            <View
+                style={styles.slide}>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}>
                         {/* News network logo */}
                         <TouchableHighlight
                             onPress={() => {
@@ -79,9 +81,9 @@ export default class SearchResultsScreen extends React.Component {
                             }}
                             style={styles.linkContainer}
                         >
-                          <View >
+                          <View>
                             <Image
-                              source={mapNetworkImage(item.article.source)}
+                              source={mapNetworkImage(item.article.source.toLowerCase())}
                               style={styles.articleImage}
                             />
                             <View style={styles.articleTitleContainer}>
@@ -95,7 +97,7 @@ export default class SearchResultsScreen extends React.Component {
                         </TouchableHighlight>
 
                         {/* Article title */}
-                    <ScrollView>
+
                         {/* Article description */}
                         <View style={styles.articleDescriptionContainer}>
                             <Text style={styles.articleDescription}>{item.article.description}</Text>
@@ -145,8 +147,8 @@ export default class SearchResultsScreen extends React.Component {
                                 />
                             </View>
                         </View>
-                    </ScrollView>
-                </View>
+                </ScrollView>
+            </View>
         );
     }
 
