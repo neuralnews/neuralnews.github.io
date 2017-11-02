@@ -33,19 +33,50 @@
     <hr>
   </div>
 
+  <!-- Entry: 10/31 -->
+  <div class="leg">
+    <h3>31 October 2017</h3>
+    <h4>Testing the Server</h4>
+    <h5>Overview</h5>
+    <p>After finally getting a working version of the server up and running last week, this week it was time to put it to the test. We ran a handful of tests to ensure that things were working as expected, and we realized that the 'working version of the server' was not as air-tight as we had hoped.</p>
+    <h5>Challenges</h5>
+    <p>One of the main problems we anticiapted when it came to testing were our API limits. As we depend on Aylien's SDK for both entity and article extraction, it is not feasible to blast the server with hundreds of automated tests, as this would near instantly drain up our API calls for the day.</p>
+    <p>So, we started out slowly. First, we tested querying for easy news entities, like Donald Trump, Hillary Clinton, and Bernie Sanders. Testing slowly revealed subtle, nuanced errors that we were able to correct. It also revealed some nastier, more sinister fundamental flaws in our server design.</p>
+    <p>For instance, we realized that asynchronous JavaScript can become a mess... even when you're doing it the right way. At first, we were iterating over a list of articles and performing asynchronous tasks (i.e. extracting the article, calling Python scripts, etc.) on them in succession. As it turns out, this can lead to overwriting of data, as the later iterations will take precedence over the earlier ones. This manifested in some of the testing JSON files we generated, which looked like the following: </p>
+    <img src='./product_images/test_json_fail.png'>
+    <p>As you can see, for these three articles the title, URL, and news source all have the same values, which was not what we wanted. After some grueling work, we identified that this iterative mess was causing problems:</p>
+    <img src='./product_images/bad_async_js.png'>
+    <p>So, we turned this into a somewhat more logical process that took advantage of 'Q,' a wrapper on JavaScript's 'Promise' library. </p>
+    <h5>Q Promise Library</h5>
+    <p>While we could have chosen to use the native Promise library, we opted for the Q library for a few reasons. First, it was much, much easier to use. The syntax makes more logical sense, and the code becomes a lot flatter instead of extending to the right of the text editor. Also, the library gives you implicit error propagation with 'try, catch, finally.' These make the code very readable and easy to maintain, all while still giving us the asynchronous functionality our server needed. So, our code now looks more like this, which works as expected: </p>
+    <img src='./product_images/good_async_js.png'>
+    <hr>
+  </div>
+
   <!-- Leg 3 -->
   <div class="leg">
-        <h3>3. Minimum Viable Product</h3>
-        <br>
-        <h4>Critical Features of Neural News</h4>
-                <img id="demo" src="./product_images/neural_news_demo.gif"/>
-                <h5>Searching</h5>
-                <p>Searching is the most important feature of the app, as the whole point is to allow users to search for the news content that they want. So, we used a couple libraries to help get the job done: React Native Search Box for the search bar and Fetch for making HTTP GET requests to our server. Users can enter a string and press search or simply click on one of the 'Trending Topics' listed on the landing page to be redirected to a screen that displays all of the information we serve.</p><br>
-                <h5>Displaying Natural Language Processing Data</h5>
-                <p>Once our server has resolved the user's request, our app redirects the user to a search results page, where they are presented with -- at the moment -- 3 articles and their corresponding natural language processing data. The user sees an image with the article's news source logo, the article's title, the article's brief description, and at the bottom a list of the top -- at the moment -- three entities and their respective polarities. We choose to display the polarities using images that map to discrete values to make it more easy to understand the biases present in the article for a given entity.</p><br>
-                <h5>Linking to Original Article</h5>
-                <p>Tapping on the logo at the top opens the mobile device's default browser and links to the article so that the user can read the article if he desires.</p>
-                <hr>
+    <h3>3. Minimum Viable Product</h3>
+    <br>
+    <h4>Critical Features of Neural News</h4>
+    <img id="demo" src="./product_images/neural_news_demo.gif"/>
+    <h5>Searching</h5>
+    <p>Searching is the most important feature of the app, as the whole point is to allow users to search for the news content that they want. So, we used a couple libraries to help get the job done: React Native Search Box for the search bar and Fetch for making HTTP GET requests to our server. Users can enter a string and press search or simply click on one of the 'Trending Topics' listed on the landing page to be redirected to a screen that displays all of the information we serve.</p><br>
+    <h5>Displaying Natural Language Processing Data</h5>
+    <p>Once our server has resolved the user's request, our app redirects the user to a search results page, where they are presented with -- at the moment -- 3 articles and their corresponding natural language processing data. The user sees an image with the article's news source logo, the article's title, the article's brief description, and at the bottom a list of the top -- at the moment -- three entities and their respective polarities. We choose to display the polarities using images that map to discrete values to make it more easy to understand the biases present in the article for a given entity.</p><br>
+    <h5>Linking to Original Article</h5>
+    <p>Tapping on the logo at the top opens the mobile device's default browser and links to the article so that the user can read the article if he desires.</p>
+    <hr>
+  </div>
+
+  <!-- Entry: 10/20 -->
+  <div class="leg">
+    <h3>20 October 2017</h3>
+    <h4>Building the Server</h4>
+    <h5>Overview</h5>
+    <p>TODO: </p>
+    <h5>Challenges</h5>
+    <p>TODO: </p>
+    <hr>
   </div>
 
   <!-- Leg 2 -->
@@ -75,6 +106,21 @@
       <li><a href="https://react-native-training.github.io/react-native-elements/API/searchbar/">React Native Elements Search Bar: </a>Library for a search bar element</li>
     </ul>
     <br>
+    <hr>
+  </div>
+
+  <!-- Entry: 9/29 -->
+  <div class="leg">
+    <h3>29 September 2017</h3>
+    <h4>Building the Front End</h4>
+    <h5>Overview</h5>
+    <p>This week we built a minimal front end version of the app, without the use of any APIs.</p>
+    <h5>Challenges</h5>
+    <p>One of the biggest problems we ran into was the scope of the 'this' variable in React Native. This came up specifically when dealing with searching. In our HomeScreen class, we have a list of trending topics, which are buttons with text. We wanted the Button component to reference our onSearch function, which takes the search query as a parameter and navigates to to search results page. We had something like this:</p>
+    <img src='./product_images/button_bad.png'>
+    <p>This of course was a problem. We had no idea which 'this' was what. The first 'this' was supposed to reference the HomeScreen class, and the second 'this' was supposed to reference the Button component. It turned out that the first 'this' was referencing the Button, and the second 'this' was undefined. To fix this problem we created some new classes.</p>
+    <img src='./product_images/trending_topics_demo'>
+    <p>This way we could pass the onSearch function as a prop down to the TrendingTopics class and then again down to the TrendingTopic class. The other solution was the '() => {function}' syntax, which corrected the scope of 'this', since it was bound</p>
     <hr>
   </div>
 
