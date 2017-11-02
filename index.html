@@ -114,9 +114,13 @@
     <h3>29 September 2017</h3>
     <h4>Building the Front End</h4>
     <h5>Overview</h5>
-    <p>TODO: </p>
+    <p>This week we built a minimal front end version of the app, without the use of any APIs.</p>
     <h5>Challenges</h5>
-    <p>TODO: </p>
+    <p>One of the biggest problems we ran into was the scope of the 'this' variable in React Native. This came up specifically when dealing with searching. In our HomeScreen class, we have a list of trending topics, which are buttons with text. We wanted the Button component to reference our onSearch function, which takes the search query as a parameter and navigates to to search results page. We had something like this:</p>
+    <img src='./product_images/button_bad.png'>
+    <p>This of course was a problem. We had no idea which 'this' was what. The first 'this' was supposed to reference the HomeScreen class, and the second 'this' was supposed to reference the Button component. It turned out that the first 'this' was referencing the Button, and the second 'this' was undefined. To fix this problem we created some new classes.</p>
+    <img src='./product_images/trending_topics_demo'>
+    <p>This way we could pass the onSearch function as a prop down to the TrendingTopics class and then again down to the TrendingTopic class. The other solution was the '() => {function}' syntax, which corrected the scope of 'this', since it was bound</p>
     <hr>
   </div>
 
