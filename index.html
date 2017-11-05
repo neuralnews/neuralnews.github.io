@@ -33,6 +33,17 @@
     <hr>
   </div>
 
+  <!-- Leg 4 -->
+  <div class="leg">
+    <h3>Leg 4: Testing and Security Audit</h3>
+    <br>
+    <h4>Lint</h4>
+    <p>The initial scans of our two main JavaScript files are found in the <code>tests</code> folder at the root of our mobile app repository. After making the appropriate changes, we re-ran Lint on the files and saved the outputs of those scans to the same tests folder.</p>
+    <p>It should be noted that in nearly all of the output files (denoted with an <code>_2</code> at the end of the file name), there were a significant amount of false-positives. While we were able to fix the majority of the errors and warnings that eslint was able to provide us, there were many that simply did not make sense. For example, the first error in the <code>lint_index_2.txt</code> file says: <code>'Fetch' is defined but never used.</code> However, we do use the Fetch library by calling its main <code>fetch</code> function to make HTTP GET requests to our server.</p>
+    <h4>Crashlytics</h4>
+    <p>TODO: </p>
+  </div>
+
   <!-- Entry: 10/31 -->
   <div class="leg">
     <h3>31 October 2017</h3>

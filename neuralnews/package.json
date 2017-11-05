@@ -4,20 +4,28 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --fix *.js"
   },
   "dependencies": {
     "react": "16.0.0-alpha.12",
     "react-addons-shallow-compare": "^15.6.2",
     "react-native": "0.48.4",
     "react-native-browser": "^0.6.2",
+    "react-native-loading-spinner-overlay": "^0.5.2",
     "react-native-search-box": "latest",
     "react-native-snap-carousel": "^3.3.2",
     "react-navigation": "^1.0.0-beta.13"
   },
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
     "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "1.9.2",
+    "eslint-plugin-jsx-a11y": "1.5.3",
+    "eslint-plugin-react": "^5.2.2",
     "jest": "21.2.1",
     "react-test-renderer": "16.0.0-alpha.12"
   },

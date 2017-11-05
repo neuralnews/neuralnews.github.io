@@ -1,0 +1,25 @@
+
+/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/trendingTopics.js
+  23:16  error  Component should be written as a pure function            react/prefer-stateless-function
+  26:13  error  Expected indentation of 6 space characters but found 12   react/jsx-indent
+  27:17  error  Expected indentation of 14 space characters but found 16  react/jsx-indent
+  30:17  error  Expected indentation of 14 space characters but found 16  react/jsx-indent
+  30:77  error  'onTopicPress' is missing in props validation             react/prop-types
+  31:17  error  Expected indentation of 14 space characters but found 16  react/jsx-indent
+  31:75  error  'onTopicPress' is missing in props validation             react/prop-types
+  32:1   error  Line 32 exceeds the maximum line length of 100            max-len
+  32:17  error  Expected indentation of 14 space characters but found 16  react/jsx-indent
+  32:92  error  'onTopicPress' is missing in props validation             react/prop-types
+  33:1   error  Line 33 exceeds the maximum line length of 100            max-len
+  33:17  error  Expected indentation of 14 space characters but found 16  react/jsx-indent
+  33:94  error  'onTopicPress' is missing in props validation             react/prop-types
+  34:17  error  Expected indentation of 14 space characters but found 16  react/jsx-indent
+  34:76  error  'onTopicPress' is missing in props validation             react/prop-types
+  35:17  error  Expected indentation of 14 space characters but found 16  react/jsx-indent
+  35:76  error  'onTopicPress' is missing in props validation             react/prop-types
+  36:1   error  Line 36 exceeds the maximum line length of 100            max-len
+  36:17  error  Expected indentation of 14 space characters but found 16  react/jsx-indent
+  36:86  error  'onTopicPress' is missing in props validation             react/prop-types
+
+✖ 20 problems (20 errors, 0 warnings)
+

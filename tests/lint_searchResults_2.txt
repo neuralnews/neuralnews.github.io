@@ -1,0 +1,48 @@
+
+/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/searchResults.js
+   10:5   error    'WebView' is defined but never used                                no-unused-vars
+   37:25  warning  Missing function expression name                                   func-names
+   44:26  warning  Missing function expression name                                   func-names
+   79:18  error    A leading decimal point can be confused with a dot                 no-floating-decimal
+  138:18  error    A leading decimal point can be confused with a dot                 no-floating-decimal
+  179:22  error    'navigation' is missing in props validation                        react/prop-types
+  179:28  error    'navigation.state' is missing in props validation                  react/prop-types
+  179:39  error    'navigation.state.params' is missing in props validation           react/prop-types
+  179:45  error    'navigation.state.params.articles' is missing in props validation  react/prop-types
+  196:34  error    'reject' is defined but never used                                 no-unused-vars
+  199:13  error    Unexpected string concatenation                                    prefer-template
+  214:31  error    'navigation' is missing in props validation                        react/prop-types
+  214:42  error    'navigation.navigate' is missing in props validation               react/prop-types
+  221:20  warning  Unexpected alert                                                   no-alert
+  221:26  error    Unexpected string concatenation                                    prefer-template
+  232:13  error    Expected indentation of 6 space characters but found 12            react/jsx-indent
+  235:17  error    Expected indentation of 14 space characters but found 16           react/jsx-indent
+  239:21  error    Expected indentation of 18 space characters but found 20           react/jsx-indent
+  245:25  error    Expected indentation of 22 space characters but found 24           react/jsx-indent
+  246:29  error    Expected indentation of 26 space characters but found 28           react/jsx-indent
+  250:29  error    Expected indentation of 26 space characters but found 28           react/jsx-indent
+  251:33  error    Expected indentation of 30 space characters but found 32           react/jsx-indent
+  255:33  error    Expected indentation of 30 space characters but found 32           react/jsx-indent
+  263:21  error    Expected indentation of 18 space characters but found 20           react/jsx-indent
+  264:25  error    Expected indentation of 22 space characters but found 24           react/jsx-indent
+  267:21  error    Expected indentation of 18 space characters but found 20           react/jsx-indent
+  268:25  error    Expected indentation of 22 space characters but found 24           react/jsx-indent
+  269:29  error    Expected indentation of 26 space characters but found 28           react/jsx-indent
+  270:33  error    Expected indentation of 30 space characters but found 32           react/jsx-indent
+  277:29  error    Expected indentation of 26 space characters but found 28           react/jsx-indent
+  282:25  error    Expected indentation of 22 space characters but found 24           react/jsx-indent
+  283:29  error    Expected indentation of 26 space characters but found 28           react/jsx-indent
+  284:33  error    Expected indentation of 30 space characters but found 32           react/jsx-indent
+  291:29  error    Expected indentation of 26 space characters but found 28           react/jsx-indent
+  296:25  error    Expected indentation of 22 space characters but found 24           react/jsx-indent
+  297:29  error    Expected indentation of 26 space characters but found 28           react/jsx-indent
+  298:33  error    Expected indentation of 30 space characters but found 32           react/jsx-indent
+  305:29  error    Expected indentation of 26 space characters but found 28           react/jsx-indent
+  323:13  error    Expected indentation of 6 space characters but found 12            react/jsx-indent
+  324:17  error    Expected indentation of 14 space characters but found 16           react/jsx-indent
+  329:17  error    Expected indentation of 14 space characters but found 16           react/jsx-indent
+  330:21  error    Expected indentation of 18 space characters but found 20           react/jsx-indent
+  337:17  error    Expected indentation of 14 space characters but found 16           react/jsx-indent
+
+✖ 43 problems (40 errors, 3 warnings)
+
