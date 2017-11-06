@@ -1,0 +1,138 @@
+
+/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/index.js
+    1:41   error    Missing semicolon                                                                                                   semi
+    7:5    error    'Fetch' is defined but never used                                                                                   no-unused-vars
+    9:16   error    Missing trailing comma                                                                                              comma-dangle
+   10:22   error    Missing semicolon                                                                                                   semi
+   11:50   error    Missing semicolon                                                                                                   semi
+   12:45   error    Missing semicolon                                                                                                   semi
+   13:53   error    Missing semicolon                                                                                                   semi
+   19:7    error    Expected indentation of 4 space characters but found 6                                                              indent
+   19:27   error    Missing trailing comma                                                                                              comma-dangle
+   22:17   error    Missing semicolon                                                                                                   semi
+   23:45   error    Missing semicolon                                                                                                   semi
+   24:7    error    Expected indentation of 4 space characters but found 6                                                              indent
+   25:9    error    Extra space after key 'visible'                                                                                     key-spacing
+   25:24   error    Missing trailing comma                                                                                              comma-dangle
+   26:8    error    Missing semicolon                                                                                                   semi
+   34:7    error    Expected indentation of 4 space characters but found 6                                                              indent
+   35:11   error    Expected indentation of 8 space characters but found 10                                                             indent
+   35:39   error    Missing trailing comma                                                                                              comma-dangle
+   37:7    error    Expected indentation of 4 space characters but found 6                                                              indent
+   37:36   error    'reject' is defined but never used                                                                                  no-unused-vars
+   39:11   error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+   40:11   error    Expected indentation of 8 space characters but found 10                                                             indent
+   40:17   error    Unexpected string concatenation                                                                                     prefer-template
+   41:15   error    Expected indentation of 12 space characters but found 14                                                            indent
+   42:15   error    Expected indentation of 12 space characters but found 14                                                            indent
+   43:19   error    Unnecessarily quoted property 'Accept' found                                                                        quote-props
+   43:19   error    Expected indentation of 16 space characters but found 18                                                            indent
+   44:19   error    Expected indentation of 16 space characters but found 18                                                            indent
+   45:16   error    A space is required before '}'                                                                                      object-curly-spacing
+   52:19   error    Expected indentation of 16 space characters but found 18                                                            indent
+   53:23   error    Expected indentation of 20 space characters but found 22                                                            indent
+   53:51   error    Missing trailing comma                                                                                              comma-dangle
+   55:1    error    Line 55 exceeds the maximum line length of 100                                                                      max-len
+   55:19   error    Expected indentation of 16 space characters but found 18                                                            indent
+   55:30   error    'navigation' is missing in props validation                                                                         react/prop-types
+   55:41   error    'navigation.navigate' is missing in props validation                                                                react/prop-types
+   55:65   error    Strings must use singlequote                                                                                        quotes
+   55:65   error    Unnecessarily quoted property 'articles' found                                                                      quote-props
+   55:65   error    Extra space after key 'articles'                                                                                    key-spacing
+   55:87   error    Unnecessarily quoted property 'topic' found                                                                         quote-props
+   55:87   error    Strings must use singlequote                                                                                        quotes
+   55:100  error    A space is required before '}'                                                                                      object-curly-spacing
+   55:102  error    Missing semicolon                                                                                                   semi
+   56:19   error    Expected indentation of 16 space characters but found 18                                                            indent
+   61:19   error    Expected indentation of 16 space characters but found 18                                                            indent
+   61:19   warning  Unexpected alert                                                                                                    no-alert
+   61:25   error    Unexpected string concatenation                                                                                     prefer-template
+   61:25   error    Strings must use singlequote                                                                                        quotes
+   65:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+   66:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+   67:13   error    Expected indentation of 10 space characters but found 12                                                            react/jsx-indent
+   67:26   error    'styles' was used before it was defined                                                                             no-use-before-define
+   68:17   error    Expected indentation of 14 space characters but found 16                                                            react/jsx-indent
+   69:21   error    Expected indentation of 18 space characters but found 20                                                            react/jsx-indent-props
+   69:49   error    A space is required before closing bracket                                                                          react/jsx-space-before-closing
+   69:49   error    The closing bracket must be aligned with the line containing the opening tag (expected column 17 on the next line)  react/jsx-closing-bracket-location
+   71:17   error    Expected indentation of 14 space characters but found 16                                                            react/jsx-indent
+   71:28   error    Expected exception block, space or tab after '/*' in comment                                                        spaced-comment
+   74:17   error    Expected indentation of 14 space characters but found 16                                                            react/jsx-indent
+   76:26   error    'styles' was used before it was defined                                                                             no-use-before-define
+   80:17   error    Expected indentation of 14 space characters but found 16                                                            react/jsx-indent
+   80:61   error    A space is required before closing bracket                                                                          react/jsx-space-before-closing
+   86:1    error    Component should be written as a pure function                                                                      react/prefer-stateless-function
+   86:1    error    Declare only one React component per file                                                                           react/no-multi-comp
+   90:20   error    'styles' was used before it was defined                                                                             no-use-before-define
+   91:22   error    'styles' was used before it was defined                                                                             no-use-before-define
+   94:69   error    'onTopicPress' is missing in props validation                                                                       react/prop-types
+   94:82   error    A space is required before closing bracket                                                                          react/jsx-space-before-closing
+   95:67   error    'onTopicPress' is missing in props validation                                                                       react/prop-types
+   95:80   error    A space is required before closing bracket                                                                          react/jsx-space-before-closing
+   96:84   error    'onTopicPress' is missing in props validation                                                                       react/prop-types
+   96:97   error    A space is required before closing bracket                                                                          react/jsx-space-before-closing
+   97:86   error    'onTopicPress' is missing in props validation                                                                       react/prop-types
+   97:99   error    A space is required before closing bracket                                                                          react/jsx-space-before-closing
+   98:68   error    'onTopicPress' is missing in props validation                                                                       react/prop-types
+   98:81   error    A space is required before closing bracket                                                                          react/jsx-space-before-closing
+   99:68   error    'onTopicPress' is missing in props validation                                                                       react/prop-types
+   99:81   error    A space is required before closing bracket                                                                          react/jsx-space-before-closing
+  100:78   error    'onTopicPress' is missing in props validation                                                                       react/prop-types
+  100:91   error    A space is required before closing bracket                                                                          react/jsx-space-before-closing
+  103:6    error    Missing semicolon                                                                                                   semi
+  107:1    error    Component should be written as a pure function                                                                      react/prefer-stateless-function
+  107:1    error    Declare only one React component per file                                                                           react/no-multi-comp
+  112:27   error    'name' is missing in props validation                                                                               react/prop-types
+  113:35   error    'onTopicPress' is missing in props validation                                                                       react/prop-types
+  113:59   error    'name' is missing in props validation                                                                               react/prop-types
+  115:6    error    Missing semicolon                                                                                                   semi
+  120:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+  121:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  122:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  124:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+  125:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  126:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  128:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+  129:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  130:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  131:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  133:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+  134:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  135:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  136:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  137:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  138:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  139:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  140:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  142:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+  143:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  144:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  145:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  146:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  147:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  148:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  148:20   error    Missing trailing comma                                                                                              comma-dangle
+  150:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+  151:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  152:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  153:9    error    Expected exception block, space or tab after '//' in comment                                                        spaced-comment
+  154:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  155:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  155:20   error    Missing trailing comma                                                                                              comma-dangle
+  157:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+  158:9    error    Expected indentation of 6 space characters but found 8                                                              indent
+  158:26   error    Strings must use singlequote                                                                                        quotes
+  158:35   error    Missing trailing comma                                                                                              comma-dangle
+  159:6    error    Missing trailing comma                                                                                              comma-dangle
+  162:13   error    A function with a name starting with an uppercase letter should only be used as a constructor                       new-cap
+  163:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+  164:25   error    Missing trailing comma                                                                                              comma-dangle
+  166:5    error    Expected indentation of 2 space characters but found 4                                                              indent
+  168:27   error    A space is required after '{'                                                                                       object-curly-spacing
+  168:38   error    A space is required before '}'                                                                                      object-curly-spacing
+  171:6    error    Missing trailing comma                                                                                              comma-dangle
+  176:51   error    'neuralnews' is not defined                                                                                         no-undef
+
+✖ 133 problems (132 errors, 1 warning)
+

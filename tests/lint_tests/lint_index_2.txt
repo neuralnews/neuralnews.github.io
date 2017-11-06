@@ -1,0 +1,16 @@
+
+/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/index.js
+    6:5   error    'Fetch' is defined but never used                                                              no-unused-vars
+   75:30  error    'navigation' is missing in props validation                                                    react/prop-types
+   75:41  error    'navigation.navigate' is missing in props validation                                           react/prop-types
+   81:19  warning  Unexpected alert                                                                               no-alert
+   81:25  error    Unexpected string concatenation                                                                prefer-template
+   89:13  error    Expected indentation of 6 space characters but found 12                                        react/jsx-indent
+   90:17  error    Expected indentation of 14 space characters but found 16                                       react/jsx-indent
+   94:17  error    Expected indentation of 14 space characters but found 16                                       react/jsx-indent
+   97:17  error    Expected indentation of 14 space characters but found 16                                       react/jsx-indent
+  103:17  error    Expected indentation of 14 space characters but found 16                                       react/jsx-indent
+  124:51  error    'neuralnews' is not defined                                                                    no-undef
+
+✖ 11 problems (10 errors, 1 warning)
+
