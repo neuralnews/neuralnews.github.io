@@ -33,14 +33,31 @@
     <hr>
   </div>
 
+  <!-- Entry: 11/6 -->
+  <div class="leg">
+    <h3>6 November 2017</h3>
+    <h4>Moving to Google Cloud?</h4>
+    <p>This week, we have been wrestling with the idea of moving away from Heroku... sooner rather than later. The issues with Heroku are as follows:</p>
+    <ul>
+      <li><b>It is really, really slow.</b> The space allotted for our server is not constantly up and running since we are on the free plan, and as a result the first wake-up call to the server can take up to twenty seconds, which is not practical in the slightest for a news app.</li>
+      <li><b>We have to play by their rules.</b> In order to run Python scripts, we have to jump through hoops to set up requirements for the server and create multiple builds that allow us to scratch the surface of modifying the server environment.</li>
+      <li><b>Our dependencies are limited.</b> We have to depend on Aylien for our entity extraction and article extraction, which each take up around 15 calls per query on our app. Since we are limited to 1,000 calls a day, this is starting to become unreasonable. Other services like Amazon Web Services and Google Cloud offer these types of APIs for free...if you use their servers!</li>
+    </ul>
+    <p>So, now we're starting to look at Google Cloud as the next platform for our server space. Google Cloud would give us free, unlimited access to Google APIs that perform (likely better) sentiment analysis, entity extraction, and article extraction. We still have to weigh some factors, but it seems like the next step moving forward with our app.</p>
+  </div>
+
   <!-- Leg 4 -->
   <div class="leg">
     <h3>Leg 4: Testing and Security Audit</h3>
-    <br>
     <h4>Lint</h4>
     <p>The initial scans of our two main JavaScript files are found in the <code>tests</code> folder at the root of our mobile app repository. After making the appropriate changes, we re-ran Lint on the files and saved the outputs of those scans to the same tests folder.</p>
     <p>It should be noted that in nearly all of the output files (denoted with an <code>_2</code> at the end of the file name), there were a significant amount of false-positives. While we were able to fix the majority of the errors and warnings that eslint was able to provide us, there were many that simply did not make sense. For example, the first error in the <code>lint_index_2.txt</code> file says: <code>'Fetch' is defined but never used.</code> However, we do use the Fetch library by calling its main <code>fetch</code> function to make HTTP GET requests to our server.</p>
     <h4>Crashlytics</h4>
+    <p>TODO: </p>
+    <h4>Veracode Analysis Center</h4>
+    <p>After using Veracode's static analysis scan utility, I am completely in love with Veracode. The interface was very easy to use, and the end results of running the scan revealed several ways (in a wonderfully easy-to-read format, mind you) that we can improve our app from a security perspective. The generated file can be found at <code>./tests/veracode_tests/DetailedReport_Neural_News_5_Nov_2017.pdf</code></p>
+    <p>As you can see in the <b>Summary of Flaws</b> panel, Neural News had only low severity security flaws. The <b>Flaw Types by Severity and Category</b> breaks down where most of our flaws occurred. In total, 11 of the flaws were related to error handling, and 4 were due to information leakage. Going forward, we now know that we need to ensure that all of the appropriate function calls have error handling: API calls, SDK library functions, asynchronous methods, etc. And, we now know that we need to protect our API keys by accessing them from a file rather than having them hard-coded into the JavaScript.</p>
+    <h4>TODO: </h4>
     <p>TODO: </p>
   </div>
 
@@ -64,10 +81,22 @@
     <hr>
   </div>
 
+  <!-- Entry: 10/27 -->
+  <div class="leg">
+    <h3>27 October 2017</h3>
+    <h4>Data Collection?</h4>
+    <p>This week, we have been toying with the idea of setting up a database for several reasons:</p>
+    <ul>
+      <li><b>Caching makes things faster.</b> As we learned in Mark Sheldon's COMP-0040, caching can optimize the performance of programs immensely. In our case, perhaps caching already-generated NLP analysis of articles related to a given query could help speed things up, as Heroku is currently proving to be a bit slow.</li>
+      <li><b>Collecting user data => profit?</b> It's no secret that political data is extremely valuable to candidates, researchers, marketing firms, etc. As a result, perhaps it would be wise to do the following: gather cursory political affiliation data on first load of the app => see which articles they tend to click on => cache this in a database for later analysis.</li>
+      <li><b>Our APIs are tying our hands.</b> Since we only have 1,000 Aylien API calls per day to work with at the moment, utilizing some caching could help us avoid the ~15 API calls per query that are typically needed to serve a response to the client.</li>
+    </ul>
+    <p>We still have to do a good amount of research into which databases would be best for our needs, but we will likely go with either MongoDB or SQL given their popularity and ease of integration. Stay tuned.</p>
+  </div>
+
   <!-- Leg 3 -->
   <div class="leg">
     <h3>3. Minimum Viable Product</h3>
-    <br>
     <h4>Critical Features of Neural News</h4>
     <img id="demo" src="./product_images/neural_news_demo.gif"/>
     <h5>Searching</h5>
@@ -84,16 +113,31 @@
     <h3>20 October 2017</h3>
     <h4>Building the Server</h4>
     <h5>Overview</h5>
-    <p>TODO: </p>
+    <p>We decided to use Node.js to build our server since there are pre-existing SDKs for the services we want to use (Aylien, mainly) for Neural News. The process of building the server consisted of developing a <code>/query</code> HTTP GET route that serves the natural language processing data paired with articles to the client, our app.</p>
     <h5>Challenges</h5>
-    <p>TODO: </p>
+    <p>We learned that asynchronous calls are a mess. In several places, we have to make asynchronous calls that need to happen sequentially, but the promises aren't quite working as we expect them to. At this point, the server really isn't fully working. There's some bugs related to asynchronous calls not resolving before we send a response back to the client, and we will have to do some investigating into why our current methodology isn't working. However, we have been able to generate some dummy test data that we can now use when testing out the front-end.</p>
     <hr>
+  </div>
+
+  <!-- Entry: 10/13 -->
+  <div class="leg">
+    <h3>13 October 2017</h3>
+    <h4>Confirming User Bias?</h4>
+    <p>This week, we talked about a philosophical, ethical question related to our app. The goal of Neural News is to, given a search query, provide users with articles that cover as many opinions of the political spectrum as possible. So, the naive algorithm would result in serving some left articles, some right, and some neutral. However, this is not how our competitors do it.</p>
+    <p>For example, Google's news website serves its users content that they predict the users will like ... thus confirming the user's already held bias. That is to say, if a given user consistently responds positively to articles that applaud the U.S. Senate, then Google will strive to serve that user articles that talk about the Senate positively. Do we want to do this? Is this strategy more effective in getting returning users?</p>
+    <p>Ultimately, to us what makes Neural News different is that it <b>should and must</b> serve articles that cover the whole political spectrum. Perhaps this may mean that we won't have as many users as we would otherwise, but that would compromise our original intention of the app.</p>
+  </div>
+
+  <!-- Entry: 10/6 -->
+  <div class="leg">
+    <h3>6 October 2017</h3>
+    <h4>TODO: </h4>
+    <p>TODO: </p>
   </div>
 
   <!-- Leg 2 -->
   <div class="leg">
     <h3>2. Basic Foundation</h3>
-    <br>
     <h4>Key Views as Wireframes</h4>
       <h5>Home Screen</h5>
       <img src="./mockups/homeScreen.png">
@@ -138,7 +182,6 @@
   <!-- Leg 1 -->
   <div class="leg">
     <h3>1. Proposal and Requirements</h3>
-    <br>
     <h4>What is the need?</h4>
     <p>With the internet's huge catalog of news sources, it is all too easy to only read news that confirms your own bias. Too often, people will only listen to what Fox has to say, or on what Huffington Post has to offer. Consumers need more diverse news sources, and they need to understand the implicit biases of their sources. By allowing users to search for news and get a diverse spread of results, along with natural language analysis of the articles' content, we aim to empower the individual to be more informed of the information they extract from the media.</p>
     <br>
@@ -163,6 +206,5 @@
     <h4>What are the app's limitations?</h4>
     <p>There are two main limitations of the app. First, the speed of API calls / computation of our analysis: since we depend on 3rd party APIs and libraries to perform all of the natural language analysis, it is possible that the app's load time and search feature will have some latency. Second, the accuracy of our sentiment analysis: even though the APIs we are using are very sophisticated, NLP is far from being perfect. Thus, we understand that our analysis can only be so accurate.</p>
   </div>
-
 </body>
 </html>
