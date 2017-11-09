@@ -53,12 +53,19 @@
     <p>The initial scans of our two main JavaScript files are found in the <code>tests</code> folder at the root of our mobile app repository. After making the appropriate changes, we re-ran Lint on the files and saved the outputs of those scans to the same tests folder.</p>
     <p>It should be noted that in nearly all of the output files (denoted with an <code>_2</code> at the end of the file name), there were a significant amount of false-positives. While we were able to fix the majority of the errors and warnings that eslint was able to provide us, there were many that simply did not make sense. For example, the first error in the <code>lint_index_2.txt</code> file says: <code>'Fetch' is defined but never used.</code> However, we do use the Fetch library by calling its main <code>fetch</code> function to make HTTP GET requests to our server.</p>
     <h4>Crashlytics</h4>
-    <p>TODO: </p>
+    <p>Crashlytics is an extremely powerful tool. It's a light-weight crash-testing solution to easily identify the causes of a crash. Fabric's analytics engine gives insight into where the crash is coming from, giving detailed reports of the crash. Frtunately, our app is not having any problems with crashing, but once we expand our functionality, this will beome a very useful tool. </p>
     <h4>Veracode Analysis Center</h4>
     <p>After using Veracode's static analysis scan utility, I am completely in love with Veracode. The interface was very easy to use, and the end results of running the scan revealed several ways (in a wonderfully easy-to-read format, mind you) that we can improve our app from a security perspective. The generated file can be found at <code>./tests/veracode_tests/DetailedReport_Neural_News_5_Nov_2017.pdf</code></p>
     <p>As you can see in the <b>Summary of Flaws</b> panel, Neural News had only low severity security flaws. The <b>Flaw Types by Severity and Category</b> breaks down where most of our flaws occurred. In total, 11 of the flaws were related to error handling, and 4 were due to information leakage. Going forward, we now know that we need to ensure that all of the appropriate function calls have error handling: API calls, SDK library functions, asynchronous methods, etc. And, we now know that we need to protect our API keys by accessing them from a file rather than having them hard-coded into the JavaScript.</p>
-    <h4>TODO: </h4>
-    <p>TODO: </p>
+    <h4>High-Tech Bridge Security Scan</h4>
+    <p>After testing our native app code, we decided that we needed to test our server code. So we did a security scan using High-Tech Bridge's <a href="https://www.htbridge.com/websec/">Web Server Security Test</a>. Unfortunately, we did not perform very well on the security test. We recieved an F. Our main problem is that we are missing HTTP headers to increase security and prevent vulnerabilities. We are missing the following headers:</p>
+    <ul>
+      <li>X-FRAME-OPTIONS</li>
+      <li>X-XSS-PROTECTION</li>
+      <li>X-CONTENT-TYPE-OPTIONS</li>
+      <li>CONTENT-SECURITY-POLICY</li>
+    </ul>
+    <p>Sending these response headers is an easy way to increase the security of our web server.</p>
   </div>
 
   <!-- Entry: 10/31 -->
@@ -131,8 +138,16 @@
   <!-- Entry: 10/6 -->
   <div class="leg">
     <h3>6 October 2017</h3>
-    <h4>TODO: </h4>
-    <p>TODO: </p>
+    <h4>Further News Analysis</h4>
+    <p>We took the week to talk design for the future, specifically related to how we want to portray the NLP news analysis. We've been asking ourselves the question:</p>
+    <p>     "Why would people want to use our app?" </p>
+    <p>We want to make a news app that people will choose over other ways to get news (Facebook, Google, etc.). This means our analysis has to be really useful. While entity sentiment is a good start, and certainly useful, it's really only the tip of the iceberg. Some bigger features we are planning on adding are:</p>
+    <ul>
+      <li>Complete network analysis - Analyze how different networks cover different news topics, and make comparisions between them.</li>
+      <li>Polling users - collect data about user demographics, political leanings, general opinions (some small version of something similar to <a href="https://www.isidewith.com"> ISideWith.com</a>). Use this data for further statistical analysis and machine learning models.</li>
+      <li>Include "do you agree?" buttons for users to rate the accuracy of our analysis</li>
+      <li>Develop some sort of "bias" index, which is related to entity sentiment, political leaning, and how much a stations coverage of something differs from others.</li>
+    </ul>
   </div>
 
   <!-- Leg 2 -->
@@ -171,11 +186,11 @@
     <h5>Overview</h5>
     <p>This week we built a minimal front end version of the app, without the use of any APIs.</p>
     <h5>Challenges</h5>
-    <p>One of the biggest problems we ran into was the scope of the 'this' variable in React Native. This came up specifically when dealing with searching. In our HomeScreen class, we have a list of trending topics, which are buttons with text. We wanted the Button component to reference our onSearch function, which takes the search query as a parameter and navigates to to search results page. We had something like this:</p>
+    <p>One of the biggest problems we ran into was the scope of the <code>this</code> variable in React Native. This came up specifically when dealing with searching. In our <code>HomeScreen</code> class, we have a list of trending topics, which are buttons with text. We wanted the <code>Button</code> component to reference our <code>onSearch</code> function, which takes the search query as a parameter and navigates to the search results page. We had something like this:</p>
     <img src='./product_images/button_bad.png'>
-    <p>This of course was a problem. We had no idea which 'this' was what. The first 'this' was supposed to reference the HomeScreen class, and the second 'this' was supposed to reference the Button component. It turned out that the first 'this' was referencing the Button, and the second 'this' was undefined. To fix this problem we created some new classes.</p>
+    <p>This of course was a problem. We had no idea which <code>this</code> was what. The first <code>this</code> was supposed to reference the <code>HomeScreen</code> class, and the second <code>this</code> was supposed to reference the <code>Button</code> component. It turned out that the first <code>this</code> was referencing the <code>Button</code>, and the second <code>this</code> was undefined. To fix this problem we created some new classes.</p>
     <img src='./product_images/trending_topics_demo'>
-    <p>This way we could pass the onSearch function as a prop down to the TrendingTopics class and then again down to the TrendingTopic class. The other solution was the '() => {function}' syntax, which corrected the scope of 'this', since it was bound</p>
+    <p>This way we could pass the <code>onSearch</code> function as a prop down to the <code>TrendingTopics</code> class and then again down to the <code>TrendingTopic</code> class. This results in no ambiguity of <code>this</code> variables.
     <hr>
   </div>
 
