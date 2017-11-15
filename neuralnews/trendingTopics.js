@@ -27,13 +27,13 @@ export default class TrendingTopics extends Component {
                 <Text style={styles.trendingTopicsText}>
                     Trending Topics
                 </Text>
-                <TrendingTopic name="Donald Trump" onTopicPress={this.props.onTopicPress} />
-                <TrendingTopic name="Jeff Flake" onTopicPress={this.props.onTopicPress} />
-                <TrendingTopic name="Donald Trump–Russia dossier" onTopicPress={this.props.onTopicPress} />
-                <TrendingTopic name="Democratic National Committee" onTopicPress={this.props.onTopicPress} />
-                <TrendingTopic name="Puerto Rico" onTopicPress={this.props.onTopicPress} />
-                <TrendingTopic name="North Korea" onTopicPress={this.props.onTopicPress} />
-                <TrendingTopic name="United States Senator" onTopicPress={this.props.onTopicPress} />
+                <TrendingTopic name={this.props.topics[0]} onTopicPress={this.props.onTopicPress} />
+                <TrendingTopic name={this.props.topics[1]} onTopicPress={this.props.onTopicPress} />
+                <TrendingTopic name={this.props.topics[2]} onTopicPress={this.props.onTopicPress} />
+                <TrendingTopic name={this.props.topics[3]} onTopicPress={this.props.onTopicPress} />
+                <TrendingTopic name={this.props.topics[4]} onTopicPress={this.props.onTopicPress} />
+                <TrendingTopic name={this.props.topics[5]} onTopicPress={this.props.onTopicPress} />
+                <TrendingTopic name={this.props.topics[6]} onTopicPress={this.props.onTopicPress} />
 
             </View>
         );

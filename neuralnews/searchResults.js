@@ -86,7 +86,14 @@ const styles = StyleSheet.create({
         borderRightColor: 'transparent',
         alignContent: 'center',
     },
-    descriptionContainer: {},
+    descriptionContainer: {
+        paddingBottom: 20,
+        borderWidth: .5,
+        borderTopColor: 'transparent',
+        borderBottomColor: 'gray',
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
+    },
     articleDescriptionHeader: {
         paddingLeft: 7,
         paddingTop: 10,
@@ -103,6 +110,11 @@ const styles = StyleSheet.create({
     },
     analysisContainer: {
         paddingBottom: 10,
+        borderWidth: .5,
+        borderTopColor: 'black',
+        borderBottomColor: 'transparent',
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
     },
     entityContainer: {
         flexWrap: 'wrap',
@@ -111,8 +123,8 @@ const styles = StyleSheet.create({
     entity: {
         paddingLeft: 7,
         paddingRight: 7,
-        color: 'black',
-        fontWeight: 'bold',
+        color: '#265299',
+        //fontWeight: 'bold',
         fontSize: 16,
     },
     entitiesContainer: {
@@ -120,7 +132,6 @@ const styles = StyleSheet.create({
         // justifyContent : 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
-
     },
     slide: {
         shadowColor: 'black',
@@ -137,15 +148,15 @@ const styles = StyleSheet.create({
     },
     linkContainer: {
         // backgroundColor: "white",
-        borderWidth: .5,
-        borderTopColor: 'gray',
-        borderBottomColor: 'gray',
-        borderLeftColor: 'gray',
-        borderRightColor: 'transparent',
-        shadowColor: 'black',
-        shadowOffset: {width: 0.5, height: 0.5},
-        shadowOpacity: 0.3,
-        shadowRadius: 0.5,
+        //borderWidth: .5,
+        //borderTopColor: 'gray',
+        //borderBottomColor: 'gray',
+        //borderLeftColor: 'gray',
+        //borderRightColor: 'transparent',
+        //shadowColor: 'black',
+        //shadowOffset: {width: 0.5, height: 0.5},
+        //shadowOpacity: 0.3,
+        //shadowRadius: 0.5,
     },
     articleTitleContainer: {
         // flex:0.5, //height (according to its parent),
@@ -157,8 +168,8 @@ const styles = StyleSheet.create({
     },
     articleTitle: {
         fontSize: 14,
-        fontWeight: 'bold',
-        color: 'black',
+        //fontWeight: 'bold',
+        color: '#265299',
         // textAlign: 'center',
         flexWrap: 'wrap',
         paddingLeft: 7,
@@ -263,7 +274,7 @@ export default class SearchResultsScreen extends React.Component {
                     {/* Article title */}
 
                     {/* Article description */}
-                    <View>
+                    <View style={styles.descriptionContainer}>
                         <Text style={styles.articleDescription}>{item.article.description}</Text>
                     </View>
                     {/* NLP analysis */}

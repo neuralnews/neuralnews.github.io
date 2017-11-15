@@ -42,10 +42,37 @@ class HomeScreen extends Component {
         this.onSearch = this.onSearch.bind(this);
         this.state = {
             visible: false,
+            topics: ["", "", "", "", "", "", "", ""],
+            isLoading: true,
         };
+        fetch('https://neuralnews.herokuapp.com/trendingtopics', {
+          method: 'GET',
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+          },
+        })
+            // 3. Handle the response
+            .then((response) => response.json())
+
+            // 3b. Convert JSON string to JS object
+            .then((resJson) => {
+                this.setState({
+                    topics: resJson.topics,
+                    isLoading: false,
+                });
+                resolve();
+            })
+
+            // 3c. Catch errors
+            .catch((error) => {
+                alert('Error: ' + JSON.stringify(error));
+                reject('error');
+            });
 
     }
 
+    
     /*
      * onSearch
      *
@@ -115,6 +142,7 @@ class HomeScreen extends Component {
     };
 
     render() {
+      if (!this.state.isLoading) {
         return (
             <View style={styles.container}>
                 <Spinner
@@ -130,9 +158,17 @@ class HomeScreen extends Component {
                 />
 
                 {/* Trending topics */}
-                <TrendingTopics onTopicPress={this.onSearch} />
+                <TrendingTopics onTopicPress={this.onSearch} topics={this.state.topics} />
             </View>
         );
+      }
+      return (
+        <View style={styles.container}>
+            <Spinner
+                visible={this.state.visible}
+            />
+        </View>
+      )
     }
 }
 
