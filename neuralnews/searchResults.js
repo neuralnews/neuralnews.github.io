@@ -59,24 +59,26 @@ const mapPolarityImage = function (polarity) {
 
 // StyleSheet
 const styles = StyleSheet.create({
-    topicHeader: {
-        textAlign: 'center',
-        fontSize: 20,
-        paddingTop: 5,
-        paddingBottom: 5,
-        color: 'black',
+    articleTitleContainer: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        padding: 7,
+        width: 260,
     },
-    todoText: {
-        textAlign: 'center',
-        color: 'red',
+    articleTitle: {
+        fontSize: 14,
+        color: '#0645AD',
+        flexWrap: 'wrap',
+        paddingLeft: 7,
+        paddingRight: 7,
     },
     searchBarContainer: {
         alignContent: 'center',
     },
     articleImage: {
-        width: 300,
-        height: 300,
-        alignContent: 'center',
+        height: 60,
+        width: 60
     },
     carouselContainer: {
         borderWidth: .5,
@@ -93,6 +95,12 @@ const styles = StyleSheet.create({
         borderBottomColor: 'gray',
         borderLeftColor: 'transparent',
         borderRightColor: 'transparent',
+    },
+    articleNetwork: {
+        fontSize: 10,
+        color: 'gray',
+        flexWrap: 'wrap',
+        paddingLeft: 7,
     },
     articleDescriptionHeader: {
         paddingLeft: 7,
@@ -123,13 +131,11 @@ const styles = StyleSheet.create({
     entity: {
         paddingLeft: 7,
         paddingRight: 7,
-        color: '#265299',
-        //fontWeight: 'bold',
+        color: '#0645AD',
         fontSize: 16,
     },
     entitiesContainer: {
         paddingTop: 10,
-        // justifyContent : 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
     },
@@ -145,35 +151,6 @@ const styles = StyleSheet.create({
     },
     wrapperContainer: {
         backgroundColor: 'grey'
-    },
-    linkContainer: {
-        // backgroundColor: "white",
-        //borderWidth: .5,
-        //borderTopColor: 'gray',
-        //borderBottomColor: 'gray',
-        //borderLeftColor: 'gray',
-        //borderRightColor: 'transparent',
-        //shadowColor: 'black',
-        //shadowOffset: {width: 0.5, height: 0.5},
-        //shadowOpacity: 0.3,
-        //shadowRadius: 0.5,
-    },
-    articleTitleContainer: {
-        // flex:0.5, //height (according to its parent),
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        padding: 7,
-        width: 260,
-    },
-    articleTitle: {
-        fontSize: 14,
-        //fontWeight: 'bold',
-        color: '#265299',
-        // textAlign: 'center',
-        flexWrap: 'wrap',
-        paddingLeft: 7,
-        // margin: 30
     },
     contentContainer: {
         paddingVertical: 20,
@@ -208,8 +185,7 @@ export default class SearchResultsScreen extends React.Component {
         });
         return new Promise((resolve, reject) => {
             // 2. Make HTTP GET call to the server
-            // fetch('https://neuralnews.herokuapp.com/trump.json')
-            fetch('https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20'), {
+            fetch('http://35.194.6.162:3000/query?search=' + text.replace(' ', '%20'), {
                 method: 'GET',
                 headers: {
                     Accept: 'text',
@@ -217,7 +193,7 @@ export default class SearchResultsScreen extends React.Component {
                 }
             })
 
-            // 3. Handle the response
+                // 3. Handle the response
                 .then((response) => response.json())
 
                 // 3b. Convert JSON string to JS object
@@ -256,19 +232,16 @@ export default class SearchResultsScreen extends React.Component {
                         }}
                         style={styles.linkContainer}
                     >
-                        <View>
-                            <Image
-                                source={mapNetworkImage(item.article.source.toLowerCase())}
-                                style={styles.articleImage}
-                            />
-                            <View style={styles.articleTitleContainer}>
-                                <Image
-                                    source={{uri: item.article.thumbnail}}
-                                    style={{height: 45, width: 45}}
-                                />
-                                <Text style={styles.articleTitle}>{item.article.title}</Text>
-                            </View>
-                        </View>
+                      <View style={styles.articleTitleContainer}>
+                          <Image
+                              source={{uri: item.article.thumbnail}}
+                              style={styles.articleImage}
+                          />
+                          <View>
+                              <Text style={styles.articleTitle}>{item.article.title}</Text>
+                              <Text style={styles.articleNetwork}>{item.article.source}</Text>
+                          </View>
+                      </View>
                     </TouchableHighlight>
 
                     {/* Article title */}
@@ -283,13 +256,13 @@ export default class SearchResultsScreen extends React.Component {
                             <View style={styles.entityContainer}>
                                 <Text
                                     style={styles.entity}
-                                    onPress={() => this.onSearch(item.article.data[0].ent)}
+                                    onPress={() => this.onSearch(item.article.data[0].name)}
                                 >
-                                    {item.article.data[0].ent}
+                                    {item.article.data[0].name}
                                 </Text>
                             </View>
                             <Image
-                                source={mapPolarityImage(item.article.data[0].polarity)}
+                                source={mapPolarityImage(item.article.data[0].sentiment)}
                                 style={{height: 60, width: 120}}
                             />
                         </View>
@@ -297,13 +270,13 @@ export default class SearchResultsScreen extends React.Component {
                             <View style={styles.entityContainer}>
                                 <Text
                                     style={styles.entity}
-                                    onPress={() => this.onSearch(item.article.data[1].ent)}
+                                    onPress={() => this.onSearch(item.article.data[1].name)}
                                 >
-                                    {item.article.data[1].ent}
+                                    {item.article.data[1].name}
                                 </Text>
                             </View>
                             <Image
-                                source={mapPolarityImage(item.article.data[1].polarity)}
+                                source={mapPolarityImage(item.article.data[1].sentiment)}
                                 style={{height: 60, width: 120}}
                             />
                         </View>
@@ -311,13 +284,41 @@ export default class SearchResultsScreen extends React.Component {
                             <View style={styles.entityContainer}>
                                 <Text
                                     style={styles.entity}
-                                    onPress={() => this.onSearch(item.article.data[2].ent)}
+                                    onPress={() => this.onSearch(item.article.data[2].name)}
                                 >
-                                    {item.article.data[2].ent}
+                                    {item.article.data[2].name}
                                 </Text>
                             </View>
                             <Image
-                                source={mapPolarityImage(item.article.data[2].polarity)}
+                                source={mapPolarityImage(item.article.data[2].sentiment)}
+                                style={{height: 60, width: 120}}
+                            />
+                        </View>
+                        <View style={styles.entitiesContainer}>
+                            <View style={styles.entityContainer}>
+                                <Text
+                                    style={styles.entity}
+                                    onPress={() => this.onSearch(item.article.data[3].name)}
+                                >
+                                    {item.article.data[3].name}
+                                </Text>
+                            </View>
+                            <Image
+                                source={mapPolarityImage(item.article.data[3].sentiment)}
+                                style={{height: 60, width: 120}}
+                            />
+                        </View>
+                        <View style={styles.entitiesContainer}>
+                            <View style={styles.entityContainer}>
+                                <Text
+                                    style={styles.entity}
+                                    onPress={() => this.onSearch(item.article.data[4].name)}
+                                >
+                                    {item.article.data[4].name}
+                                </Text>
+                            </View>
+                            <Image
+                                source={mapPolarityImage(item.article.data[4].sentiment)}
                                 style={{height: 60, width: 120}}
                             />
                         </View>
@@ -353,7 +354,7 @@ export default class SearchResultsScreen extends React.Component {
                     renderItem={this.renderItem}
                     sliderWidth={Dimensions.get('window').width}
                     itemWidth={300}
-                    firstItem={1}
+                    firstItem={2}
                 />
             </View>
         );

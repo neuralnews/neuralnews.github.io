@@ -72,7 +72,7 @@ class HomeScreen extends Component {
 
     }
 
-    
+
     /*
      * onSearch
      *
@@ -83,8 +83,8 @@ class HomeScreen extends Component {
         });
         return new Promise((resolve, reject) => {
             // 2. Make HTTP GET call to the server
-            if (text !== 'Trump.json') {
-                const URL = 'https://neuralnews.herokuapp.com/query?search=' + text.replace(' ', '%20');
+            if (text !== 'Trump_raw.json') {
+                const URL = 'http://35.194.6.162:3000/query?search=' + text.replace(' ', '%20');
                 fetch(URL, {
                     method: 'GET',
                     headers: {
@@ -111,7 +111,7 @@ class HomeScreen extends Component {
                         reject('error');
                     });
             } else {
-                const URL = 'https://neuralnews.herokuapp.com/trump.json';
+                const URL = 'http://35.194.6.162:3000/trump_raw.json';
                 fetch(URL, {
                     method: 'GET',
                     headers: {
@@ -120,7 +120,7 @@ class HomeScreen extends Component {
                     },
                 })
 
-                // 3. Handle the response
+                    // 3. Handle the response
                     .then((response) => response.json())
 
                     // 3b. Convert JSON string to JS object
