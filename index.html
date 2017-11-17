@@ -33,6 +33,17 @@
     <hr>
   </div>
 
+  <!-- Entry: 11/13 -->
+  <div class="leg">
+    <h3>13 November 2017</h3>
+    <h4>Pushing to the Google Play Store</h4>
+    <p>This week, we were tasked with what we've all been waiting for: pushing our finished app to the Google Play Store. Before doing so, we had to make a few iterations on our MVP (mainly in the realm of UI/UX). It was exciting to begin this leg, but we quickly realized how much of a pain getting things onto the Google Play Store can be.</p>
+    <p>First, we couldn't believe how many images we needed to upload. Screen shots seem valid enough, but having to upload icons with certain pixel densities, alpha channel requirements, dimensions, and bit requirements became a bit overwhelming -- if only we had a designer who could have helped us out with this! Luckily, we found a service called <a href="https://romannurik.github.io/AndroidAssetStudio/index.html">Android Asset Studio</a> that makes the process fairly painless. The web application allows you to upload and tweak images to be exported in the correct formats expected by the Google Play Store.</p>
+    <p>Next, generating an APK. Since we have been building in React Native, generating an APK is not as simple as it would be in Android Studio. However, we followed <a href="https://facebook.github.io/react-native/docs/signed-apk-android.html">Facebook's guide on the matter</a>, which helped alleviate some of the complicated behind-the-scenes processes.</p>
+    <p>All in all, it is clear to us how difficult it is to not only push an app to the Google Play Store, but also how important advertising and marketing are in the world of mobile development. No apps with low quality images will ever explode in popularity, which is perhaps why many companies invest so heavily in UI/UX designers to ensure that this side of the business is in good shape.</p>
+    <hr>
+  </div>
+
   <!-- Entry: 11/6 -->
   <div class="leg">
     <h3>6 November 2017</h3>
@@ -44,6 +55,7 @@
       <li><b>Our dependencies are limited.</b> We have to depend on Aylien for our entity extraction and article extraction, which each take up around 15 calls per query on our app. Since we are limited to 1,000 calls a day, this is starting to become unreasonable. Other services like Amazon Web Services and Google Cloud offer these types of APIs for free...if you use their servers!</li>
     </ul>
     <p>So, now we're starting to look at Google Cloud as the next platform for our server space. Google Cloud would give us free, unlimited access to Google APIs that perform (likely better) sentiment analysis, entity extraction, and article extraction. We still have to weigh some factors, but it seems like the next step moving forward with our app.</p>
+    <hr>
   </div>
 
   <!-- Leg 4 -->
@@ -66,6 +78,7 @@
       <li>CONTENT-SECURITY-POLICY</li>
     </ul>
     <p>Sending these response headers is an easy way to increase the security of our web server.</p>
+    <hr>
   </div>
 
   <!-- Entry: 10/31 -->
@@ -99,6 +112,7 @@
       <li><b>Our APIs are tying our hands.</b> Since we only have 1,000 Aylien API calls per day to work with at the moment, utilizing some caching could help us avoid the ~15 API calls per query that are typically needed to serve a response to the client.</li>
     </ul>
     <p>We still have to do a good amount of research into which databases would be best for our needs, but we will likely go with either MongoDB or SQL given their popularity and ease of integration. Stay tuned.</p>
+    <hr>
   </div>
 
   <!-- Leg 3 -->
@@ -133,6 +147,7 @@
     <p>This week, we talked about a philosophical, ethical question related to our app. The goal of Neural News is to, given a search query, provide users with articles that cover as many opinions of the political spectrum as possible. So, the naive algorithm would result in serving some left articles, some right, and some neutral. However, this is not how our competitors do it.</p>
     <p>For example, Google's news website serves its users content that they predict the users will like ... thus confirming the user's already held bias. That is to say, if a given user consistently responds positively to articles that applaud the U.S. Senate, then Google will strive to serve that user articles that talk about the Senate positively. Do we want to do this? Is this strategy more effective in getting returning users?</p>
     <p>Ultimately, to us what makes Neural News different is that it <b>should and must</b> serve articles that cover the whole political spectrum. Perhaps this may mean that we won't have as many users as we would otherwise, but that would compromise our original intention of the app.</p>
+    <hr>
   </div>
 
   <!-- Entry: 10/6 -->
@@ -148,6 +163,7 @@
       <li>Include "do you agree?" buttons for users to rate the accuracy of our analysis</li>
       <li>Develop some sort of "bias" index, which is related to entity sentiment, political leaning, and how much a stations coverage of something differs from others.</li>
     </ul>
+    <hr>
   </div>
 
   <!-- Leg 2 -->
@@ -220,6 +236,7 @@
     <br>
     <h4>What are the app's limitations?</h4>
     <p>There are two main limitations of the app. First, the speed of API calls / computation of our analysis: since we depend on 3rd party APIs and libraries to perform all of the natural language analysis, it is possible that the app's load time and search feature will have some latency. Second, the accuracy of our sentiment analysis: even though the APIs we are using are very sophisticated, NLP is far from being perfect. Thus, we understand that our analysis can only be so accurate.</p>
+    <hr>
   </div>
 </body>
 </html>

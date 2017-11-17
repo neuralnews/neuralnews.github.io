@@ -52,26 +52,18 @@ class HomeScreen extends Component {
               'Content-Type': 'application/json',
           },
         })
-            // 3. Handle the response
-            .then((response) => response.json())
+        // 3. Handle the response
+        .then((response) => response.json())
 
-            // 3b. Convert JSON string to JS object
-            .then((resJson) => {
-                this.setState({
-                    topics: resJson.topics,
-                    isLoading: false,
-                });
-                resolve();
-            })
-
-            // 3c. Catch errors
-            .catch((error) => {
-                alert('Error: ' + JSON.stringify(error));
-                reject('error');
+        // 3b. Convert JSON string to JS object
+        .then((resJson) => {
+            this.setState({
+                topics: resJson.topics,
+                isLoading: false,
             });
+        });
 
     }
-
 
     /*
      * onSearch
@@ -180,7 +172,7 @@ const Nav = StackNavigator({
     MyResults: {
         screen: SearchResultsScreen,
         navigationOptions: ({ navigation }) => ({
-            title: `${navigation.state.params.topic}`,
+            title: 'Search Results',
         }),
     },
 });

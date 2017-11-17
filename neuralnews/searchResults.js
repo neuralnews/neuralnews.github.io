@@ -181,7 +181,7 @@ export default class SearchResultsScreen extends React.Component {
      */
     onSearch = (text) => {
         this.setState({
-            visible: !this.state.visible,
+            visible: true,
         });
         return new Promise((resolve, reject) => {
             // 2. Make HTTP GET call to the server
@@ -193,16 +193,15 @@ export default class SearchResultsScreen extends React.Component {
                 }
             })
 
-                // 3. Handle the response
+            // 3. Handle the response
                 .then((response) => response.json())
 
                 // 3b. Convert JSON string to JS object
                 .then((resJson) => {
                     this.setState({
-                        visible: !this.state.visible,
+                        visible: false,
+                        articles: resJson,
                     });
-                    this.props.navigation.navigate('MyResults',
-                        {articles: resJson, topic: text});
                     resolve();
                 })
 
@@ -232,16 +231,16 @@ export default class SearchResultsScreen extends React.Component {
                         }}
                         style={styles.linkContainer}
                     >
-                      <View style={styles.articleTitleContainer}>
-                          <Image
-                              source={{uri: item.article.thumbnail}}
-                              style={styles.articleImage}
-                          />
-                          <View>
-                              <Text style={styles.articleTitle}>{item.article.title}</Text>
-                              <Text style={styles.articleNetwork}>{item.article.source}</Text>
-                          </View>
-                      </View>
+                        <View style={styles.articleTitleContainer}>
+                            <Image
+                                source={{uri: item.article.thumbnail}}
+                                style={styles.articleImage}
+                            />
+                            <View>
+                                <Text style={styles.articleTitle}>{item.article.title}</Text>
+                                <Text style={styles.articleNetwork}>{item.article.source}</Text>
+                            </View>
+                        </View>
                     </TouchableHighlight>
 
                     {/* Article title */}
