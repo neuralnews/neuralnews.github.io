@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
     },
     analysisContainer: {
-        paddingBottom: 10,
+        paddingBottom: 100,
         borderWidth: .5,
         borderTopColor: 'black',
         borderBottomColor: 'transparent',
@@ -155,6 +155,16 @@ const styles = StyleSheet.create({
     contentContainer: {
         paddingVertical: 20,
     },
+    queryContainer: {
+        backgroundColor: "transparent",
+        alignItems: 'center',
+        paddingTop: 5,
+        paddingBottom: 5,
+    },
+    queryText: {
+        color: "white",
+        fontSize: 16,
+    },
 });
 
 
@@ -170,6 +180,7 @@ export default class SearchResultsScreen extends React.Component {
             toggled: false,
             url: 'some_url',
             visible: false,
+            topic: this.props.navigation.state.params.topic,
         };
         this.onSearch = this.onSearch.bind(this);
     }
@@ -185,7 +196,7 @@ export default class SearchResultsScreen extends React.Component {
         });
         return new Promise((resolve, reject) => {
             // 2. Make HTTP GET call to the server
-            fetch('http://35.194.6.162:3000/query?search=' + text.replace(' ', '%20'), {
+            fetch('http://104.196.204.46:3000/query?search=' + text.replace(' ', '%20'), {
                 method: 'GET',
                 headers: {
                     Accept: 'text',
@@ -201,6 +212,7 @@ export default class SearchResultsScreen extends React.Component {
                     this.setState({
                         visible: false,
                         articles: resJson,
+                        topic: text,
                     });
                     resolve();
                 })
@@ -344,6 +356,12 @@ export default class SearchResultsScreen extends React.Component {
                     <Search
                         onSearch={this.onSearch}
                     />
+                </View>
+
+                <View
+                    style={styles.queryContainer}>
+                    <Text style={styles.queryText}>{this.state.topic}</Text>
+
                 </View>
 
                 {/* Cover flow style display of sorted articles along with their

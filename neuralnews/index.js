@@ -12,6 +12,7 @@ import Search from 'react-native-search-box';
 import SearchResultsScreen from './searchResults.js';
 import Spinner from 'react-native-loading-spinner-overlay';
 import TrendingTopics from './trendingTopics.js';
+import SplashScreen from 'react-native-splash-screen';
 
 const styles = StyleSheet.create({
     container: {
@@ -45,7 +46,7 @@ class HomeScreen extends Component {
             topics: ["", "", "", "", "", "", "", ""],
             isLoading: true,
         };
-        fetch('https://neuralnews.herokuapp.com/trendingtopics', {
+        fetch('http://104.196.204.46:3000/trendingTopics', {
           method: 'GET',
           headers: {
               Accept: 'application/json',
@@ -76,7 +77,7 @@ class HomeScreen extends Component {
         return new Promise((resolve, reject) => {
             // 2. Make HTTP GET call to the server
             if (text !== 'Trump_raw.json') {
-                const URL = 'http://35.194.6.162:3000/query?search=' + text.replace(' ', '%20');
+                const URL = 'http://104.196.204.46:3000/query?search=' + text.replace(' ', '%20');
                 fetch(URL, {
                     method: 'GET',
                     headers: {
@@ -103,7 +104,7 @@ class HomeScreen extends Component {
                         reject('error');
                     });
             } else {
-                const URL = 'http://35.194.6.162:3000/trump_raw.json';
+                const URL = 'http://104.196.204.46:3000/trump_raw.json';
                 fetch(URL, {
                     method: 'GET',
                     headers: {
@@ -179,4 +180,4 @@ const Nav = StackNavigator({
 
 export default Nav;
 
-AppRegistry.registerComponent('neuralnews', () => neuralnews);
+AppRegistry.registerComponent('Neural News', () => neuralnews);
