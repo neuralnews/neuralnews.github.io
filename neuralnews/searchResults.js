@@ -194,34 +194,65 @@ export default class SearchResultsScreen extends React.Component {
         this.setState({
             visible: true,
         });
-        return new Promise((resolve, reject) => {
-            // 2. Make HTTP GET call to the server
-            fetch('http://104.196.204.46:3000/query?search=' + text.replace(' ', '%20'), {
-                method: 'GET',
-                headers: {
-                    Accept: 'text',
-                    'Content-Type': 'text',
-                }
-            })
-
-            // 3. Handle the response
-                .then((response) => response.json())
-
-                // 3b. Convert JSON string to JS object
-                .then((resJson) => {
-                    this.setState({
-                        visible: false,
-                        articles: resJson,
-                        topic: text,
-                    });
-                    resolve();
+        if (text == 'Trump_raw.json') {
+            return new Promise((resolve, reject) => {
+                // 2. Make HTTP GET call to the server
+                fetch('http://104.196.204.46:3000/Trump_raw.json', {
+                    method: 'GET',
+                    headers: {
+                        Accept: 'text',
+                        'Content-Type': 'text',
+                    }
                 })
 
-                // 3c. Catch errors
-                .catch((error) => {
-                    alert('Fetch Error: ' + JSON.stringify(error));
-                });
-        });
+                // 3. Handle the response
+                    .then((response) => response.json())
+
+                    // 3b. Convert JSON string to JS object
+                    .then((resJson) => {
+                        this.setState({
+                            visible: false,
+                            articles: resJson,
+                            topic: text,
+                        });
+                        resolve();
+                    })
+
+                    // 3c. Catch errors
+                    .catch((error) => {
+                        alert('Fetch Error: ' + JSON.stringify(error));
+                    });
+            });
+        } else {
+            return new Promise((resolve, reject) => {
+                // 2. Make HTTP GET call to the server
+                fetch('http://104.196.204.46:3000/query?search=' + text.replace(' ', '%20'), {
+                    method: 'GET',
+                    headers: {
+                        Accept: 'text',
+                        'Content-Type': 'text',
+                    }
+                })
+
+                // 3. Handle the response
+                    .then((response) => response.json())
+
+                    // 3b. Convert JSON string to JS object
+                    .then((resJson) => {
+                        this.setState({
+                            visible: false,
+                            articles: resJson,
+                            topic: text,
+                        });
+                        resolve();
+                    })
+
+                    // 3c. Catch errors
+                    .catch((error) => {
+                        alert('Fetch Error: ' + JSON.stringify(error));
+                    });
+            });
+        }
     }
 
     /*
