@@ -262,6 +262,10 @@ export default class SearchResultsScreen extends React.Component {
                         <Text style={styles.articleDescription}>{item.article.description}</Text>
                     </View>
                     {/* NLP analysis */}
+                    <Entities
+                      data={item.article.data}
+                    />
+                    {/*
                     <View style={styles.analysisContainer}>
                         <View style={styles.entitiesContainer}>
                             <View style={styles.entityContainer}>
@@ -333,7 +337,7 @@ export default class SearchResultsScreen extends React.Component {
                                 style={{height: 60, width: 120}}
                             />
                         </View>
-                    </View>
+                    </View>*/}
                 </ScrollView>
             </View>
         );
@@ -376,4 +380,53 @@ export default class SearchResultsScreen extends React.Component {
             </View>
         );
     }
+}
+
+class Entities extends React.Component {
+  render () {
+    return (
+      <View style={styles.analysisContainer}>
+          <Entity
+            name={this.props.data[0].name}
+            sentiment={this.props.data[0].sentiment}
+          />
+          <Entity
+            name={this.props.data[1].name}
+            sentiment={this.props.data[1].sentiment}
+          />
+          <Entity
+            name={this.props.data[2].name}
+            sentiment={this.props.data[2].sentiment}
+          />
+          <Entity
+            name={this.props.data[3].name}
+            sentiment={this.props.data[3].sentiment}
+          />
+          <Entity
+            name={this.props.data[4].name}
+            sentiment={this.props.data[4].sentiment}
+          />
+      </View>
+    )
+  }
+}
+
+class Entity extends React.Component {
+  render () {
+    return (
+      <View style={styles.entitiesContainer}>
+          <View style={styles.entityContainer}>
+              <Text
+                  style={styles.entity}
+              >
+                  {this.props.name}
+              </Text>
+          </View>
+          <Image
+              source={mapPolarityImage(this.props.sentiment)}
+              style={{height: 60, width: 120}}
+          />
+      </View>
+    )
+  }
 }
