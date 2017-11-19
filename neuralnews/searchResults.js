@@ -220,6 +220,9 @@ export default class SearchResultsScreen extends React.Component {
 
                     // 3c. Catch errors
                     .catch((error) => {
+                        this.setState({
+                            visible: false;
+                        });
                         alert('Fetch Error: ' + JSON.stringify(error));
                     });
             });
@@ -249,6 +252,9 @@ export default class SearchResultsScreen extends React.Component {
 
                     // 3c. Catch errors
                     .catch((error) => {
+                        this.setState({
+                            visible: false,
+                        });
                         alert('Fetch Error: ' + JSON.stringify(error));
                     });
             });
