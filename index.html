@@ -33,10 +33,37 @@
     <hr>
   </div>
 
+  <!-- Leg 6 -->
+  <div class="leg">
+    <h3>Leg 6: App Reviews</h3>
+    <h4>Feedback Received</h4>
+    <ul>
+        <li>TODO: </li>
+    </ul>
+  </div>
+
+  <!-- Entry: 11/27 -->
+  <div class="leg">
+    <h3>27 November 2017</h3>
+    <h4>TODO: </h4>
+    <p>TODO: </p>
+    <hr>
+  </div>
+
+  <!-- Entry: 11/20 -->
+  <div class="leg">
+    <h3>20 November 2017</h3>
+    <h4>Compute Engine vs. App Engine</h4>
+    <p>In the past couple weeks, we've been working to move to Google Cloud, and we made it! However, as with all things we now have more trade-offs to consider now that we're on the cloud. Google offers two cloud products that seem to suit our needs: the compute engine and the app engine. In short, the compute engine is just that -- a remote machine that you can SSH into to crunch numbers, host servers, etc. The app engine is designed with a wrapper on the raw compute engine in such a way that abstracts the programmer from some of the scalability concerns that come into play when building a web server.</p>
+    <p>At first, we started out on the compute engine platform. However, we quickly found out how much more tedious it was to work with a raw machine. Installing dependencies, ensuring the server would always stay up, and managing multiple requests at the same time became a bit overwhelming. Ultimately, we ended up getting to the point where the server is constantly running on the compute engine, but we haven't gotten it to handle multiple requests at a time yet. So, we plan to migrate to the app engine platform soon -- perhaps after this course will be over, but hopefully sooner. Oh the cloud!</p>
+    <hr>
+  </div>
+
   <!-- Leg 5 -->
   <div class="leg">
     <h3>Leg 5: To the Play Store!</h3>
-    <p>TODO: </p>
+    <p>For the fifth leg of this course, we were posed with the exciting challenge of pushing our app to the Google Play Store. As we covered in the previous entry, a lot of this process was quite nightmarish due to React Native's unavoidable headaches. However, we managed to get the whole thing working and it is now currently live on the Google Play Store. Even so, there are a few things that we screwed up that we need to fix... as always.</p>
+    <p>To be fair, most of the problems we're discovering now are largely aesthetic issues. For example, when you download the app to your phone, it comes up as 'neuralnews' on the phone, when we expected it to read as 'Neural News'. It turns out that this is something that you need to program into the APK -- we had originally thought that creating the Google Play Store listing would take care of this, but such was not the case. Also, we now see that we need to find the code in the app that designates which logos will display once the app has been downloaded to a phone. As it stands now, it is using the icon that was uploaded to the Play Store, but we intended it to be using a different one. Small problems, but they need to be fixed sooner than later, as the visual appearance of the app is almost more important than the functionality.</p>
     <hr>
   </div>
 
