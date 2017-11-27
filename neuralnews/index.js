@@ -62,6 +62,12 @@ class HomeScreen extends Component {
                 topics: resJson.topics,
                 isLoading: false,
             });
+        })
+
+        // 3c. Catch errors
+        .catch((error) => {
+            alert('Error: ' + JSON.stringify(error));
+            reject('error');
         });
 
     }
