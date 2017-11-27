@@ -151,7 +151,7 @@ class HomeScreen extends Component {
                 />
 
                 {/* Trending topics */}
-                <TrendingTopics onTopicPress={this.onSearch} topics={this.state.topics} />
+                <TrendingTopics topics={this.state.topics} />
             </View>
         );
       }
