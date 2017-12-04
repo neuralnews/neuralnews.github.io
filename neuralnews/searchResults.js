@@ -45,13 +45,13 @@ const mapNetworkImage = function (source) {
 };
 
 const mapPolarityImage = function (polarity) {
-    if (polarity <= -0.75) {
+    if (polarity <= -0.25) {
         return polarityImageDictionary.very_negative;
-    } else if (polarity <= -0.1) {
+    } else if (polarity <= -0.1 && polarity > -0.25) {
         return polarityImageDictionary.somewhat_negative;
-    } else if (polarity >= 0.1 && polarity <= 0.75) {
+    } else if (polarity >= 0.1 && polarity <= 0.25) {
         return polarityImageDictionary.somewhat_positive;
-    } else if (polarity > 0.75) {
+    } else if (polarity > 0.25) {
         return polarityImageDictionary.very_positive;
     }
     return polarityImageDictionary.neutral;
@@ -167,7 +167,6 @@ const styles = StyleSheet.create({
     },
 });
 
-
 export default class SearchResultsScreen extends React.Component {
     /*
      * constructor
@@ -224,6 +223,7 @@ export default class SearchResultsScreen extends React.Component {
                             visible: false,
                         });
                         alert('Fetch Error: ' + JSON.stringify(error));
+                        resolve();
                     });
             });
         } else {
@@ -252,10 +252,11 @@ export default class SearchResultsScreen extends React.Component {
 
                     // 3c. Catch errors
                     .catch((error) => {
+                        alert('Fetch Error: ' + JSON.stringify(error));
                         this.setState({
                             visible: false,
                         });
-                        alert('Fetch Error: ' + JSON.stringify(error));
+                        resolve();
                     });
             });
         }
@@ -420,7 +421,7 @@ export default class SearchResultsScreen extends React.Component {
 }
 
 class Entities extends React.Component {
-  render () {
+  render() {
     return (
       <View style={styles.analysisContainer}>
           <Entity
@@ -444,12 +445,12 @@ class Entities extends React.Component {
             sentiment={this.props.data[4].sentiment}
           />
       </View>
-    )
+    );
   }
 }
 
 class Entity extends React.Component {
-  render () {
+  render() {
     return (
       <View style={styles.entitiesContainer}>
           <View style={styles.entityContainer}>
@@ -464,6 +465,6 @@ class Entity extends React.Component {
               style={{height: 60, width: 120}}
           />
       </View>
-    )
+    );
   }
 }
