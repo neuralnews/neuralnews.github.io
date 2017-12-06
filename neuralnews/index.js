@@ -164,10 +164,6 @@ class HomeScreen extends Component {
             </View>,
         headerStyle: {
             backgroundColor: '#211f21',
-            shadowColor: 'white',
-            shadowOffset: {width: 1, height: 3},
-            shadowOpacity: 0.2,
-            shadowRadius: 3,
         },
         headerTintColor: 'lightgrey',
     };
@@ -264,6 +260,30 @@ class HomeScreen extends Component {
                         <View style={styles.topStoriesContainer}><Text style={styles.topStoriesText}>TOP STORIES</Text></View>
 
                         {/* Top Story #1 */}
+                        <View style={styles.topStoryContainer2}>
+                            <View>
+                                <Text style={styles.topicText}>{this.state.homeData[0].topic}</Text>
+                                <Carousel
+                                    data={this.state.homeData[0].articles}
+                                    renderItem={this.renderItem}
+                                    sliderWidth={Dimensions.get('window').width}
+                                    itemWidth={Dimensions.get('window').width}
+                                    firstItem={1}
+                                />
+                            </View>
+                        </View>
+                        <View style={styles.topStoryContainer2}>
+                            <View>
+                                <Text style={styles.topicText}>{this.state.homeData[0].topic}</Text>
+                                <Carousel
+                                    data={this.state.homeData[0].articles}
+                                    renderItem={this.renderItem}
+                                    sliderWidth={Dimensions.get('window').width}
+                                    itemWidth={Dimensions.get('window').width}
+                                    firstItem={1}
+                                />
+                            </View>
+                        </View>
                         <View style={styles.topStoryContainer2}>
                             <View>
                                 <Text style={styles.topicText}>{this.state.homeData[0].topic}</Text>
