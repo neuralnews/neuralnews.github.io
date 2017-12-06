@@ -14,6 +14,8 @@ import {
 import Carousel from 'react-native-snap-carousel';
 import Search from 'react-native-search-box';
 import Spinner from 'react-native-loading-spinner-overlay';
+import {StackNavigator} from 'react-navigation';
+
 
 const networkImageDictionary = {
     msn: require('./assets/msn.png'),
@@ -302,79 +304,6 @@ export default class SearchResultsScreen extends React.Component {
                     <Entities
                       data={item.article.data}
                     />
-                    {/*
-                    <View style={styles.analysisContainer}>
-                        <View style={styles.entitiesContainer}>
-                            <View style={styles.entityContainer}>
-                                <Text
-                                    style={styles.entity}
-                                    onPress={() => this.onSearch(item.article.data[0].name)}
-                                >
-                                    {item.article.data[0].name}
-                                </Text>
-                            </View>
-                            <Image
-                                source={mapPolarityImage(item.article.data[0].sentiment)}
-                                style={{height: 60, width: 120}}
-                            />
-                        </View>
-                        <View style={styles.entitiesContainer}>
-                            <View style={styles.entityContainer}>
-                                <Text
-                                    style={styles.entity}
-                                    onPress={() => this.onSearch(item.article.data[1].name)}
-                                >
-                                    {item.article.data[1].name}
-                                </Text>
-                            </View>
-                            <Image
-                                source={mapPolarityImage(item.article.data[1].sentiment)}
-                                style={{height: 60, width: 120}}
-                            />
-                        </View>
-                        <View style={styles.entitiesContainer}>
-                            <View style={styles.entityContainer}>
-                                <Text
-                                    style={styles.entity}
-                                    onPress={() => this.onSearch(item.article.data[2].name)}
-                                >
-                                    {item.article.data[2].name}
-                                </Text>
-                            </View>
-                            <Image
-                                source={mapPolarityImage(item.article.data[2].sentiment)}
-                                style={{height: 60, width: 120}}
-                            />
-                        </View>
-                        <View style={styles.entitiesContainer}>
-                            <View style={styles.entityContainer}>
-                                <Text
-                                    style={styles.entity}
-                                    onPress={() => this.onSearch(item.article.data[3].name)}
-                                >
-                                    {item.article.data[3].name}
-                                </Text>
-                            </View>
-                            <Image
-                                source={mapPolarityImage(item.article.data[3].sentiment)}
-                                style={{height: 60, width: 120}}
-                            />
-                        </View>
-                        <View style={styles.entitiesContainer}>
-                            <View style={styles.entityContainer}>
-                                <Text
-                                    style={styles.entity}
-                                    onPress={() => this.onSearch(item.article.data[4].name)}
-                                >
-                                    {item.article.data[4].name}
-                                </Text>
-                            </View>
-                            <Image
-                                source={mapPolarityImage(item.article.data[4].sentiment)}
-                                style={{height: 60, width: 120}}
-                            />
-                        </View>
-                    </View>*/}
                 </ScrollView>
             </View>
         );
@@ -417,53 +346,4 @@ export default class SearchResultsScreen extends React.Component {
             </View>
         );
     }
-}
-
-class Entities extends React.Component {
-  render () {
-    return (
-      <View style={styles.analysisContainer}>
-          <Entity
-            name={this.props.data[0].name}
-            sentiment={this.props.data[0].sentiment}
-          />
-          <Entity
-            name={this.props.data[1].name}
-            sentiment={this.props.data[1].sentiment}
-          />
-          <Entity
-            name={this.props.data[2].name}
-            sentiment={this.props.data[2].sentiment}
-          />
-          <Entity
-            name={this.props.data[3].name}
-            sentiment={this.props.data[3].sentiment}
-          />
-          <Entity
-            name={this.props.data[4].name}
-            sentiment={this.props.data[4].sentiment}
-          />
-      </View>
-    )
-  }
-}
-
-class Entity extends React.Component {
-  render () {
-    return (
-      <View style={styles.entitiesContainer}>
-          <View style={styles.entityContainer}>
-              <Text
-                  style={styles.entity}
-              >
-                  {this.props.name}
-              </Text>
-          </View>
-          <Image
-              source={mapPolarityImage(this.props.sentiment)}
-              style={{height: 60, width: 120}}
-          />
-      </View>
-    )
-  }
 }
