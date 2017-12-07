@@ -151,22 +151,23 @@ const styles = StyleSheet.create({
 });
 
 class HomeScreen extends Component {
-    static navigationOptions = {
+    static navigationOptions = ({navigation}) => ({
         title: 'Neural News',
-        headerRight:
+        headerRight: (
             <View style={styles.searchImageContainer}>
-                <TouchableHighlight onPress={() => alert('todo')}>
+                <TouchableHighlight onPress={() => {navigation.navigate('MySearch')}}>
                     <Image
                         style={styles.searchImage}
                         source={require('./assets/search.png')}>
                     </Image>
                 </TouchableHighlight>
-            </View>,
+            </View>
+        ),
         headerStyle: {
             backgroundColor: '#211f21',
         },
         headerTintColor: 'lightgrey',
-    };
+    });
 
     constructor(props)
     {
@@ -331,6 +332,9 @@ class HomeScreen extends Component {
 const Nav = StackNavigator({
     Home: {
         screen: HomeScreen,
+        navigationOptions: ({ navigation }) => ({
+            title: 'Neural News',
+        }),
     },
     MyResults: {
         screen: SearchResultsScreen,

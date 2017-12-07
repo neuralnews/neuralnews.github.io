@@ -14,7 +14,8 @@ import {
 import Carousel from 'react-native-snap-carousel';
 import Search from 'react-native-search-box';
 import Spinner from 'react-native-loading-spinner-overlay';
-import {StackNavigator} from 'react-navigation';
+import Entities from './entities.js';
+import Entity from './entity.js';
 
 
 const networkImageDictionary = {
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     },
     articleTitle: {
         fontSize: 14,
-        color: '#0645AD',
+        color: '#5193ff',
         flexWrap: 'wrap',
         paddingLeft: 7,
         paddingRight: 7,
@@ -108,14 +109,14 @@ const styles = StyleSheet.create({
         paddingLeft: 7,
         paddingTop: 10,
         fontSize: 18,
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold',
     },
     articleDescription: {
         paddingLeft: 7,
         paddingRight: 7,
         paddingTop: 7,
-        color: 'black',
+        color: 'white',
         flexWrap: 'wrap',
     },
     analysisContainer: {
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     entity: {
         paddingLeft: 7,
         paddingRight: 7,
-        color: '#0645AD',
+        color: '#5193ff',
         fontSize: 16,
     },
     entitiesContainer: {
@@ -147,12 +148,12 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.7,
         shadowRadius: 5,
         height: Dimensions.get('window').height - 100,
-        backgroundColor: 'white',
+        backgroundColor: '#383438',
         width: 300,
 
     },
     wrapperContainer: {
-        backgroundColor: 'grey'
+        backgroundColor: '#211f21'
     },
     contentContainer: {
         paddingVertical: 20,
@@ -171,6 +172,14 @@ const styles = StyleSheet.create({
 
 
 export default class SearchResultsScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Neural News',
+        headerStyle: {
+            backgroundColor: '#211f21',
+        },
+        headerTintColor: 'lightgrey',
+    };
+
     /*
      * constructor
      * Responsible for initializing the SearchResultsScreen class
