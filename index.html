@@ -48,8 +48,10 @@
   <!-- Entry: 12/4 -->
   <div class="leg">
     <h3>4 December 2017</h3>
-    <h4>Sorted Carousel vs. Never-ending Feed</h4>
-    <p>TODO: </p>
+    <h4>Bugs, crashes, and frustration</h4>
+    <p>As seen in our Leg 6 entry, many users experienced significant difficulty when trying to use our app. We've been tracking these issues on Crashlytics, and it's clear that there is a lot for us to fix. Some of these bugs seem to be easier to fix -- null pointer exceptions mainly -- but others appear to be so obscure that it is a bit daunting just thinking about them. Since we built Neural News with React Native, most of the under-the-hood operations were abstracted from us, and as a result we aren't too sure about how to tackle some of the more cryptic bugs.</p>
+    <p>The other major issue with the app was latency on the server side. Since the operations our server needs to do are non-trivial, we've been having a hard time with shaving off time per request. We need to query Azure for articles => extract the text from each article => analyze each article => make sense of the NLP data => resolve the request. We know that the easiest way to fix this would be through caching, but we ultimately decided that building a proper database for caching was out of the scope of this course. However, we will continue to work on the app over Winter Break to hopefully implement a functioning database.</p>
+    <p>Getting such harsh feedback was quite sobering. The reality is that we're all so accustomed to using mobile apps that respond instantly that we are now too impatient to wait a few seconds for our search to resolve. So, it is clear to us that mobile is a very difficult frontier to take on with respect to development, since the products must be extremely air-tight.</p>
     <hr>
   </div>
 
@@ -62,7 +64,21 @@
         <li>Add further entity analysis when you click on an entity.</li>
         <li>Open up browser within app</li>
         <li>Sort articles more — the average should be neutral.</li>
-        <li>More to come...</li>
+        <li>"Can't give a very thorough review, as the app crashed after I try to search a topic."</li>
+        <li>"Your app has a lot of really cool features and is easy to use. The overview of each article’s stance on a given issue is really helpful and innovative! Our only suggestion would be to work on the design of your app a bit. Otherwise, it looks great!"</li>
+        <li>"Neat icon. I am really impressed with the app's ability to differentiate bias in the article through NLP."</li>
+        <li>"I like how the recent searches are shown on the front page. However, the app crashes when I click on one of them, or when I make a search :("</li>
+        <li>"The whole app is great. It is impressive to have such rich news resources and can link to the original news by one click. However, the app will crush when I tried search something like "nature", and it has a large probability to get crush when searching news about "Donald Trump", which is confusing considering that this keyword is in the "Trending Topics"."</li>
+        <li>"A great example that combines the mobile app with NLP.
+When I click the one “trending topic” in the homepage, it crashed. But I tried other trending topics, it works fine. 
+Suggestion: It can have a link to somewhere that can display all the related news instead of just showing the 5 news. Also, for all the trending topic, it would be nicer that each topic is just a link, not a “button”."</li>
+        <li>"Cool icon, and I like the simple banner.
+It crashed when I clicked on a trending topic.
+It crashed when I tried to search for “meghan markle” (or any other search term)."</li>
+        <li>"The trending topics buttons overlap on the main screen, consider adding some padding between buttons. I love that I can easily pick from the trending topic of the day and it’s pretty accurate. I love the user interface where I can swipe to view other stories. You should add some padding around the title next to the thumbnail though, for one of my articles the left side of the title was cut off. One improvement that could be made is allowing the user to save an article to read later. Overall awesome job!"</li>
+        <li>"I think the icon looks very nice. At first I thought that clicking a topic made the app freeze and be unresponsive, but it turns out it was just really slow. It would be nice to have some sort of loading bar so I would know it's doing something. The first time I tried to search for a topic I got an alert that said "error {}". A more instructive error message would be nice. I was able to search for a topic, but then I tried to search for more and the app kept crashing"</li>
+        <li>"Very well designed, seems to get analysis right from a surface viewing"</li>
+        <li>"First of, I really love this app idea. I have seen Brendan developing this app, and this looks incredible, and works well in iOS. However, when I have downloaded this app to my device (Google Pixel, Android 8.0), the first thing I noticed is the styling for the first page is a little bit off. Android devices have different default color, so... be sure to style it, even if it looks fine without much styling. Also the app crash 2 times at the beginning, and you should find two crashlytic emails in your mail box tomorrow morning.... Generally, GREAT APP ❤️"</li>
     </ul>
     <hr>
   </div>
