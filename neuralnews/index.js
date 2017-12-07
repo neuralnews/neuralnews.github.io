@@ -275,21 +275,21 @@ class HomeScreen extends Component {
                         </View>
                         <View style={styles.topStoryContainer2}>
                             <View>
-                                <Text style={styles.topicText}>{this.state.homeData[0].topic}</Text>
+                                <Text style={styles.topicText}>{this.state.homeData[1].topic}</Text>
                                 <Carousel
-                                    data={this.state.homeData[0].articles}
+                                    data={this.state.homeData[1].articles}
                                     renderItem={this.renderItem}
                                     sliderWidth={Dimensions.get('window').width}
                                     itemWidth={Dimensions.get('window').width}
-                                    firstItem={1}
+                                    firstItem={0}
                                 />
                             </View>
                         </View>
                         <View style={styles.topStoryContainer2}>
                             <View>
-                                <Text style={styles.topicText}>{this.state.homeData[0].topic}</Text>
+                                <Text style={styles.topicText}>{this.state.homeData[2].topic}</Text>
                                 <Carousel
-                                    data={this.state.homeData[0].articles}
+                                    data={this.state.homeData[2].articles}
                                     renderItem={this.renderItem}
                                     sliderWidth={Dimensions.get('window').width}
                                     itemWidth={Dimensions.get('window').width}
@@ -301,9 +301,23 @@ class HomeScreen extends Component {
                         {/* Top Story #2 */}
                         <View style={styles.topStoryContainer2}>
                             <View>
-                                <Text style={styles.topicText}>{this.state.homeData[1].topic}</Text>
+                                <Text style={styles.topicText}>{this.state.homeData[3].topic}</Text>
                                 <Carousel
-                                    data={this.state.homeData[1].articles}
+                                    data={this.state.homeData[3].articles}
+                                    renderItem={this.renderItem}
+                                    sliderWidth={Dimensions.get('window').width}
+                                    itemWidth={Dimensions.get('window').width}
+                                    firstItem={1}
+                                />
+                            </View>
+                        </View>
+
+                        {/* Top Story #2 */}
+                        <View style={styles.topStoryContainer2}>
+                            <View>
+                                <Text style={styles.topicText}>{this.state.homeData[4].topic}</Text>
+                                <Carousel
+                                    data={this.state.homeData[4].articles}
                                     renderItem={this.renderItem}
                                     sliderWidth={Dimensions.get('window').width}
                                     itemWidth={Dimensions.get('window').width}
