@@ -235,39 +235,49 @@ export default class SearchResultsScreen extends React.Component {
                             visible: false,
                         });
                         alert('Fetch Error: ' + JSON.stringify(error));
+                        return;
                     });
             });
         } else {
             return new Promise((resolve, reject) => {
-                // 2. Make HTTP GET call to the server
-                fetch('http://104.196.204.46:3000/query?search=' + text.replace(' ', '%20'), {
-                    method: 'GET',
-                    headers: {
-                        Accept: 'text',
-                        'Content-Type': 'text',
-                    }
-                })
-
-                // 3. Handle the response
-                    .then((response) => response.json())
-
-                    // 3b. Convert JSON string to JS object
-                    .then((resJson) => {
-                        this.setState({
-                            visible: false,
-                            articles: resJson,
-                            topic: text,
-                        });
-                        resolve();
+                try {
+                    // 2. Make HTTP GET call to the server
+                    fetch('http://104.196.204.46:3000/query?search=' + text.replace(' ', '%20'), {
+                        method: 'GET',
+                        headers: {
+                            Accept: 'text',
+                            'Content-Type': 'text',
+                        }
                     })
 
-                    // 3c. Catch errors
-                    .catch((error) => {
-                        this.setState({
-                            visible: false,
+                    // 3. Handle the response
+                        .then((response) => response.json())
+
+                        // 3b. Convert JSON string to JS object
+                        .then((resJson) => {
+                            this.setState({
+                                visible: false,
+                                articles: resJson,
+                                topic: text,
+                            });
+                            resolve();
+                        })
+
+                        // 3c. Catch errors
+                        .catch((error) => {
+                            this.setState({
+                                visible: false,
+                            });
+                            //alert('Fetch Error: ' + JSON.stringify(error));
+                            //return;
                         });
-                        alert('Fetch Error: ' + JSON.stringify(error));
+                } catch (error) {
+                    this.setState({
+                        visible: false,
                     });
+                    alert("Error during searching: " + JSON.stringify(error));
+                    return;
+                }
             });
         }
     }

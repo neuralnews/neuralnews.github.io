@@ -190,7 +190,7 @@ export default class SearchScreen extends Component {
      */
     onSearch = (text) => {
         this.setState({
-            visible: !this.state.visible,
+            visible: true,
         });
         return new Promise((resolve, reject) => {
             // 2. Make HTTP GET call to the server
@@ -223,13 +223,14 @@ export default class SearchScreen extends Component {
                     });
             } else {
                 const URL = 'http://104.196.204.46:3000/trump_raw.json';
-                fetch(URL, {
-                    method: 'GET',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                })
+                try {
+                    fetch(URL, {
+                        method: 'GET',
+                        headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                    })
 
                     // 3. Handle the response
                     .then((response) => response.json())
@@ -237,7 +238,7 @@ export default class SearchScreen extends Component {
                     // 3b. Convert JSON string to JS object
                     .then((resJson) => {
                         this.setState({
-                            visible: !this.state.visible,
+                            visible: false,
                         });
                         this.props.navigation.navigate('MyResults', {articles: resJson, topic: text});
                         resolve();
@@ -245,9 +246,18 @@ export default class SearchScreen extends Component {
 
                     // 3c. Catch errors
                     .catch((error) => {
+                        this.setState({
+                            visible: false,
+                        });
                         alert('Error: ' + JSON.stringify(error));
                         reject('error');
                     });
+                } catch (error) {
+                    this.setState({
+                        visible: false,
+                    });
+                    alert("Error during searching: " + JSON.stringify(error));
+                }
             }
         });
     };
