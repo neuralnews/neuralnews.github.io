@@ -39,9 +39,29 @@
     <h4>Update v1.2</h4>
     <img id="demo" src="./product_images/new_ui.gif"/>
     <ul>
-      <li>Overhauled the UI/UX, shifting towards a sleeker dark color palette</li>
-      <li>Added a "TRENDING TOPICS" homepage that displays cached data on relevant news topics</li>
-      <li>Patched server bugs to reduce crashes on request</li>
+      <li>Added a splash screen that displays while app content is loading
+        <ul>
+          <li>We noticed that it was weird to have a blank screen displaying for a second or two while the app makes HTTP requests to our server, so we added this screen in to help smooth the app flow out</li>
+        </ul>
+      </li>
+      <li>Overhauled the UI/UX, shifting towards a sleeker dark color palette
+        <ul>
+          <li>Based on some feedback we received from peers, most people tended to like the darker color palette in comparison to a bland white one</li>
+          <li>Ensured that the colors fit with some of our graphics on the Google Play Store and splash screen</li>
+        </ul>
+      </li>
+      <li>Added a "TRENDING TOPICS" homepage that displays cached data on relevant news topics
+        <ul>
+          <li>On launch, the app makes a call to our server to get data for the top trending topics</li>
+          <li>We decided to implement this feature to try and combat a lot of the negative feedback we received with respect to latency</li>
+          <li>By giving users articles and analysis on the top five trending topics, we hope to avoid some of the bottleneck that happens when you make individual HTTP requests for specific topics</li>
+        </ul>
+      </li>
+      <li>Patched server bugs to reduce crashes on request
+        <ul>
+          <li>Started using a library called 'forever' that handles restarting the server back up on crash</li>
+        </ul>
+      </li>
     </ul>
     <br>
     <h4>Brendan's Reflection</h4>
