@@ -234,11 +234,7 @@ export default class SearchResultsScreen extends React.Component {
                             visible: false,
                         });
                         alert('Fetch Error: ' + JSON.stringify(error));
-<<<<<<< HEAD
-                        resolve();
-=======
                         return;
->>>>>>> ui
                     });
             });
         } else {
@@ -266,15 +262,6 @@ export default class SearchResultsScreen extends React.Component {
                             resolve();
                         })
 
-<<<<<<< HEAD
-                    // 3c. Catch errors
-                    .catch((error) => {
-                        alert('Fetch Error: ' + JSON.stringify(error));
-                        this.setState({
-                            visible: false,
-                        });
-                        resolve();
-=======
                         // 3c. Catch errors
                         .catch((error) => {
                             this.setState({
@@ -286,7 +273,6 @@ export default class SearchResultsScreen extends React.Component {
                 } catch (error) {
                     this.setState({
                         visible: false,
->>>>>>> ui
                     });
                     alert("Error during searching: " + JSON.stringify(error));
                     return;
@@ -379,55 +365,3 @@ export default class SearchResultsScreen extends React.Component {
         );
     }
 }
-<<<<<<< HEAD
-
-class Entities extends React.Component {
-  render() {
-    return (
-      <View style={styles.analysisContainer}>
-          <Entity
-            name={this.props.data[0].name}
-            sentiment={this.props.data[0].sentiment}
-          />
-          <Entity
-            name={this.props.data[1].name}
-            sentiment={this.props.data[1].sentiment}
-          />
-          <Entity
-            name={this.props.data[2].name}
-            sentiment={this.props.data[2].sentiment}
-          />
-          <Entity
-            name={this.props.data[3].name}
-            sentiment={this.props.data[3].sentiment}
-          />
-          <Entity
-            name={this.props.data[4].name}
-            sentiment={this.props.data[4].sentiment}
-          />
-      </View>
-    );
-  }
-}
-
-class Entity extends React.Component {
-  render() {
-    return (
-      <View style={styles.entitiesContainer}>
-          <View style={styles.entityContainer}>
-              <Text
-                  style={styles.entity}
-              >
-                  {this.props.name}
-              </Text>
-          </View>
-          <Image
-              source={mapPolarityImage(this.props.sentiment)}
-              style={{height: 60, width: 120}}
-          />
-      </View>
-    );
-  }
-}
-=======
->>>>>>> ui
