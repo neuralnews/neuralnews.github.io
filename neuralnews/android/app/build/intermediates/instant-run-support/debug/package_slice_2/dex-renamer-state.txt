@@ -1,4 +1,0 @@
-#Sun Nov 05 15:43:13 EST 2017
-base.0=/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2
-renamed.0=classes.dex
-file.0=/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex
