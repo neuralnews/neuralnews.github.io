@@ -113,15 +113,15 @@ export default class Entities extends React.Component {
             <View style={styles.analysisContainer}>
                 <Entity
                     name={this.props.data[0].name}
-                    sentiment={this.props.data[0].sentiment}
+                    sentiment={this.props.data[0].sentiment.score}
                 />
                 <Entity
                     name={this.props.data[1].name}
-                    sentiment={this.props.data[1].sentiment}
+                    sentiment={this.props.data[1].sentiment.score}
                 />
                 <Entity
                     name={this.props.data[2].name}
-                    sentiment={this.props.data[2].sentiment}
+                    sentiment={this.props.data[2].sentiment.score}
                 />
             </View>
         )

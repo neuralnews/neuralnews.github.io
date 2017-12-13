@@ -241,7 +241,7 @@ export default class SearchResultsScreen extends React.Component {
             return new Promise((resolve, reject) => {
                 try {
                     // 2. Make HTTP GET call to the server
-                    fetch('http://104.196.204.46:3000/query?search=' + text.replace(' ', '%20'), {
+                    fetch('https://neural-news-186322.appspot.com/query/' + text.replace(' ', '%20'), {
                         method: 'GET',
                         headers: {
                             Accept: 'text',
