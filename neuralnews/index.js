@@ -269,7 +269,7 @@ class HomeScreen extends Component {
                                     renderItem={this.renderItem}
                                     sliderWidth={Dimensions.get('window').width}
                                     itemWidth={Dimensions.get('window').width}
-                                    firstItem={1}
+                                    firstItem={this.state.homeData[0].startingIndex}
                                 />
                             </View>
                         </View>
@@ -281,7 +281,7 @@ class HomeScreen extends Component {
                                     renderItem={this.renderItem}
                                     sliderWidth={Dimensions.get('window').width}
                                     itemWidth={Dimensions.get('window').width}
-                                    firstItem={0}
+                                    firstItem={this.state.homeData[1].startingIndex}
                                 />
                             </View>
                         </View>
@@ -293,7 +293,7 @@ class HomeScreen extends Component {
                                     renderItem={this.renderItem}
                                     sliderWidth={Dimensions.get('window').width}
                                     itemWidth={Dimensions.get('window').width}
-                                    firstItem={1}
+                                    firstItem={this.state.homeData[2].startingIndex}
                                 />
                             </View>
                         </View>
@@ -307,7 +307,7 @@ class HomeScreen extends Component {
                                     renderItem={this.renderItem}
                                     sliderWidth={Dimensions.get('window').width}
                                     itemWidth={Dimensions.get('window').width}
-                                    firstItem={1}
+                                    firstItem={this.state.homeData[3].startingIndex}
                                 />
                             </View>
                         </View>
@@ -321,9 +321,52 @@ class HomeScreen extends Component {
                                     renderItem={this.renderItem}
                                     sliderWidth={Dimensions.get('window').width}
                                     itemWidth={Dimensions.get('window').width}
-                                    firstItem={1}
+                                    firstItem={this.state.homeData[4].startingIndex}
                                 />
                             </View>
+                        </View>
+
+                        <View style={styles.topStoryContainer2}>
+                            <View>
+                                <Text style={styles.topicText}>{this.state.homeData[5].topic}</Text>
+                                <Carousel
+                                    data={this.state.homeData[5].articles}
+                                    renderItem={this.renderItem}
+                                    sliderWidth={Dimensions.get('window').width}
+                                    itemWidth={Dimensions.get('window').width}
+                                    firstItem={this.state.homeData[5].startingIndex}
+                                />
+                            </View>
+                        </View>
+
+                        <View style={styles.topStoryContainer2}>
+                            <View>
+                                <Text style={styles.topicText}>{this.state.homeData[6].topic}</Text>
+                                <Carousel
+                                    data={this.state.homeData[6].articles}
+                                    renderItem={this.renderItem}
+                                    sliderWidth={Dimensions.get('window').width}
+                                    itemWidth={Dimensions.get('window').width}
+                                    firstItem={this.state.homeData[6].startingIndex}
+                                />
+                            </View>
+                        </View>
+
+                        <View style={styles.topStoryContainer2}>
+                            <View>
+                                <Text style={styles.topicText}>{this.state.homeData[7].topic}</Text>
+                                <Carousel
+                                    data={this.state.homeData[7].articles}
+                                    renderItem={this.renderItem}
+                                    sliderWidth={Dimensions.get('window').width}
+                                    itemWidth={Dimensions.get('window').width}
+                                    firstItem={this.state.homeData[7].startingIndex}
+                                />
+                            </View>
+                        </View>
+
+                        {/* Hack to fix padding cutoff at bottom */}
+                        <View style={{height: 66}}>
                         </View>
                     </ScrollView>
                 </View>

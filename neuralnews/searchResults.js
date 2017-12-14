@@ -355,11 +355,11 @@ export default class SearchResultsScreen extends React.Component {
                 {/* Cover flow style display of sorted articles along with their
                     appropriate NLP data */}
                 <Carousel
-                    data={this.state.articles}
+                    data={this.state.articles.articles}
                     renderItem={this.renderItem}
                     sliderWidth={Dimensions.get('window').width}
                     itemWidth={300}
-                    firstItem={2}
+                    firstItem={this.state.articles.startingIndex}
                 />
             </View>
         );
