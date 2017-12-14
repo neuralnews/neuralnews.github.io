@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/neuralnews/AppDelegate.m \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/neuralnews/AppDelegate.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Fabric.framework/Modules/module.modulemap \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Fabric.framework/Headers/FABAttributes.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Fabric.framework/Headers/Fabric.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Modules/module.modulemap \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/ANSCompatibility.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/Answers.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/CLSStackFrame.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/CLSReport.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/CLSLogging.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/CLSAttributes.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/Crashlytics.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBundleURLProvider.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/charleswinston/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h
