@@ -3,264 +3,219 @@
 
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/neuralnews/react-native-splash-screen/unspecified/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.3.0_5940da31b3a84e9ca7d84f2d60c0097fcdf9f01f.jar" />
+        sha1="81545e78a5aef654b2e0aac62b2be5ad8ad7b908">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/neuralnews-react-native-splash-screen-unspecified_f99861520413a89b34d3809972491a9ff67f4b07.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
+        jar="/Users/Brendan/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_bb6f076394b94c53b4821e547aeae98bdb9eed27.jar" />
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/okhttp-urlconnection-3.6.0_0f530d2801d10cf1d4b07d28b3ad404067b413e8.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jar="/Users/Brendan/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
-        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_b5bb94a6284e06415c2bddbf946cdf5b168a01b3.jar" />
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/jsr305-3.0.0_e19e3119795283b0a60244667a0d2dea1cfa8572.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.android.support-support-vector-drawable-23.4.0_bbb8d35e2ea8331d69084b783f18e1ab637deee4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/internal_impl-23.4.0_22d092eb52d096518bd1b804177ceb7bf88fc70b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_f73ea9aaaa1fd8f2e1c2bfe99c878f7fcfe22d3b.jar" />
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_8bac18d83708dde86ccd915d62356bee3e2c7cf5.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_b5bb94a6284e06415c2bddbf946cdf5b168a01b3.jar" />
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-drawee-1.3.0_a22c80ac38de2abbac1bb0383efbecf4f8439e6b.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jar="/Users/Brendan/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_a442c7287f1dcebb163246ff48c3cadc84385b66.jar" />
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/staticlayout-proxy-1.0_aef11ae24bc97f23c4debfc364bb8adc809f4342.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/jars/classes.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="56d3e81fee5f47a7a12ab65f4620f580c9c71d1e">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.48.4_0f15af31de8731f54e82efae1a4dd8f8a23932da.jar" />
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.android.support-support-v4-23.4.0_c1e85aa56b43eb496315a52ec2f19fd61fc93748.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.3.0_74f7bd141bc0a4b078ba804c48408718fd97bc37.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_613b4b0df256d319da9612ef09b4d02ae3a9fb96.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_35bbdc1990eea0f0786f6a217a2261882dc87cbd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jar="/Users/Brendan/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_be69eb543beea2ef5e813443ab541660db29e3c1.jar" />
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/okhttp-3.6.0_e52727c7d862875cd26bcefd80563c5eb276b10c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jar="/Users/Brendan/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
-        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_8d36535d7c4727e839e8d0041b11b3be05fa9ad6.jar" />
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/javax.inject-1_daef306f0f59380226206a52a850e11843187ac3.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_b229946a7c9b2b2da05e479b595c483e146ad8a4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_6e4efb1077717a86a24d320e168acdecf99066d3.jar" />
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_e6b13eb9f0984ee2fb997f6f012076fbd78ffcb5.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jar="/Users/Brendan/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_7d86bd5c2c52c126308eda4a3c474d80426c176f.jar" />
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/okio-1.13.0_38b68f45ee0b2ed7cda8910c6dd94a44b877f273.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1_ee47bc489df0b966b3004288e95aa2b90f383d8c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_de27a332af23694ac29e26f7a55914d705f3de26.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/jars/libs/infer-annotations-4.0.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/jars/libs/infer-annotations-4.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_3f0142d61a20bff433fd981a9074533ea088a401.jar" />
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/infer-annotations-4.0_a240eb361332fd857ae5f6215734050b1f76bdad.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.1_0d994fa9aafa6e56a9dc7d15ed565f21ad8a1ca4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_8d36535d7c4727e839e8d0041b11b3be05fa9ad6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_be69eb543beea2ef5e813443ab541660db29e3c1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jar="/Users/Brendan/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_35bbdc1990eea0f0786f6a217a2261882dc87cbd.jar" />
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/bolts-tasks-1.4.0_047184b33263107424d056aa311b198f9dbef28c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1_1af03ed7254d53276967d009a5411e5e1a66aaf2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.3.0_3df53ade89001ba4e2e33262293bd36ab096f915.jar" />
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-imagepipeline-1.3.0_239c2cf9ffe202200fe1f236c35de3441c0ad9ac.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jar="/Users/Brendan/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_b229946a7c9b2b2da05e479b595c483e146ad8a4.jar" />
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/support-annotations-23.4.0_6f80e596c5b6e71bcb1ec2387811a55fa708a952.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.android.support-animated-vector-drawable-23.4.0_e38925d7bb029c260839165b0d845af5f6673f09.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="56d3e81fee5f47a7a12ab65f4620f580c9c71d1e">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.facebook.react-react-native-0.48.4_2f0496b1b73509d9621a1fbe71ce8016b75cef73.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-fresco-1.3.0_9ea10141f8f71dad5ef9192a4bab27e1faf229cb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.android.support-appcompat-v7-23.4.0_a9d4efc1d84c0d83a254c1ed9d1f00005504ff5c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.3.0_8de5166dffdf0ec3d3933acc8cd6ba7732604205.jar" />
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-imagepipeline-base-1.3.0_7f1d01c4afd01fed375c5ba1d122619f9a22a2da.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1_ee47bc489df0b966b3004288e95aa2b90f383d8c.jar" />
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-fbcore-1.3.0_0fdafe399f2913e1d5be64f0410ebbadf6862348.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_7d86bd5c2c52c126308eda4a3c474d80426c176f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/charleswinston/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jar="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
-        <dex dex="/Users/charleswinston/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_de27a332af23694ac29e26f7a55914d705f3de26.jar" />
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/Brendan/Desktop/Coding/NeuralNews/neuralnews.github.io/neuralnews/android/app/build/intermediates/pre-dexed/release/com.facebook.soloader-soloader-0.1.0_b22651de0f28d2294424f9ec8403ca8425469264.jar" />
     </item>
 
 </items>

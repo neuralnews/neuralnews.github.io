@@ -5,14 +5,9 @@
 	<key>files</key>
 	<dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cukpED8QvQCgoRvyboH1RoISQro=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<data>
+		yurhIqLn6QBXN5BcItXcPn5HMUQ=
+		</data>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<data>
 		aUm0c1LLvF5BD7IVSBsGgwX3iyY=
@@ -208,7 +203,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		kreaIgwW66tiuaEt4iD/2b3aYs4=
+		LXFQgWLaUgGtWfA5Y0G7BP+mVvo=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -224,7 +219,7 @@
 		</data>
 		<key>PlugIns/neuralnewsTests.xctest/neuralnewsTests</key>
 		<data>
-		5gTwbgodifYCBVXVJ7NokKygW4M=
+		RhmKvPzXrKZut6YHy5BqUh7BjOo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -233,14 +228,12 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cukpED8QvQCgoRvyboH1RoISQro=
+			yurhIqLn6QBXN5BcItXcPn5HMUQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			GqwCMtUCzCQgcvMBSOSdywnntlivOtk/EHE/CAhjARs=
+			BFD4zAp1nsF+nvfIh7jUtOwqq5YPCdt65qaW3HYSenE=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<dict>
@@ -792,11 +785,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5gTwbgodifYCBVXVJ7NokKygW4M=
+			RhmKvPzXrKZut6YHy5BqUh7BjOo=
 			</data>
 			<key>hash2</key>
 			<data>
-			zYAF5N7XFg2JcDHy+nFgUj5SWfxwngeKh0Z+s49yYZY=
+			q9rFDuozerDiqP1RFtHAYZ7SZ5+2ZTPq6gQIZ9V60ew=
 			</data>
 		</dict>
 	</dict>
@@ -817,6 +810,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -862,6 +860,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

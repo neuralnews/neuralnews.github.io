@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/neuralnews/AppDelegate.m \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/neuralnews/AppDelegate.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Fabric.framework/Modules/module.modulemap \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Fabric.framework/Headers/FABAttributes.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Fabric.framework/Headers/Fabric.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Modules/module.modulemap \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/ANSCompatibility.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/Answers.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/CLSStackFrame.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/CLSReport.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/CLSLogging.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/CLSAttributes.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/Crashlytics.framework/Headers/Crashlytics.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBundleURLProvider.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h

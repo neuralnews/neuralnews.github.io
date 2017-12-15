@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/DevSupport/RCTPackagerConnection.m \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/../Libraries/WebSocket/RCTReconnectingWebSocket.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/../Libraries/WebSocket/RCTSRWebSocket.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/../Libraries/WebSocket/RCTWebSocketObserver.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/DevSupport/RCTPackagerConnectionBridgeConfig.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/DevSupport/RCTPackagerConnectionConfig.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/DevSupport/RCTReloadPackagerMethod.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/DevSupport/RCTPackagerClient.h \
+  /Users/Brendan/Desktop/Coding/NeuralNews/umm/neuralnews.github.io/neuralnews/node_modules/react-native/React/DevSupport/RCTSamplingProfilerPackagerMethod.h
