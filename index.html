@@ -60,6 +60,7 @@
       <li>Patched server bugs to reduce crashes on request
         <ul>
           <li>Started using a library called 'forever' that handles restarting the server back up on crash</li>
+          <li>Now using GCP App Engine instead of Compute Engine => we can handle multiple requests at a time!</li>
         </ul>
       </li>
     </ul>
@@ -72,12 +73,32 @@
     <h5>What do you wish Ming had done differently?</h5>
     <p>I think that a Piazza forum would have been helpful for groups that were working with similar technologies to overcome the same hurdles that everyone runs into.</p>
     <h5>If you were to do this all over again, what would you do differently?</h5>
-    <p>I would have limited the scope of our project so that we wouldn't get so overwhelmed trying to get everything to work perfectly all at once.</p>
+    <p>I would have limited the scope of our project so that we wouldn't get so overwhelmed trying to get everything to work perfectly all at once. Also, I would have chosen to use Amazon Web Services (AWS) instead of Google Cloud Products (GCP) because GCP was a nightmare to work with at times.</p>
     <h5>If you could make one change to this Mobile Development course, what would it be and why?</h5>
     <p>Perhaps including some labs to teach fundamentals in the first weeks of the course would be helpful with ramping everyone up to speed. TinyApp was a good intro, but if everyone had been forced to iterate on their TinyApp by adding HTTP requests, UI libraries, etc. I think it would have cleared up a lot of the struggles that we faced later on in the semester with our own projects.</p>
     <br>
     <h4>Charles' Reflection</h4>
-    <p>TODO: </p>
+    <h5>What did you learn technically?</h5>
+    <p>There are so many technical things I learned throughout this course. Porbably the biggest thing that I learned was how to design a web server. That's something I had had no experience with before, and was sort of just thrown into. We first used Node, and then migrated to Flask, so it was really valuable to learn both frameworks. One of the other huge technicl skills I learned from this project was designing the articecture for an application. This app was definitely end to end, and learning about the problems that come at every part of the stack. This large scope project really forced me to design well, so all the pieces fit together nicely. Another thing I learned was the power, but yet also downfalls, of third party APIs. Working with the Google Cloud Platform was certainly a double-edged sword. They provided us great NLP APIs and the fast, App Engine web server, but not without a great deal of pain along the way.</p>
+    <h5>What did you learn professionally?</h5>
+    <p>I learned a lot about understanding the user. The user is the most important person to please, and when you're working on your own project, it's easy to get wrapped up in ideas that might only satisfy you. We had to make a lot of decisions, many of which came down to very business-like choices: what's going to make a user want to use our app a lot? Our update included a huge necessary UI change, which not only changed color themes and graphic design, but also usability and features. It was an important skill to learn how to take off the developer hat and look at the app through the eyes of a user.</p>
+    <h5>What do you wish Ming had done differently?</h5>
+    <p>Piazza would have been a great tool to use, because then people could have shared their successes and failures with Android Studio, React Native, and other third party tools like databases, geo-location or other APIs, web server stuff, anything like that.</p>
+    <h5>If you were to do this all over again, what would you do differently?</h5>
+    <p>We switched around server options a lot, starting with Heroku, then moving to Google's Compute Engine, and then to the App Engine. And we also switched web frameworks from Node to Flask. So one thing that would have made this project better was to do more research on different server options and make a more informed decision about how design our server in the beginning. Then we would have been able to focus more on improving the functionality of our server, rather than trying to figure out how to switch platforms and frameworks.</p>
+    <h5>If you could make one change to this Mobile Development course, what would it be and why?</h5>
+    <p>I think labs would be a great addition. Just some time to spend working in class, and you'd be there to answer any questions or give advice. I think also more discussion along the way about groups' apps and how their progress was going. I think it would have been cool for every group to give a 2-3 min flash talk every 2 weeks about what they had been working on. That way, I would know more about other apps and be able to give and recieve more feedback.</p>
+    <hr>
+  </div>
+
+  <!-- Entry: 12/13 -->
+  <div class="leg">
+    <h3>13 December 2017</h3>
+    <h4>Migration to the App Engine</h4>
+    <p>The past week has been spent moving our web server from GCP's Compute Engine to GCP's App Engine. We also changed our framework from Node to Flask. There were many reasons for this change. First, the Compute Engine server was causing problems because we hadn't set up handling for multiple requests. It was essentially just a VM, with no abstraction to help us deploy our server to handle load balancing and multiple requests. We needed App Engine to help us with this. We also needed to move to Flask because we had been using Python scripts to do data analysis, and it just didn't make sense to keep calling the Python scripts from our Node scripts. Python was best for text processing, so it made sense to move to Flask.</p>
+    <p>I only have good things to say about Flask. Python is such an elegant and readable language, and building a web server in Python is very nice. Flask is an easy framework to learn, especially for someone like me who hasn't had much web experience.</p>
+    <p>GCP App Engine, however, had many annoyances. First, there were many problems with versions of Python libraries. Libraries had to be installed directly in our app directory, and a certain dependency of Flask was conflicting with App Engine. It didn't support past a certain version, and so we had to downgrade, even though App Engine advertises that it supports the version of Flask which automatically installed the unsupported version of the dependency. Another difficult thing was it didn't support the Google Natrual Language API Python Client directly (which is so stupid). So instead, we had to make direct http requests to the API.</p>
+    <p>Another thing was that the App Engine Python environment didn't support any C extensions or other binary files like shared object files that Python can usually understand. This stopped us from using the gRPC Python library for requests that required a shared object file. Other than these difficulties, I do think App Engine supplied a great platform to deploy our web server.</p>
     <hr>
   </div>
 
@@ -106,7 +127,7 @@
         <li>"I like how the recent searches are shown on the front page. However, the app crashes when I click on one of them, or when I make a search :("</li>
         <li>"The whole app is great. It is impressive to have such rich news resources and can link to the original news by one click. However, the app will crush when I tried search something like "nature", and it has a large probability to get crush when searching news about "Donald Trump", which is confusing considering that this keyword is in the "Trending Topics"."</li>
         <li>"A great example that combines the mobile app with NLP.
-When I click the one “trending topic” in the homepage, it crashed. But I tried other trending topics, it works fine. 
+When I click the one “trending topic” in the homepage, it crashed. But I tried other trending topics, it works fine.
 Suggestion: It can have a link to somewhere that can display all the related news instead of just showing the 5 news. Also, for all the trending topic, it would be nicer that each topic is just a link, not a “button”."</li>
         <li>"Cool icon, and I like the simple banner.
 It crashed when I clicked on a trending topic.
