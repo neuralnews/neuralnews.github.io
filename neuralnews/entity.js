@@ -119,14 +119,15 @@ const mapNetworkImage = function (source) {
     return networkImageDictionary.unknown;
 };
 
-const mapPolarityImage = function (polarity) {
-    if (polarity <= -0.75) {
+const mapPolarityImage = function (polarity, magnitude) {
+    var sentiment = polarity * magnitude * 2
+    if (sentiment <= -0.75) {
         return polarityImageDictionary.very_negative;
-    } else if (polarity <= -0.1) {
+    } else if (sentiment <= -0.25) {
         return polarityImageDictionary.somewhat_negative;
-    } else if (polarity >= 0.1 && polarity <= 0.75) {
+    } else if (sentiment >= 0.25 && sentiment <= 0.75) {
         return polarityImageDictionary.somewhat_positive;
-    } else if (polarity > 0.75) {
+    } else if (sentiment > 0.75) {
         return polarityImageDictionary.very_positive;
     }
     return polarityImageDictionary.neutral;
@@ -145,7 +146,7 @@ export default class Entity extends React.Component {
                     </Text>
                 </View>
                 <Image
-                    source={mapPolarityImage(this.props.sentiment)}
+                    source={mapPolarityImage(this.props.score, this.props.magnitude)}
                     style={{height: 40, width: 80}}
                 />
             </View>

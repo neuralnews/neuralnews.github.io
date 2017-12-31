@@ -234,18 +234,14 @@ export default class SearchResultsScreen extends React.Component {
                             visible: false,
                         });
                         alert('Fetch Error: ' + JSON.stringify(error));
-<<<<<<< HEAD
-                        resolve();
-=======
                         return;
->>>>>>> ui
                     });
             });
         } else {
             return new Promise((resolve, reject) => {
                 try {
                     // 2. Make HTTP GET call to the server
-                    fetch('http://104.196.204.46:3000/query?search=' + text.replace(' ', '%20'), {
+                    fetch('https://neural-news-186322.appspot.com/query/' + text.replace(' ', '%20'), {
                         method: 'GET',
                         headers: {
                             Accept: 'text',
@@ -266,15 +262,6 @@ export default class SearchResultsScreen extends React.Component {
                             resolve();
                         })
 
-<<<<<<< HEAD
-                    // 3c. Catch errors
-                    .catch((error) => {
-                        alert('Fetch Error: ' + JSON.stringify(error));
-                        this.setState({
-                            visible: false,
-                        });
-                        resolve();
-=======
                         // 3c. Catch errors
                         .catch((error) => {
                             this.setState({
@@ -286,7 +273,6 @@ export default class SearchResultsScreen extends React.Component {
                 } catch (error) {
                     this.setState({
                         visible: false,
->>>>>>> ui
                     });
                     alert("Error during searching: " + JSON.stringify(error));
                     return;
@@ -369,65 +355,13 @@ export default class SearchResultsScreen extends React.Component {
                 {/* Cover flow style display of sorted articles along with their
                     appropriate NLP data */}
                 <Carousel
-                    data={this.state.articles}
+                    data={this.state.articles.articles}
                     renderItem={this.renderItem}
                     sliderWidth={Dimensions.get('window').width}
                     itemWidth={300}
-                    firstItem={2}
+                    firstItem={this.state.articles.startingIndex}
                 />
             </View>
         );
     }
 }
-<<<<<<< HEAD
-
-class Entities extends React.Component {
-  render() {
-    return (
-      <View style={styles.analysisContainer}>
-          <Entity
-            name={this.props.data[0].name}
-            sentiment={this.props.data[0].sentiment}
-          />
-          <Entity
-            name={this.props.data[1].name}
-            sentiment={this.props.data[1].sentiment}
-          />
-          <Entity
-            name={this.props.data[2].name}
-            sentiment={this.props.data[2].sentiment}
-          />
-          <Entity
-            name={this.props.data[3].name}
-            sentiment={this.props.data[3].sentiment}
-          />
-          <Entity
-            name={this.props.data[4].name}
-            sentiment={this.props.data[4].sentiment}
-          />
-      </View>
-    );
-  }
-}
-
-class Entity extends React.Component {
-  render() {
-    return (
-      <View style={styles.entitiesContainer}>
-          <View style={styles.entityContainer}>
-              <Text
-                  style={styles.entity}
-              >
-                  {this.props.name}
-              </Text>
-          </View>
-          <Image
-              source={mapPolarityImage(this.props.sentiment)}
-              style={{height: 60, width: 120}}
-          />
-      </View>
-    );
-  }
-}
-=======
->>>>>>> ui
