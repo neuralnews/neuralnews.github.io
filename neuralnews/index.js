@@ -178,7 +178,7 @@ class HomeScreen extends Component {
 
         this.renderItem = this.renderItem.bind(this);
 
-        fetch('https://neural-news-186322.appspot.com/hometopics', {
+        fetch('http://localhost:8080/hometopics', {
           method: 'GET',
           headers: {
               Accept: 'application/json',

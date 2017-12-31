@@ -164,7 +164,7 @@ export default class SearchScreen extends Component {
             topics: ["", "", "", "", "", "", "", ""],
             isLoading: true,
         };
-        fetch('https://neural-news-186322.appspot.com/trendingtopics', {
+        fetch('http://localhost:8080/trendingtopics', {
           method: 'GET',
           headers: {
               Accept: 'application/json',
@@ -195,7 +195,7 @@ export default class SearchScreen extends Component {
         return new Promise((resolve, reject) => {
             // 2. Make HTTP GET call to the server
             if (text !== 'Trump_raw.json') {
-                const URL = 'https://neural-news-186322.appspot.com/query/' + text.replace(' ', '%20');
+                const URL = 'http://localhost:8080/query/' + text.replace(' ', '%20');
                 fetch(URL, {
                     method: 'GET',
                     headers: {
